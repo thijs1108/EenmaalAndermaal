@@ -19,7 +19,7 @@
     <br/>
     <div class="row">
         <?php include 'menu.php';?>
-            <?php include 'database_connectie.php';?>
+            <?php include 'includes/database_connectie.php';?>
                 <?php include 'functions.php';?>
                     <div class="content">
                         <div class="large-3 columns">
