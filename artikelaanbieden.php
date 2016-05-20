@@ -21,7 +21,7 @@
     <br/>
     <div class="row">
         <?php include 'includes/menu.php';?>
-            <?php include 'includes/database_connectie.php';?>
+            <?php include 'includes/database.php';?>
                 <?php include 'includes/functions.php';?>
                     <div class="content">
                         <form action="inloggen.php" method="post">
