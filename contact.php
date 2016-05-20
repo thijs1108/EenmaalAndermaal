@@ -17,9 +17,9 @@
     </div>
     <br/>
     <div class="row">
-        <?php include 'menu.php';?>
-            <?php include 'database_connectie.php';?>
-                <?php include 'functions.php';?>
+        <?php include 'includes/menu.php';?>
+           <?php include 'includes/database_connectie.php';?>
+                <?php include 'includes/functions.php';?>
                     <div class="content">
                         <div class="large-8 columns">
                             Welkom bij onze veilingsite genaamd ‘Eenmaal Andermaal’, deze site is ontworpen en in werking gebracht door project groep 21. deze groep bestaan uit de mensen: Thijs Beltman, Maarten Beuzel, Wouter Holtslag en Robin Schneiders. Deze site is gemaakt als project voor de opleiding HBO-ICT op de ICA in Arnhem in samenwerking met het bedrijf iConcepts met de opdrachtgever Anton Mijnder.
@@ -55,7 +55,7 @@
                             <br/>
                         </div>
                         <div class="large-4 columns">
-                            <?php include 'hotitems.php';?>
+                            <?php include 'includes/hotitems.php';?>
                         </div>
                     </div>
     </div>

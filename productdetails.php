@@ -18,9 +18,9 @@
     </div>
     <br/>
     <div class="row">
-        <?php include 'menu.php';?>
-            <?php include 'database_connectie.php';?>
-                <?php include 'functions.php';?>
+        <?php include 'includes/menu.php';?>
+            <?php include 'includes/database_connectie.php';?>
+                <?php include 'includes/functions.php';?>
                     <div class="content">
                         <?php
                             $id = $_GET['id'];
@@ -31,7 +31,7 @@
                             {
                             ?>
                             <div class="large-8 columns">
-                                <div class="large-6 columns">
+                                <div class="large-5 columns">
                                     <script>
                                         jssor_1_slider_init = function() {
 
@@ -219,6 +219,8 @@
                                     </script>
 
                                 </div>
+                                <div class="large-1 columns">
+                                    &nbsp;</div>
                                 <div class="large-4 columns">
                                     <?php echo '<h3>'.$record['titel'].'</h3>'; 
                                 echo 'Hoogste bod: € '.number_format($record['maxbedrag'],2);
@@ -228,16 +230,8 @@
                                 echo 'Tijd tot sluiting:';
                                 echo '<br/>'; 
                                 $date = date_format($record['looptijdeindeDag'], 'Y-m-d');       
-                                echo '<script language="JavaScript">
-                                TargetDate = "'.$date.'";
-                                BackColor = "";
-                                ForeColor = "";
-                                CountActive = true;
-                                CountStepper = -1;
-                                LeadingZero = true;
-                                DisplayFormat = "%%D%% D, %%H%% U, %%M%% M, %%S%% S.";
-                                </script>
-                                <script language="JavaScript" src="js/countdown.js"></script>';
+                                echo '<div class="alt-2">'.$date.'</div>';
+                        
                                 echo '<br/>';
                                 echo 'Aanbieder:<a href="aanbiederdetails.php?id='.$record['verkopernaam'].'" class="clicklink" >'.$record['verkopernaam'].'</a>';
                                 echo '<br/>';
@@ -301,9 +295,9 @@
                                         <?php
                                         }
                                         ?>
-                                        <div class="tabs-panel" id="panel2">
-                                            <div class="media-object stack-for-small">
-                                                <?php 
+                                            <div class="tabs-panel" id="panel2">
+                                                <div class="media-object stack-for-small">
+                                                    <?php 
                                                 $sql = "SELECT * FROM Voorwerp LEFT OUTER JOIN Bod on Voorwerp.voorwerpnummer= Bod.Voorwerp WHERE voorwerpnummer ='$id' ORDER BY Bodbedrag DESC";
                                                 $result = sqlsrv_query($db, $sql);
                                                 
@@ -317,6 +311,9 @@
                                                     echo '</td>';
                                                     echo '<td>';
                                                         echo '<b>Datum</b>';
+                                                    echo '</td>';
+                                                    echo '<td>';
+                                                        echo '<b>Tijd</b>';
                                                     echo '</td>';
                                                 echo '</tr>';
                                                 while($record=sqlsrv_fetch_array($result))
@@ -334,20 +331,23 @@
                                                         echo '<td>';
                                                         echo date_format($record['BodDag'], 'd-m-Y');
                                                         echo '</td>';
+                                                        echo '<td>';
+                                                        echo date_format($record['BodTijdstip'], 'H:i:s');
+                                                        echo '</td>';
                                                         echo '</tr>';
                                                         echo '</div>';
                                                     }
                                                 }
                                                 echo '</table>';
                                                 ?>
+                                                </div>
                                             </div>
-                                        </div>
                                     </div>
                                 </div>
 
                             </div>
                             <div class="large-4 columns">
-                                <?php include 'hotitems.php';?>
+                                <?php include 'includes/hotitems.php';?>
                             </div>
                     </div>
 
@@ -357,6 +357,25 @@
     <script src="js/vendor/what-input.js"></script>
     <script src="js/vendor/foundation.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.countdown.js"></script>
+    <script>
+        window.jQuery(function($) {
+            "use strict";
+
+            $('time').countDown({
+                with_separators: false
+            });
+            $('.alt-1').countDown({
+                css_class: 'countdown-alt-1'
+            });
+            $('.alt-2').countDown({
+                css_class: 'countdown-alt-2'
+            });
+
+        });
+
+    </script>
 </body>
 
 </html>
