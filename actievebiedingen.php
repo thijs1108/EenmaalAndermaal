@@ -52,7 +52,7 @@
                                         echo '<br/>';
                                         echo 'Tijd tot sluiting:';
                                         $date = date_format($record['looptijdeindeDag'], 'Y-m-d');
-                                        echo '<div class="alt-2">'.$date.'</div>';
+                                        echo '<div class="alt-2 right">'.$date.'</div>';
                                         echo '</div>';
                                         echo '</a>';
                                         echo '</div>';

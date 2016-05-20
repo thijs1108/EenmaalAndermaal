@@ -16,6 +16,10 @@ li .button {
     display: block;
 }
 
+.right{
+    text-align: right;
+}
+
 .subitem:hover{
     display: block;
     color:#FFFFFF;
