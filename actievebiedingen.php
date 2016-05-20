@@ -23,8 +23,7 @@
                 <?php include 'includes/functions.php';?>
                     <div class="content">
                         <div class="large-3 columns">
-                            
-
+                                <?php include 'includes/categorie.php'?>
                         </div>
                         <div class="large-9 columns">
                             <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
