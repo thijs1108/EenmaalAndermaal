@@ -251,3 +251,6 @@ li .button {
 .pagination a {
     border-radius: 50%;
 }
+.columns:last-child:not(:first-child){
+    float: left;
+}
