@@ -12,6 +12,23 @@
 
     <link rel="stylesheet" type="text/css" href="datepicker/jquery.datetimepicker.css" />
     <link rel="stylesheet" type="text/css" href="awesomefont/css/font-awesome.min.css">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
+
+    <?php
+
+    if($_SERVER['REQUEST_METHOD'] === 'POST'){
+        $errors = array();
+        //ga alle verplichte velden langs en voer een simpele controle uit
+        if(!isset($_POST['email']) || $_POST['email'] == ""){
+            array_push($errors, "Verplichte veld 'email' niet ingevuld!");
+        }
+
+        if(!isset($_POST['username']) || $_POST['username'] == ""){
+            array_push($errors, "Verplichte veld 'Gebruikersnaam' niet ingevuld!");
+        }
+    }
+
+    ?>
 
 
 </head>
@@ -26,7 +43,7 @@
             <?php include 'includes/database.php';?>
                 <?php include 'includes/functions.php';?>
                     <div class="content">
-                        <form action="inloggen.php" method="post">
+                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                             <div class="large-6 columns">
                                 <table>
                                     <tr>
@@ -165,35 +182,58 @@
                                 </table>
                                 <input type="submit" value="Registreren" class="rechts smallbtn">
                             </div>
-
                         </form>
 
+
+                        <div class="row"></div>
+                        <div class="large-12 columns">
+                            <table>
+                                <?php
+                                    if(isset($errors)){
+                                        foreach($errors as $error){
+                                            echo '
+                                            </div>
+                                                <div class="small-6 columns small-centered">
+                                                    <div data-alert class="alert-box warning">
+                                                    <i class="fi-alert"></i>'. $error .'
+                                                </div>
+                                            </div>';
+
+                                        }
+                                    }
+                                    ?>
+                            </table>
+
+
+
+
+
+
+                        </div>
+
                     </div>
-    </div>
-    <script src="js/vendor/jquery.js"></script>
-    <script src="js/vendor/what-input.js"></script>
-    <script src="js/vendor/foundation.js"></script>
-    <script src="js/app.js"></script>
-    <script src="datepicker/jquery.js"></script>
-    <script src="datepicker/jquery.datetimepicker.full.js"></script>
-    <script>
-        /*
-                                                        window.onerror = function(errorMsg) {
-                                                        	$('#console').html($('#console').html()+'<br>'+errorMsg)
-                                                        }*/
+                    <script src="js/vendor/jquery.js"></script>
+                    <script src="js/vendor/what-input.js"></script>
+                    <script src="js/vendor/foundation.js"></script>
+                    <script src="js/app.js"></script>
+                    <script src="datepicker/jquery.js"></script>
+                    <script src="datepicker/jquery.datetimepicker.full.js"></script>
+                    <script>
+                        /*
+                                                                                        window.onerror = function(errorMsg) {
+                                                                                        	$('#console').html($('#console').html()+'<br>'+errorMsg)
+                                                                                        }*/
 
-        $.datetimepicker.setLocale('en');
-        $('#datetimepicker').datetimepicker({
-            yearOffset: 0,
-            lang: 'nl',
-            timepicker: false,
-            format: 'd/m/Y',
-            formatDate: 'Y/m/d',
-            //minDate: '-1970/01/02', // yesterday is minimum date
-            maxDate: '+1970/01/01' // and today is maximum date calendar
-        });
-
-    </script>
+                        $.datetimepicker.setLocale('en');
+                        $('#datetimepicker').datetimepicker({
+                            yearOffset: 0
+                            , lang: 'nl'
+                            , timepicker: false
+                            , format: 'd/m/Y'
+                            , formatDate: 'Y/m/d', //minDate: '-1970/01/02', // yesterday is minimum date
+                            maxDate: '+1970/01/01' // and today is maximum date calendar
+                        });
+                    </script>
 </body>
 
 </html>
