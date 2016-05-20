@@ -16,14 +16,10 @@ li .button {
     display: block;
 }
 
-.label{
-    background-color: transparent;
-    color: #000000;
-    font-size: 100%;
-}
-
-.label .alt2{
-    
+.subitem:hover{
+    display: block;
+    color:#FFFFFF;
+    background-color: #FFB600;
 }
 
 .sublevel-1 {
@@ -54,6 +50,12 @@ li .button {
     background-color: #3F5FB5;
 }
 
+.label {
+    background-color: transparent;
+    color: #000000;
+    font-size: 100%;
+}
+
 .smallbtn {
     padding: 5px 15px;
     background: #3F5FB5;
@@ -66,18 +68,19 @@ li .button {
 .smallbtn:hover {
     background: #FFB600;
 }
-.subtitle{
+
+.subtitle {
     font-size: 80%;
 }
 
-.star{
+.star {
     color: #3F5FB5;
     font-size: 150%;
 }
 
 .logo {
     width: auto;
-    max-height: 250px;
+    max-height: 150px;
 }
 
 .content {
@@ -131,7 +134,7 @@ li .button {
     max-width: 100px;
 }
 
-.prdimg{
+.prdimg {
     max-height: 300px;
 }
 
