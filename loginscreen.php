@@ -17,9 +17,9 @@
     </div>
     <br/>
     <div class="row">
-        <?php include 'menu.php';?>
-            <?php include 'database_connectie.php';?>
-                <?php include 'functions.php';?>
+        <?php include 'includes/menu.php';?>
+            <?php include 'includes/database_connectie.php';?>
+                <?php include 'includes/functions.php';?>
                     <div class="content">
                         <div class="large-8 columns">
                             <form action="inloggen.php" method="post">
@@ -51,7 +51,7 @@
                             <br/>
                         </div>
                         <div class="large-4 columns">
-                            <?php include 'hotitems.php';?>
+                            <?php include 'includes/hotitems.php';?>
                         </div>
                     </div>
     </div>

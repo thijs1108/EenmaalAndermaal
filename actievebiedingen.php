@@ -18,9 +18,9 @@
     </div>
     <br/>
     <div class="row">
-        <?php include 'menu.php';?>
+        <?php include 'includes/menu.php';?>
             <?php include 'includes/database_connectie.php';?>
-                <?php include 'functions.php';?>
+                <?php include 'includes/functions.php';?>
                     <div class="content">
                         <div class="large-3 columns">
                             <ul class="vertical accordion-menu menu" data-accordion-menu>

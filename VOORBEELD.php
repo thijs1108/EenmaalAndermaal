@@ -23,7 +23,7 @@
 
     <div class="row">
         <div class="content">
-            <?php include 'menu.php';?>
+            <?php include 'includes/menu.php';?>
                 <!--Hier onder kunnen verschillende columns komen die in foundation staan-->
 
                 <div class="large-12 columns">

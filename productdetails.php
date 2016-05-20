@@ -18,9 +18,9 @@
     </div>
     <br/>
     <div class="row">
-        <?php include 'menu.php';?>
-            <?php include 'database_connectie.php';?>
-                <?php include 'functions.php';?>
+        <?php include 'includes/menu.php';?>
+            <?php include 'includes/database_connectie.php';?>
+                <?php include 'includes/functions.php';?>
                     <div class="content">
                         <?php
                             $id = $_GET['id'];
@@ -220,7 +220,7 @@
 
                                 </div>
                                 <div class="large-1 columns">
-                                &nbsp;</div>
+                                    &nbsp;</div>
                                 <div class="large-4 columns">
                                     <?php echo '<h3>'.$record['titel'].'</h3>'; 
                                 echo 'Hoogste bod: € '.number_format($record['maxbedrag'],2);
@@ -347,7 +347,7 @@
 
                             </div>
                             <div class="large-4 columns">
-                                <?php include 'hotitems.php';?>
+                                <?php include 'includes/hotitems.php';?>
                             </div>
                     </div>
 

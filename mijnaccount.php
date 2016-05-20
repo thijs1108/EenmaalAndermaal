@@ -17,9 +17,9 @@
     </div>
     <br/>
     <div class="row">
-        <?php include 'menu.php';?>
-            <?php include 'database_connectie.php';?>
-                <?php include 'functions.php';?>
+        <?php include 'includes/menu.php';?>
+            <?php include 'includes/database_connectie.php';?>
+                <?php include 'includes/functions.php';?>
                     <div class="content">
                         <?php
                             $id = "JanPiet";
