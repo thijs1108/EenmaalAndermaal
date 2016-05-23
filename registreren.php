@@ -44,10 +44,11 @@
                     <div class="content">
                         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                             <div class="large-6 columns">
+                                <i class="subtitle">Velden met een <span class="star">*</span> zijn verplicht</i>
                                 <table>
                                     <tr>
                                         <td>
-                                            Email:
+                                            Email: <span class="star">*</span>
                                         </td>
                                         <td>
                                             <input type="text" name="email" placeholder="voorbeeld@voorbeeld.nl">
@@ -68,7 +69,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            Gebruikersnaam:
+                                            Gebruikersnaam: <span class="star">*</span>
                                         </td>
                                         <td>
                                             <input type="text" name="username" id="username" placeholder="Gebruikersnaam" onchange="check_availability()">
@@ -83,7 +84,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            Wachtwoord:
+                                            Wachtwoord: <span class="star">*</span>
                                         </td>
                                         <td>
                                             <input type="password" name="password" placeholder="Wachtwoord">
@@ -91,7 +92,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            Herhaal Wachtwoord:
+                                            Herhaal Wachtwoord: <span class="star">*</span>
                                         </td>
                                         <td>
                                             <input type="password" name="confirmpassword" placeholder="Wachtwoord">
@@ -99,7 +100,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            Voornaam:
+                                            Voornaam: <span class="star">*</span>
                                         </td>
                                         <td>
                                             <input type="text" name="firstname" placeholder="Voornaam">
@@ -107,7 +108,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            Achternaam:
+                                            Achternaam: <span class="star">*</span>
                                         </td>
                                         <td>
                                             <input type="text" name="lasttname" placeholder="Achternaam">
@@ -115,7 +116,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            Telefoonnummer 1:
+                                            Telefoonnummer 1: <span class="star">*</span>
                                         </td>
                                         <td>
                                             <input type="text" name="phone1" placeholder="Telefoonnummer 1">
@@ -136,7 +137,7 @@
                                 <table>
                                     <tr>
                                         <td>
-                                            Adres:
+                                            Adres: <span class="star">*</span>
                                         </td>
                                         <td>
                                             <input type="text" name="adres" placeholder="Adres">
@@ -144,7 +145,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            Postcode:
+                                            Postcode: <span class="star">*</span>
                                         </td>
                                         <td>
                                             <input type="text" name="postalcode" placeholder="1234 AB">
@@ -152,7 +153,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            Plaats:
+                                            Plaats: <span class="star">*</span>
                                         </td>
                                         <td>
                                             <input type="text" name="place" placeholder="Plaats">
@@ -160,7 +161,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            Land:
+                                            Land: <span class="star">*</span>
                                         </td>
                                         <td>
                                             <input type="text" name="country" placeholder="Land">
@@ -168,7 +169,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            Geboortedatum:
+                                            Geboortedatum: <span class="star">*</span>
                                         </td>
                                         <td>
                                             <input id="datetimepicker" name="birthday" type="text" placeholder="&#xf073;  20/01/1990" class="fontawesome">
@@ -178,7 +179,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            Geheime vraag:
+                                            Geheime vraag: <span class="star">*</span>
                                         </td>
                                         <td>
                                             <select name="secretquestion">
@@ -192,7 +193,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            Antwoord:
+                                            Antwoord: <span class="star">*</span>
                                         </td>
                                         <td>
                                             <input type="text" name="anweser" placeholder="Antwoord">
