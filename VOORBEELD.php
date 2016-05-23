@@ -1,5 +1,5 @@
 <?php
-    define("TITLE", "Home | Eenmaal Andermaal");
+    define("TITLE", "Home | Eenmaal Andermaal: voor al uw veilingen");
     //constant named 'Title'
 ?>
 
