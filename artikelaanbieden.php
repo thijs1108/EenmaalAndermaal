@@ -21,7 +21,7 @@
         <?php include 'includes/database.php';?>
           <?php include 'includes/functions.php';?>
     <div class="content">
-      <form action="inloggen.php" method="post">
+      <form action="artikelverzonden.php" method="post">
     <div class="large-12 columns">
         <h2>Product aanbieden</h2>
           <i class="subtitle">Velden met een <span class="star">*</span> zijn verplicht</i></div>
@@ -62,9 +62,10 @@
                                     </td>
                                     <td>
                                       <select name="secretquestion" default>
+                                        <option value="1">1 dag</option>
+                                        <option value="3" selected>3 dagen</option>
                                         <option value="5">5 dagen</option>
-                                        <option value="7" selected>7 dagen</option>
-                                        <option value="9">9 dagen</option>
+                                        <option value="7">7 dagen</option>
                                         <option value="10">10 dagen</option>
                                       </select>
                                         </td>
