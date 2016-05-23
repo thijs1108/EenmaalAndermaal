@@ -97,8 +97,6 @@
                                   </td>
                                   <td>
                                     <select name="country" default>
-
-<select name="Land">
 <option value="Afganistan">Afghanistan</option>
 <option value="Albania">Albania</option>
 <option value="Algeria">Algeria</option>
