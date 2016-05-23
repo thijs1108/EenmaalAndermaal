@@ -96,7 +96,8 @@
                                     Land:<span class="star">*</span>
                                   </td>
                                   <td>
-                                    <select name="country" default>
+                                    <select name="country">
+<option value="">Land...</option>
 <option value="Afganistan">Afghanistan</option>
 <option value="Albania">Albania</option>
 <option value="Algeria">Algeria</option>
