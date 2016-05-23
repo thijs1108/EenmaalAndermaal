@@ -199,7 +199,7 @@
                                         </td>
                                     </tr>
                                 </table>
-                                <input type="submit" value="Registreren" class="rechts smallbtn">
+                                <input type="submit" value="Registreren" class="rechts smallbtn" disabled>
                             </div>
                         </form>
 

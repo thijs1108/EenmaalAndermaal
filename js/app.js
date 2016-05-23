@@ -2,6 +2,7 @@ $(document).foundation();
 
 //function to check username availability
 function check_availability() {
+    $("input[type='submit']").prop('disabled', true);
 
     //get the username
     var username = $('#username').val();
@@ -18,7 +19,7 @@ function check_availability() {
         );
     } else {
         //use ajax to run the check
-        $.post("/EenmaalAndermaal/includes/check_username_available.php", {
+        $.post("includes/check_username_available.php", {
                 username: username
             }
             , function (result) {
@@ -34,6 +35,7 @@ function check_availability() {
                         '</div>' +
                         '</td></tr>'
                     );
+                    $("input[type='submit']").prop('disabled', false);
                 } else {
                     //show that the username is NOT available
                     $('.username-box').html(
