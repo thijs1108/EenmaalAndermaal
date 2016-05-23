@@ -10,8 +10,6 @@
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" type="text/css" href="awesomefont/css/font-awesome.min.css">
-
-
 </head>
 
 <body>
