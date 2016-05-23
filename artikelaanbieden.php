@@ -96,7 +96,7 @@
                                     Land:<span class="star">*</span>
                                   </td>
                                   <td>
-                                    <input type="text" name="country" placeholder="Land">
+                                    <input type="select" name="country" placeholder="Land">
                                   </td>
                                     </tr>
                                     <tr>
