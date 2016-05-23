@@ -17,14 +17,13 @@
     <?php
 
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
-        $errors = array();
         //ga alle verplichte velden langs en voer een simpele controle uit
         if(!isset($_POST['email']) || $_POST['email'] == ""){
-            array_push($errors, "Verplichte veld 'email' niet ingevuld!");
+            $errors['email']='Verplicht veld niet ingevuld!';
         }
 
         if(!isset($_POST['username']) || $_POST['username'] == ""){
-            array_push($errors, "Verplichte veld 'Gebruikersnaam' niet ingevuld!");
+            $errors['username']='Verplicht veld niet ingevuld!';
         }
     }
 
@@ -53,14 +52,34 @@
                                         <td>
                                             <input type="text" name="email" placeholder="voorbeeld@voorbeeld.nl">
                                         </td>
+                                        <?php
+                                        if(isset($errors['email'])){
+                                            echo'<tr><td></td>
+                                                <td class="alert-box">
+                                                </div>
+                                                <div class="alert-box columns">
+                                                    <div data-alert class="alert-box warning">
+                                                    <i class="fi-alert"></i>'.  $errors['email'] .'
+                                                </div>
+                                            </div>
+                                                </td></tr>';
+                                        }
+                                        ?>
                                     </tr>
                                     <tr>
                                         <td>
                                             Gebruikersnaam:
                                         </td>
                                         <td>
-                                            <input type="text" name="username" placeholder="Gebruikersnaam">
+                                            <input type="text" name="username" id="username" placeholder="Gebruikersnaam" onchange="check_availability()">
                                         </td>
+                                    <tr>
+                                        <td>
+                                        </td>
+                                        <td>
+                                            <div id='username_availability_result'></div>
+                                        </td>
+                                    </tr>
                                     </tr>
                                     <tr>
                                         <td>
@@ -184,25 +203,6 @@
                             </div>
                         </form>
 
-
-                        <div class="row"></div>
-                        <div class="large-12 columns">
-                            <table>
-                                <?php
-                                    if(isset($errors)){
-                                        foreach($errors as $error){
-                                            echo '
-                                            </div>
-                                                <div class="small-6 columns small-centered">
-                                                    <div data-alert class="alert-box warning">
-                                                    <i class="fi-alert"></i>'. $error .'
-                                                </div>
-                                            </div>';
-
-                                        }
-                                    }
-                                    ?>
-                            </table>
 
 
 
