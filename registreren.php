@@ -73,13 +73,13 @@
                                         <td>
                                             <input type="text" name="username" id="username" placeholder="Gebruikersnaam" onchange="check_availability()">
                                         </td>
+                                    </tr>
                                     <tr>
                                         <td>
                                         </td>
-                                        <td>
-                                            <div id='username_availability_result'></div>
+                                        <td class="username-box">
+
                                         </td>
-                                    </tr>
                                     </tr>
                                     <tr>
                                         <td>
