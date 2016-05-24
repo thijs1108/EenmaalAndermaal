@@ -47,51 +47,42 @@
                                 <i class="subtitle">Velden met een <span class="star">*</span> zijn verplicht</i>
                                 <table>
                                     <tr>
-                                        <td>
+                                        <td style="vertical-align:top">
                                             Email: <span class="star">*</span>
                                         </td>
                                         <td>
                                             <input type="text" name="email" placeholder="voorbeeld@voorbeeld.nl">
+                                            <?php
+                                            if(isset($errors['email'])){
+                                                echo'<div class="alert-box columns">
+                                                        <div data-alert class="alert-box warning">
+                                                            <i class="fi-alert"></i>'.  $errors['email'] .'
+                                                        </div>
+                                                    </div>';
+                                            }
+                                            ?>
                                         </td>
-                                        <?php
-                                        if(isset($errors['email'])){
-                                            echo'<tr><td></td>
-                                                <td class="alert-box">
-                                                </div>
-                                                <div class="alert-box columns">
-                                                    <div data-alert class="alert-box warning">
-                                                    <i class="fi-alert"></i>'.  $errors['email'] .'
-                                                </div>
-                                            </div>
-                                                </td></tr>';
-                                        }
-                                        ?>
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <td style="vertical-align:top">
                                             Gebruikersnaam: <span class="star">*</span>
                                         </td>
                                         <td>
                                             <input type="text" name="username" id="username" placeholder="Gebruikersnaam" onchange="check_availability()">
+                                            <div class="username-box"></div>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
-                                        </td>
-                                        <td class="username-box">
-
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
+                                        <td style="vertical-align:top">
                                             Wachtwoord: <span class="star">*</span>
                                         </td>
                                         <td>
-                                            <input type="password" name="password" placeholder="Wachtwoord">
+                                            <input type="password" name="password" placeholder="Wachtwoord" id="password" onchange="check_password()">
+                                            <div class="password-box"></div>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <td style="vertical-align:top">
                                             Herhaal Wachtwoord: <span class="star">*</span>
                                         </td>
                                         <td>

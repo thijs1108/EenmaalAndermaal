@@ -9,13 +9,11 @@ function check_availability() {
     if ($('#username').val().length < 4) {
         //if it's bellow the minimum show characters_error text '
         $('.username-box').html(
-            '</div>' +
             '<div class="alert-box">' +
             '<div data-alert class="alert-box warning columns" style="background-color: rgba(211, 84, 0, 0.2) !important;">' +
             '<i class="fi-alert"></i> Moet groter dan drie tekens zijn' +
             '</div>' +
-            '</div>' +
-            '</td></tr>'
+            '</div>'
         );
     } else {
         //use ajax to run the check
@@ -32,8 +30,7 @@ function check_availability() {
                         '<div data-alert class="alert-box success columns" style="background-color: rgba(30, 130, 76, 0.2) !important;">' +
                         '<i class="fi-check"></i>' + username + ' is vrij' +
                         '</div>' +
-                        '</div>' +
-                        '</td></tr>'
+                        '</div>'
                     );
                     $("input[type='submit']").prop('disabled', false);
                 } else {
@@ -44,11 +41,22 @@ function check_availability() {
                         '<div data-alert class="alert-box warning columns" style="background-color: rgba(211, 84, 0, 0.2) !important;">' +
                         '<i class="fi-alert"></i>' + username + ' is niet vrij' +
                         '</div>' +
-                        '</div>' +
-                        '</td></tr>'
+                        '</div>'
                     );
                 }
             });
     }
 
+}
+
+function check_password(){
+    var password = $('#password').val();
+    if ($('#password').val().length < 4) {
+        //if it's bellow the minimum show characters_error text '
+        $('.password-box').html(
+            '<div data-alert class="alert-box warning columns" style="background-color: rgba(211, 84, 0, 0.2) !important;">' +
+            '<i class="fi-alert"></i> Moet groter dan drie tekens zijn' +
+            '</div>'
+        );
+    }
 }
