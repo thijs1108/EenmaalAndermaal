@@ -228,9 +228,9 @@
                                 echo 'Totaal aantal biedingen:'.$record['geboden'];
                                 echo '<br/>';
                                 echo 'Tijd tot sluiting:';
-                                echo '<br/>'; 
-                                $date = date_format($record['looptijdeindeDag'], 'Y-m-d');       
-                                echo '<div class="alt-2">'.$date.'</div>';
+                                $date = date_format($record['looptijdeindeDag'], 'Y-m-d');
+                                $time = date_format($record['looptijdeindeTijdstip'], 'H:i:s');
+                                echo '<div class="alt-2 right">'.$date.' '.$time.'</div>';
                         
                                 echo '<br/>';
                                 echo 'Aanbieder:<a href="aanbiederdetails.php?id='.$record['verkopernaam'].'" class="clicklink" >'.$record['verkopernaam'].'</a>';
