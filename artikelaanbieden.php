@@ -68,8 +68,24 @@
                         <option value="Beamers">Beamers</option>
                       </optgroup>
                     </select>
-                      <td>
+                    </td>
                       </tr>
+                    </br>
+                    <tr>
+                      <td>
+                        Status: <span class="star">*</span>
+                      </td>
+                      <td>
+                        <select>
+                            <option value="Nieuw">Nieuw</option>
+                            <option value="Producent refurbished">Producent refurbished</option>
+                            <option value="Verkoper refurbished">Verkoper refurbished</option>
+                            <option value="Tweedehands">Tweedehands</option>
+                            <option value="Onderdelen niet werkend/kapot">Onderdelen niet werkend/kapot</option>
+                          </select>
+                        </td>
+                      </tr>
+                    </br>
                       <tr>
                         <td>
                           Beschrijving:<span class="star">*</span>
