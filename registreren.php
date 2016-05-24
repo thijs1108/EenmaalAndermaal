@@ -231,7 +231,7 @@
                                         <td>
                                             Antwoord: <span class="star">*</span>
                                         </td>
-                                        <td class="field">
+                                        <td>
                                             <input type="text" name="answer" placeholder="Antwoord" id="antwoord" onkeyup="check_antwoord()">
                                             <div class="antwoord-box"></div>
                                         </td>
