@@ -13,20 +13,39 @@
     <link rel="stylesheet" type="text/css" href="datepicker/jquery.datetimepicker.css" />
     <link rel="stylesheet" type="text/css" href="awesomefont/css/font-awesome.min.css">
     <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
-
-    <?php
-
-    if($_SERVER['REQUEST_METHOD'] === 'POST'){
-        $username = $_POST['username'];
-        $sql="INSERT INTO Gebruiker VALUES ('$username','$voornaam','$achternaam','De klein straat 12', '1478 DF', 'Steenderen','Nederland','1999-10-20', 'test@beuzelbeuzel.com', '12345989',1,'Bij de albert heijn',0)";
-    }
-
-    ?>
-
+    <?php include('includes/database.php'); ?>
 
 </head>
 
 <body>
+    <?php
+
+    if($_SERVER['REQUEST_METHOD'] === 'POST'){
+        $username = $_POST['username'];
+        $voornaam = $_POST['firstname'];
+        $achternaam = $_POST['lastname'];
+        $adres = $_POST['adres'];
+        $postcode = $_POST['postalcode'];
+        $plaats = $_POST['place'];
+        $land = $_POST['country'];
+        $datum = $_POST['birthday'];
+        $datumfix=$datum[6].$datum[7].$datum[8].$datum[9].'/'.$datum[3].$datum[4].'/'.$datum[0].$datum[1];
+        $email = $_POST['email'];
+        $wachtwoord = $_POST['password'];
+        $vraag = $_POST['secretquestion'];
+        $antwoord = $_POST['answer'];
+        
+        $sql="INSERT INTO Gebruiker VALUES ('$username','$voornaam','$achternaam','$adres', '$postcode', '$plaats','$land','$datumfix', '$email', '$wachtwoord',$vraag,'$antwoord',0)";
+        if(sqlsrv_query($db,$sql)){
+            
+        }
+        else{
+            
+        }
+        sqlsrv_close($db);
+    }
+
+    ?>
     <div class="row">
         <img class="logo" src="Images/Logo_v1.1.png" alt="Logo">
     </div>
@@ -90,7 +109,7 @@
                                             Achternaam: <span class="star">*</span>
                                         </td>
                                         <td>
-                                            <input type="text" name="lasttname" placeholder="Achternaam" id="achternaam"
+                                            <input type="text" name="lastname" placeholder="Achternaam" id="achternaam"
                                             onchange="check_achternaam()">
                                             <div class="achternaam-box"></div>
                                         </td>
@@ -184,7 +203,7 @@
                                             Antwoord: <span class="star">*</span>
                                         </td>
                                         <td>
-                                            <input type="text" name="anweser" placeholder="Antwoord" id="antwoord" onchange="check_antwoord()">
+                                            <input type="text" name="answer" placeholder="Antwoord" id="antwoord" onchange="check_antwoord()">
                                             <div class="antwoord-box"></div>
                                         </td>
                                     </tr>
