@@ -1,5 +1,6 @@
 $(document).foundation();
 
+$('input[type="submit"]').prop('disabled', true);
 var valid = [];
 
 
@@ -18,8 +19,9 @@ function check_email(){
         $('.email-box').html(
             ''
         );
-        valid['passwordone']=true;
+        valid['email']=true;
     }
+    check_total_valid();
 }
 
 function isValidEmailAddress(emailAddress) {
@@ -66,6 +68,7 @@ function check_availability() {
                 }
             });
     }
+    check_total_valid();
 
 }
 
@@ -105,8 +108,9 @@ function check_second_password(){
         $('.second_password-box').html(
             ''
         );
-        valid['passwordone']=true;
+        valid['passwordtwo']=true;
     }
+    check_total_valid();
 }
 
 function check_voornaam(){
@@ -126,6 +130,7 @@ function check_voornaam(){
         );
         valid['voornaam']=true;
     }
+    check_total_valid();
 }
 
 function check_achternaam(){
@@ -145,6 +150,7 @@ function check_achternaam(){
         );
         valid['achternaam']=true;
     }
+    check_total_valid();
 }
 
 function check_telefoon(){
@@ -164,6 +170,7 @@ function check_telefoon(){
         );
         valid['telefoon']=true;
     }
+    check_total_valid();
 }
 
 
@@ -184,6 +191,7 @@ function check_adres(){
         );
         valid['adres']=true;
     }
+    check_total_valid();
 }
 
 function check_postcode(){
@@ -203,6 +211,7 @@ function check_postcode(){
         );
         valid['postcode']=true;
     }
+    check_total_valid();
 }
 
 function check_plaats(){
@@ -222,6 +231,7 @@ function check_plaats(){
         );
         valid['plaats']=true;
     }
+    check_total_valid();
 }
 
 function check_land(){
@@ -241,6 +251,7 @@ function check_land(){
         );
         valid['land']=true;
     }
+    check_total_valid();
 }
 
 
@@ -262,6 +273,7 @@ function check_vraag(){
         );
         valid['vraag']=true;
     }
+    check_total_valid();
 }
 
 function check_antwoord(){
@@ -281,5 +293,21 @@ function check_antwoord(){
         );
         valid['antwoord']=true;
     }
+    check_total_valid();
 }
 
+function check_total_valid(){
+    var total = 0
+    for(antwoord in valid){
+        if(valid[antwoord]==true){
+            total++;
+        }
+    }
+    console.log(total);
+    if(total==13){
+        $('input[type="submit"]').prop('disabled', false);
+    }
+    else{
+        $('input[type="submit"]').prop('disabled', true);
+    }
+}
