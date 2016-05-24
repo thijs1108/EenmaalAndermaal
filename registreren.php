@@ -36,13 +36,13 @@
         $vraag = $_POST['secretquestion'];
         $antwoord = $_POST['answer'];
         
-        $siteKey = '6LfsxSATAAAAAHk8wtQkPD00JAKwuu9qwEkwFUwW';
-        $secret = '6LfsxSATAAAAAMN5SzqTz9_1eQ0lLJZdJPtUv-2O';
+        $siteKey = '6LdSySATAAAAAMeX7dp0wyqXHLNS3C5O6f87Ut7P';
+        $secret = '6LdSySATAAAAAPuV_9do9HkzZTKyIo1JOj4YI76u';
 
 
         if($_SERVER["REQUEST_METHOD"] == "POST")
         {
-            $capchaResponse = "";
+         /*   $capchaResponse = "";
             //vraag Captcha gegevens op
             if (isset($_POST['g-recaptcha-response']))
             {
@@ -55,7 +55,7 @@
             {
                 
             }
-            else{
+            else{*/
                 $sql="INSERT INTO Gebruiker VALUES ('$username','$voornaam','$achternaam','$adres', '$postcode', '$plaats','$land','$datumfix', '$email', '$wachtwoord',$vraag,'$antwoord',0)";
                 if(sqlsrv_query($db,$sql)){
 
@@ -69,8 +69,7 @@
                             }
                         }
                     }
-                    sqlsrv_close($db);
-            }
+            //}
         }
     }
 
@@ -238,7 +237,7 @@
                                     </tr>
                                     <tr>
                                         <td></td>
-                                        <td><div class="g-recaptcha" data-sitekey="<?php echo $siteKey; ?>"></div></td>
+                                        <td><!--<div class="g-recaptcha" data-sitekey="<?php //echo $siteKey; ?>"></div>--></td>
                                     </tr>
                                 </table>
                                 <input id="submitregister" type="submit" value="Registreren" class="rechts smallbtn" disabled>
