@@ -280,3 +280,6 @@ li .button {
   border-radius: 5px;
   background-color: rgba(30, 130, 76, 0.2); }
 
+.field{
+    max-width: 210px;
+}
