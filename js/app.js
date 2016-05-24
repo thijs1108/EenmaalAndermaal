@@ -1,6 +1,6 @@
 $(document).foundation();
 
-$('input[type="submit"]').prop('disabled', true);
+$('#submitregister').prop('disabled', true);
 var valid = [];
 
 

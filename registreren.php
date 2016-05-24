@@ -17,14 +17,8 @@
     <?php
 
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
-        //ga alle verplichte velden langs en voer een simpele controle uit
-        if(!isset($_POST['email']) || $_POST['email'] == ""){
-            $errors['email']='Verplicht veld niet ingevuld!';
-        }
-
-        if(!isset($_POST['username']) || $_POST['username'] == ""){
-            $errors['username']='Verplicht veld niet ingevuld!';
-        }
+        $username = $_POST['username'];
+        $sql="INSERT INTO Gebruiker VALUES ('$username','$voornaam','$achternaam','De klein straat 12', '1478 DF', 'Steenderen','Nederland','1999-10-20', 'test@beuzelbeuzel.com', '12345989',1,'Bij de albert heijn',0)";
     }
 
     ?>
@@ -195,7 +189,7 @@
                                         </td>
                                     </tr>
                                 </table>
-                                <input type="submit" value="Registreren" class="rechts smallbtn" disabled>
+                                <input id="submitregister" type="submit" value="Registreren" class="rechts smallbtn" disabled>
                             </div>
                         </form>
 
