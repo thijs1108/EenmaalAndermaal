@@ -37,6 +37,9 @@
                         <td>
                           <input type="text" name="productname" placeholder="Productnaam" maxlength="25">
                         </td>
+                        <td>
+                          Categorie: <span class="star">*</span>
+                        </td>
                           </tr>
                           <tr>
                         <td>

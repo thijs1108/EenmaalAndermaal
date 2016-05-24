@@ -64,7 +64,8 @@
                                 echo '<br/>';
                                 echo 'Tijd tot sluiting:';
                                 $date = date_format($record['looptijdeindeDag'], 'Y-m-d');
-                                echo '<div class="alt-2 right">'.$date.'</div>';
+                                $time = date_format($record['looptijdeindeTijdstip'], 'H:i:s');
+                                echo '<div class="alt-2 right">'.$date.' '.$time.'</div>';
                                 echo '</div>';
                                 echo '</a>';
                                 echo '</div>';
