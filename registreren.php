@@ -87,7 +87,8 @@
                                             Voornaam: <span class="star">*</span>
                                         </td>
                                         <td>
-                                            <input type="text" name="firstname" placeholder="Voornaam">
+                                            <input type="text" name="firstname" placeholder="Voornaam" id="voornaam" onchange="check_voornaam()">
+                                            <div class="voornaam-box"></div>
                                         </td>
                                     </tr>
                                     <tr>
@@ -95,7 +96,9 @@
                                             Achternaam: <span class="star">*</span>
                                         </td>
                                         <td>
-                                            <input type="text" name="lasttname" placeholder="Achternaam">
+                                            <input type="text" name="lasttname" placeholder="Achternaam" id="achternaam"
+                                            onchange="check_achternaam()">
+                                            <div class="achternaam-box"></div>
                                         </td>
                                     </tr>
                                     <tr>
@@ -103,7 +106,8 @@
                                             Telefoonnummer 1: <span class="star">*</span>
                                         </td>
                                         <td>
-                                            <input type="text" name="phone1" placeholder="Telefoonnummer 1">
+                                            <input type="text" name="phone1" placeholder="Telefoonnummer 1" id="telefoon" onchange="check_telefoon()">
+                                            <div class="telefoon-box"></div>
                                         </td>
                                     </tr>
                                     <tr>
@@ -124,7 +128,8 @@
                                             Adres: <span class="star">*</span>
                                         </td>
                                         <td>
-                                            <input type="text" name="adres" placeholder="Adres">
+                                            <input type="text" name="adres" placeholder="Adres" id="adres" onchange="check_adres()">
+                                            <div class="adres-box"></div>
                                         </td>
                                     </tr>
                                     <tr>
@@ -132,7 +137,8 @@
                                             Postcode: <span class="star">*</span>
                                         </td>
                                         <td>
-                                            <input type="text" name="postalcode" placeholder="1234 AB">
+                                            <input type="text" name="postalcode" placeholder="1234 AB" id="postcode" onchange="check_postcode()">
+                                            <div class="postcode-box"></div>
                                         </td>
                                     </tr>
                                     <tr>
@@ -140,7 +146,9 @@
                                             Plaats: <span class="star">*</span>
                                         </td>
                                         <td>
-                                            <input type="text" name="place" placeholder="Plaats">
+                                            <input type="text" name="place" placeholder="Plaats"
+                                            id="plaats" onchange="check_plaats()">
+                                            <div class="plaats-box"></div>
                                         </td>
                                     </tr>
                                     <tr>
@@ -148,7 +156,8 @@
                                             Land: <span class="star">*</span>
                                         </td>
                                         <td>
-                                            <input type="text" name="country" placeholder="Land">
+                                            <input type="text" name="country" placeholder="Land" id="land" onchange="check_land()">
+                                            <div class="land-box"></div>
                                         </td>
                                     </tr>
                                     <tr>
@@ -157,7 +166,7 @@
                                         </td>
                                         <td>
                                             <input id="datetimepicker" name="birthday" type="text" placeholder="&#xf073;  20/01/1990" class="fontawesome">
-
+                                            <div class="datum-box"></div>
 
                                         </td>
                                     </tr>
@@ -166,13 +175,14 @@
                                             Geheime vraag: <span class="star">*</span>
                                         </td>
                                         <td>
-                                            <select name="secretquestion">
-                                                <option value="1">In welke straat ben je geboren?</option>
-                                                <option value="2">Wat is de meisjesnaam van je moeder?</option>
-                                                <option value="3">Wat is je lievelingsgerecht?</option>
-                                                <option value="4">Hoe heet je oudste zusje</option>
-                                                <option value="5">Hoe heet je huisdier?</option>
+                                            <select name="secretquestion" id="vraag" onchange="check_vraag()">
+                                                <option value=1>In welke straat ben je geboren?</option>
+                                                <option value=2>Wat is de meisjesnaam van je moeder?</option>
+                                                <option value=3>Wat is je lievelingsgerecht?</option>
+                                                <option value=4>Hoe heet je oudste zusje</option>
+                                                <option value=5>Hoe heet je huisdier?</option>
                                             </select>
+                                            <div class="vraag-box"></div>
                                         </td>
                                     </tr>
                                     <tr>
@@ -180,7 +190,8 @@
                                             Antwoord: <span class="star">*</span>
                                         </td>
                                         <td>
-                                            <input type="text" name="anweser" placeholder="Antwoord">
+                                            <input type="text" name="anweser" placeholder="Antwoord" id="antwoord" onchange="check_antwoord()">
+                                            <div class="antwoord-box"></div>
                                         </td>
                                     </tr>
                                 </table>
