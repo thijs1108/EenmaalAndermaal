@@ -9,6 +9,29 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/app.css">
+	<script>
+		function showVraag(vraag) {
+		if (vraag == "") {
+			document.getElementById("GeheimeVraag").innerHTML = "";
+			return;
+		} else { 
+			if (window.XMLHttpRequest) {
+				// code for IE7+, Firefox, Chrome, Opera, Safari
+				xmlhttp = new XMLHttpRequest();
+			} else {
+				// code for IE6, IE5
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			xmlhttp.onreadystatechange = function() {
+				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById("GeheimeVraag").innerHTML = xmlhttp.responseText;
+            }
+        };
+			xmlhttp.open("GET","selectvraag.php?q="+vraag,true);
+			xmlhttp.send();
+		}
+	}
+	</script>
 </head>
 
 <body>
@@ -37,7 +60,7 @@
                                             Gebruikersnaam:
                                         </td>
                                         <td>
-                                            <input type="text" name="username" placeholder="Gebruikersnaam">
+                                            <input type="text" name="username" placeholder="Gebruikersnaam" onkeyup="showVraag(this.value)">
                                         </td>
                                     </tr>
                                     <tr>
@@ -45,7 +68,7 @@
                                             Uw geheime vraag:
                                         </td>
                                         <td>
-                                           <?php echo $record['tekstvraag']; ?>
+											<span id="GeheimeVraag"></span>
                                         </td>
                                     </tr>
                                     <tr>
@@ -53,7 +76,7 @@
                                             Antwoord:
                                         </td>
                                         <td>
-                                            <input type="text" name="anweser" placeholder="Antwoord">
+                                            <input type="text" name="answer" placeholder="Antwoord">
                                         </td>
                                     </tr>
                                     
