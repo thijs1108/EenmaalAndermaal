@@ -26,63 +26,92 @@
         <h2>Product aanbieden</h2>
           <i class="subtitle">Velden met een <span class="star">*</span> zijn verplicht</i></div>
             <div class="large-6 columns">
-
               <table>
                 <tr>
                   <td>
                     Productnaam: <span class="star">*</span>
                   <br/>
                     <i class="subtitle">Maximaal 25 characters</i>
-                      </td>
-                        <td>
-                          <input type="text" name="productname" placeholder="Productnaam" maxlength="25">
-                        </td>
-                        <td>
-                          Categorie: <span class="star">*</span>
-                        </td>
-                          </tr>
-                          <tr>
+                  </td>
+                  <td>
+                    <input type="text" name="productname" placeholder="Productnaam" maxlength="25">
+                  </td>
+                    <br/>
+                  </tr>
+                  <tr>
+                  <td>
+                    Categorie: <span class="star">*</span>
+                  </td>
+                  <br/>
+                  <td>
+                    <select>
+                      <optgroup label="Auto's, boten en motoren">
+                        <option value="Auto">Auto's</option>
+                        <option value="Boten">Boten</option>
+                        <option value="Motoren">Motoren</option>
+                      </optgroup>
+                      <optgroup label="Baby">
+                        <option value="Speelgoed">Speelgoed</option>
+                        <option value="Meubels">Meubels</option>
+                      </optgroup>
+                      <optgroup label="Muziek en instrumenten">
+                        <option value="Muziekblad">Muziekblad</option>
+                        <option value="Instrumenten">Instrumenten</option>
+                      </optgroup>
+                      <optgroup label="Meubels">
+                        <option value="Banken">Banken</option>
+                        <option value="Stoelen">Stoelen</option>
+                      </optgroup>
+                      <optgroup label="Elektronica">
+                        <option value="Computers">Computers</option>
+                        <option value="Telefoon">Telefoon</option>
+                        <option value="Beamers">Beamers</option>
+                      </optgroup>
+                    </select>
+                      <td>
+                      </tr>
+                      <tr>
                         <td>
                           Beschrijving:<span class="star">*</span>
                         <br/>
                           <i class="subtitle">Maximaal 500 characters</i>
-                            </td>
-                            <td>
-                              <textarea name="description" cols="40" rows="7" maxlength="500" placeholder="Beschrijving"></textarea>
+                        </td>
+                        <td>
+                          <textarea name="description" cols="40" rows="7" maxlength="500" placeholder="Beschrijving"></textarea>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                          Startbedrag: <span class="star">*</span>
+                        </td>
+                        <td>
+                          <input type="text" name="startingprice" placeholder="€1,23">
+                        </td>
+                          </tr>
+                            <tr>
+                        <td>
+                          Biedingstijd: <span class="star">*</span>
+                        </td>
+                        <td>
+                          <select name="numberdays" default>
+                          <option value="" selected>Dagen...</option>
+                          <option value="1">1 dag</option>
+                          <option value="3">3 dagen</option>
+                          <option value="5">5 dagen</option>
+                          <option value="7">7 dagen</option>
+                          <option value="10">10 dagen</option>
+                          </select>
                             </td>
                             </tr>
-                            <tr>
+                              <tr>
                             <td>
-                              Startbedrag: <span class="star">*</span>
+                              Afbeeldingen: <span class="star">*</span>
                             </td>
-                              <td>
-                                <input type="text" name="startingprice" placeholder="€1,23">
-                              </td>
-                                </tr>
-                                  <tr>
-                                    <td>
-                                      Biedingstijd: <span class="star">*</span>
-                                    </td>
-                                    <td>
-                                      <select name="numberdays" default>
-                                        <option value="" disabled selected hidden>Dagen...</option>
-                                        <option value="1">1 dag</option>
-                                        <option value="3">3 dagen</option>
-                                        <option value="5">5 dagen</option>
-                                        <option value="7">7 dagen</option>
-                                        <option value="10">10 dagen</option>
-                                      </select>
-                                        </td>
-                                        </tr>
-                                        <tr>
-                                        <td>
-                                          Afbeeldingen: <span class="star">*</span>
-                                        </td>
-                                        <td>
-                                          <input name="filesToUpload[]" id="filesToUpload" type="file" multiple="" accept="image/jpg, image/jpeg, image/png" />
-                                        </td>
-                                    </tr>
-                                </table>
+                            <td>
+                              <input name="filesToUpload[]" id="filesToUpload" type="file" multiple="" accept="image/jpg, image/jpeg, image/png" />
+                            </td>
+                            </tr>
+                    </table>
                             </div>
 
                             <div class="large-6 columns">
@@ -101,7 +130,7 @@
                                   </td>
                                   <td>
                                     <select name="country">
-                                    <option value="" disabled selected hidden>Land...</option>
+                                    <option value="" selected>Land...</option>
                                     <option value="Afganistan">Afghanistan</option>
                                     <option value="Albania">Albania</option>
                                     <option value="Algeria">Algeria</option>
@@ -358,7 +387,7 @@
                                       </td>
                                       <td>
                                         <select name="paymethod" default>
-                                        <option value="" disabled selected hidden>Betaalmethode...</option>
+                                        <option value="" selected>Betaalmethode...</option>
                                         <option value="1">iDeal</option>
                                         <option value="2">Acceptgiro</option>
                                         <option value="3">Paypal</option>
