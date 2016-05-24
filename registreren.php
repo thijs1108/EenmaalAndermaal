@@ -51,16 +51,8 @@
                                             Email: <span class="star">*</span>
                                         </td>
                                         <td>
-                                            <input type="text" name="email" placeholder="voorbeeld@voorbeeld.nl">
-                                            <?php
-                                            if(isset($errors['email'])){
-                                                echo'<div class="alert-box columns">
-                                                        <div data-alert class="alert-box warning">
-                                                            <i class="fi-alert"></i>'.  $errors['email'] .'
-                                                        </div>
-                                                    </div>';
-                                            }
-                                            ?>
+                                            <input type="text" name="email" placeholder="voorbeeld@voorbeeld.nl" id="email" onchange="check_email()">
+                                            <div class="email-box"></div>
                                         </td>
                                     </tr>
                                     <tr>
@@ -86,7 +78,8 @@
                                             Herhaal Wachtwoord: <span class="star">*</span>
                                         </td>
                                         <td>
-                                            <input type="password" name="confirmpassword" placeholder="Wachtwoord">
+                                            <input type="password" name="confirmpassword" placeholder="Wachtwoord" id="second_password" onchange="check_second_password()">
+                                            <div class="second_password-box"></div>
                                         </td>
                                     </tr>
                                     <tr>
