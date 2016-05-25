@@ -6,30 +6,19 @@
 /*				   Wouter Holtslag, Robin Schneiders            */
 /*==============================================================*/
 
-USE MASTER
-GO
-
-IF EXISTS (SELECT 1 FROM sys.databases WHERE name = 'EenmaalAndermaal')
-    DROP DATABASE EenmaalAndermaal;
-
 /*==============================================================*/
-/* DATABASE: EenmaalAndermaal                                   */
+/* DATABASE: iproject21			                                */
 /*==============================================================*/
 
-CREATE DATABASE EenmaalAndermaal;
-GO
 
-USE EenmaalAndermaal;
+USE iproject21;
 GO
 
 /*=======================================*/
 /*  DELETE ALL EXISTING TABLES           */
 /*=======================================*/
 
-IF EXISTS ( SELECT [name] FROM sys.tables WHERE [name] = 'Vraag' )
-	DROP TABLE Vraag
-IF EXISTS ( SELECT [name] FROM sys.tables WHERE [name] = 'Verkoper' )
-	DROP TABLE Verkoper
+
 IF EXISTS ( SELECT [name] FROM sys.tables WHERE [name] = 'Gebruikerstelefoon' )
 	DROP TABLE Gebruikerstelefoon
 IF EXISTS ( SELECT [name] FROM sys.tables WHERE [name] = 'Bod' )
@@ -44,8 +33,12 @@ IF EXISTS ( SELECT [name] FROM sys.tables WHERE [name] = 'Feedback' )
 	DROP TABLE Feedback
 IF EXISTS ( SELECT [name] FROM sys.tables WHERE [name] = 'Voorwerp' )
 	DROP TABLE Voorwerp
+IF EXISTS ( SELECT [name] FROM sys.tables WHERE [name] = 'Verkoper' )
+	DROP TABLE Verkoper
 IF EXISTS ( SELECT [name] FROM sys.tables WHERE [name] = 'Gebruiker' )
 	DROP TABLE Gebruiker
+IF EXISTS ( SELECT [name] FROM sys.tables WHERE [name] = 'Vraag' )
+	DROP TABLE Vraag
 
 
 Go
