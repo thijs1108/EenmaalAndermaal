@@ -154,7 +154,7 @@ CREATE TABLE Bestand (
 CREATE TABLE Rubriek (
 	rubrieknummer			INT			NOT NULL,
 	rubrieknaam				VARCHAR(50) NOT NULL,
-	Rubriek					INT			NULL,
+	parent					INT			NULL,
 	volgnr					INT			NOT NULL,
 	CONSTRAINT PK_Rubriek_rubrieknummer 
 	PRIMARY KEY (rubrieknummer)

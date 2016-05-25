@@ -1,4 +1,4 @@
-USE EenmaalAndermaal
+USE Iproject21
 go
 
 INSERT INTO Vraag VALUES (1,'Wat was u eerste baan?')
@@ -24,6 +24,9 @@ INSERT INTO Voorwerp (titel,beschrijving,startprijs,betalingswijzenaam,plaatsnaa
 INSERT INTO Voorwerp (titel,beschrijving,startprijs,betalingswijzenaam,plaatsnaam,landnaam,looptijd,looptijdbeginDag,looptijdbeginTijdstip,verkopernaam,looptijdeindeTijdstip,veilingGesloten) VALUES ('Bank groen','Afgelopen winter is mijn huis gekropen en nu past de bank niet meer.',9.99,'Bank/Giro','Arnhem','Nederland',10,convert(date,getdate()),convert(time,getdate()),'JanPiet','12:00:00.000',0)
 INSERT INTO Voorwerp (titel,beschrijving,startprijs,betalingswijzenaam,plaatsnaam,landnaam,looptijd,looptijdbeginDag,looptijdbeginTijdstip,verkopernaam,looptijdeindeTijdstip,veilingGesloten) VALUES ('Bank geel','Last van geelzucht',9.99,'Bank/Giro','Arnhem','Nederland',10,convert(date,getdate()),convert(time,getdate()),'JanPiet','12:00:00.000',0)
 INSERT INTO Voorwerp (titel,beschrijving,startprijs,betalingswijzenaam,plaatsnaam,landnaam,looptijd,looptijdbeginDag,looptijdbeginTijdstip,verkopernaam,looptijdeindeTijdstip,veilingGesloten) VALUES ('Bank donkerwit (a.k.a. zwart)','Het is de schuld van de Rabobank!!!!!!!11111!!!!',9.99,'Bank/Giro','Schilderswijk','Nederland',10,convert(date,getdate()),convert(time,getdate()),'JanPiet','12:00:00.000',0)
+
+go
+INSERT INTO Voorwerp_in_rubriek VALUES (1,28837)
 
 /*
 SELECT titel,looptijdeindeTijdstip FROM Voorwerp GROUP BY titel,looptijdeindeTijdstip
