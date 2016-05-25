@@ -304,7 +304,7 @@ function check_total_valid(){
         }
     }
     console.log(total);
-    if(total==13 &&grecaptcha.getResponse().length!=0){
+    if(total>11){
         $('input[type="submit"]').prop('disabled', false);
     }
     else{

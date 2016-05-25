@@ -36,13 +36,13 @@
         $vraag = $_POST['secretquestion'];
         $antwoord = $_POST['answer'];
         
-        $siteKey = '6LfsxSATAAAAAHk8wtQkPD00JAKwuu9qwEkwFUwW';
-        $secret = '6LfsxSATAAAAAMN5SzqTz9_1eQ0lLJZdJPtUv-2O';
+        $siteKey = '6LdSySATAAAAAMeX7dp0wyqXHLNS3C5O6f87Ut7P';
+        $secret = '6LdSySATAAAAAPuV_9do9HkzZTKyIo1JOj4YI76u';
 
 
         if($_SERVER["REQUEST_METHOD"] == "POST")
         {
-            $capchaResponse = "";
+         /*   $capchaResponse = "";
             //vraag Captcha gegevens op
             if (isset($_POST['g-recaptcha-response']))
             {
@@ -55,7 +55,7 @@
             {
                 
             }
-            else{
+            else{*/
                 $sql="INSERT INTO Gebruiker VALUES ('$username','$voornaam','$achternaam','$adres', '$postcode', '$plaats','$land','$datumfix', '$email', '$wachtwoord',$vraag,'$antwoord',0)";
                 if(sqlsrv_query($db,$sql)){
 
@@ -69,8 +69,7 @@
                             }
                         }
                     }
-                    sqlsrv_close($db);
-            }
+            //}
         }
     }
 
@@ -93,7 +92,7 @@
                                             Email: <span class="star">*</span>
                                         </td>
                                         <td class="field">
-                                            <input type="text" name="email" placeholder="voorbeeld@voorbeeld.nl" id="email" onkeyup="check_email()">
+                                            <input type="text" name="email" placeholder="voorbeeld@voorbeeld.nl" id="email" onkeyup="check_email()" maxlength="50">
                                             <div class="email-box"></div>
                                         </td>
                                     </tr>
@@ -102,7 +101,7 @@
                                             Gebruikersnaam: <span class="star">*</span>
                                         </td>
                                         <td class="field">
-                                            <input type="text" name="username" id="username" placeholder="Gebruikersnaam" onkeyup="check_availability()">
+                                            <input type="text" name="username" id="username" placeholder="Gebruikersnaam" onkeyup="check_availability()" maxlength="50">
                                             <div class="username-box"></div>
                                         </td>
                                     </tr>
@@ -111,7 +110,7 @@
                                             Wachtwoord: <span class="star">*</span>
                                         </td>
                                         <td class="field">
-                                            <input type="password" name="password" placeholder="Wachtwoord" id="password" onkeyup="check_password()">
+                                            <input type="password" name="password" placeholder="Wachtwoord" id="password" onkeyup="check_password()" maxlength="30">
                                             <div class="password-box"></div>
                                         </td>
                                     </tr>
@@ -120,7 +119,8 @@
                                             Herhaal Wachtwoord: <span class="star">*</span>
                                         </td>
                                         <td class="field">
-                                            <input type="password" name="confirmpassword" placeholder="Wachtwoord" id="second_password" onkeyup="check_second_password()">
+                                            <input type="password" name="confirmpassword" placeholder="Wachtwoord" id="second_password" onkeyup="check_second_password()"
+                                            maxlength="30">
                                             <div class="second_password-box"></div>
                                         </td>
                                     </tr>
@@ -129,7 +129,8 @@
                                             Voornaam: <span class="star">*</span>
                                         </td>
                                         <td class="field">
-                                            <input type="text" name="firstname" placeholder="Voornaam" id="voornaam" onkeyup="check_voornaam()">
+                                            <input type="text" name="firstname" placeholder="Voornaam" id="voornaam" onkeyup="check_voornaam()"
+                                                   maxlength="50">
                                             <div class="voornaam-box"></div>
                                         </td>
                                     </tr>
@@ -139,7 +140,7 @@
                                         </td>
                                         <td class="field">
                                             <input type="text" name="lastname" placeholder="Achternaam" id="achternaam"
-                                            onkeyup="check_achternaam()">
+                                            onkeyup="check_achternaam()" maxlength="50">
                                             <div class="achternaam-box"></div>
                                         </td>
                                     </tr>
@@ -170,7 +171,8 @@
                                             Adres: <span class="star">*</span>
                                         </td>
                                         <td class="field">
-                                            <input type="text" name="adres" placeholder="Adres" id="adres" onkeyup="check_adres()">
+                                            <input type="text" name="adres" placeholder="Adres" id="adres" onkeyup="check_adres()"
+                                                   maxlength="255">
                                             <div class="adres-box"></div>
                                         </td>
                                     </tr>
@@ -179,7 +181,8 @@
                                             Postcode: <span class="star">*</span>
                                         </td>
                                         <td class="field">
-                                            <input type="text" name="postalcode" placeholder="1234 AB" id="postcode" onkeyup="check_postcode()">
+                                            <input type="text" name="postalcode" placeholder="1234 AB" id="postcode" onkeyup="check_postcode()"
+                                                   maxlength="7">
                                             <div class="postcode-box"></div>
                                         </td>
                                     </tr>
@@ -189,7 +192,7 @@
                                         </td>
                                         <td class="field">
                                             <input type="text" name="place" placeholder="Plaats"
-                                            id="plaats" onkeyup="check_plaats()">
+                                            id="plaats" onkeyup="check_plaats()" maxlength="25">
                                             <div class="plaats-box"></div>
                                         </td>
                                     </tr>
@@ -198,7 +201,7 @@
                                             Land: <span class="star">*</span>
                                         </td>
                                         <td class="field">
-                                            <input type="text" name="country" placeholder="Land" id="land" onkeyup="check_land()">
+                                            <input type="text" name="country" placeholder="Land" id="land" onkeyup="check_land()" maxlength="50">
                                             <div class="land-box"></div>
                                         </td>
                                     </tr>
@@ -231,14 +234,14 @@
                                         <td>
                                             Antwoord: <span class="star">*</span>
                                         </td>
-                                        <td class="field">
-                                            <input type="text" name="answer" placeholder="Antwoord" id="antwoord" onkeyup="check_antwoord()">
+                                        <td>
+                                            <input type="text" name="answer" placeholder="Antwoord" id="antwoord" onkeyup="check_antwoord()" maxlength="255">
                                             <div class="antwoord-box"></div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td></td>
-                                        <td><div class="g-recaptcha" data-sitekey="<?php echo $siteKey; ?>"></div></td>
+                                        <td><!--<div class="g-recaptcha" data-sitekey="<?php //echo $siteKey; ?>"></div>--></td>
                                     </tr>
                                 </table>
                                 <input id="submitregister" type="submit" value="Registreren" class="rechts smallbtn" disabled>
