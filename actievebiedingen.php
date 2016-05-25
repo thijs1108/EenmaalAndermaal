@@ -2,6 +2,15 @@
 <html class="no-js" lang="en" dir="ltr">
 
 <head>
+    <?php 
+        session_start();
+        if(isset($_GET['categorie']) && !is_null($_GET['categorie'])){
+            $_SESSION['categorie'] = $_GET['categorie'];
+        }
+        if(isset($_GET['resetcategorie']) && !is_null($_GET['resetcategorie'])){
+            unset($_SESSION['categorie']);
+        }
+    ?>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,10 +32,10 @@
                 <?php include 'includes/functions.php';?>
                     <div class="content">
                         <div class="large-3 columns">
-                            <?php include 'includes/categorie.php'?>
+                            <span id="categorieen"><?php include 'includes/categorie-rendered.php'?></span>
                         </div>
                         <div class="large-9 columns">
-                            <form method="get" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                            <form method="get" action="<?php echo $_SERVER['REQUEST_URI'] ?>">
                                 <?php
                                     if(isset($_GET['zoeken']) && !is_null($_GET['zoeken'])){
                                         $zoekterm = $_GET['zoeken'];
@@ -34,8 +43,16 @@
                                 ?>
                                 <input type="submit" value="Zoeken" class="zoekenknop">
                                 <div class="zoeken">
-                                    <input type="text" name="zoeken" value="<?php if(isset($zoekterm)){echo $zoekterm;} ?>" placeholder="&#xf002; Zoekterm toevoegen" class="fontawesome zoeken">
+                                    <input type="text" name="zoeken" value="<?php if(isset($zoekterm)){echo $zoekterm; } ?>" placeholder="&#xf002; Zoekterm toevoegen" class="fontawesome zoeken"><br>
                                 </div>
+                                <?php       
+                                    if(isset($_SESSION['categorie'])){
+                                        $sql = "SELECT rubrieknaam FROM Rubriek WHERE rubrieknummer=".$_SESSION['categorie'];
+                                        $result = sqlsrv_query($db, $sql);
+                                        $record=sqlsrv_fetch_array($result);
+                                        echo "U zoekt binnen de categorie: ". $record['rubrieknaam'] . "  <a href='?resetcategorie=true'>Reset</a>";
+                                    }
+                                ?> 
                             </form>
                             <br/>
                             <?php
@@ -92,7 +109,6 @@
                     </div>
 
     </div>
-
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
     <script src="js/vendor/foundation.js"></script>
