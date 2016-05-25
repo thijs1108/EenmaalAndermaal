@@ -2805,7 +2805,7 @@ table.hover tr:nth-of-type(even):hover {
       margin-right: auto; }
 
 .column, .columns {
-  background-color: #FFFFFF !important;
+  background-color: #FFFFFF ;
   width: 100%;
   float: left;
   padding-left: 0.9375rem;
