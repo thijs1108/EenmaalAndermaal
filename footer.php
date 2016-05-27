@@ -21,16 +21,16 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="row full-width">
-            <div class="large-9 columns">
-                <i class="fi-laptop"></i>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum maiores alias ea sunt facilis impedit fuga dignissimos illo quaerat iure in nobis id quos, eaque nostrum! Unde, voluptates suscipit repudiandae!</p>
+            <div class="small-9 medium-9 large-9 columns">
+              <h4>EenmaalAndermaal: Voor al uw veilingen</h4>
             </div>
-            <div class="large-3 columns">
-            <h4>Volg ons</h4>
+            <div class="small-3 medium-3 large-3 columns">
+              <h4>Volg ons</h4>
             <ul class="footer-links">
-            <li><a href="http://www.twitter.com/VeilingsiteEA"><i class="fi-social-twitter"></i></a></li>
-          </ul>
-          </div>
-
+            <li><a href="https://www.twitter.com/VeilingsiteEA">Twitter</a></li>
+            <li><a href="https://github.com/thijs1108/EenmaalAndermaal">GitHub</a></li>
+            </ul>
+            </div>
+        </div>
     </footer>
 </body>
