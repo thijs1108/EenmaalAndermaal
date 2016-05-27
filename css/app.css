@@ -298,8 +298,11 @@ li .button {
  .row.wide {
    max-width: rem-calc(1200); }
  .contact-footer {
-   background-color: #3F5FB5;
+   background-color: #3F5FB5 !important;
    padding: 0 rem 0; }
+   .contact-footer .columns{
+     background-color: #3F5FB5 !important;
+   }
    .contact-footer .round-inputs input {
      border-radius: 1000px;
      background-color: #FFFFFF;
@@ -397,12 +400,12 @@ li .button {
      .contact-footer .inline-list > li {
        margin-bottom: 0.875rem; } }
    .contact-footer .button {
-     background: transparent;
+     background: #FFFFFF;
+     color:#000000 !important;
      font-size: 25px;
-     border: 2px solid #E87E04;
      color: #a9a9a9; }
      .contact-footer .button:hover {
        background: #E87E04;
+       color: #ffffff !important;
        font-size: 25px;
-       border: 2px solid #a9a9a9;
        color: #fff; }
