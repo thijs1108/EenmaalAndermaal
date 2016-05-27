@@ -42,7 +42,8 @@
                                         $sql = "SELECT rubrieknaam FROM Rubriek WHERE rubrieknummer=".$_SESSION['categorie'];
                                         $result = sqlsrv_query($db, $sql);
                                         $record=sqlsrv_fetch_array($result);
-                                        echo "U zoekt binnen de categorie: ". $record['rubrieknaam'] . "  <a href='?resetcategorie=true' class='white smallbtn'>Reset</a>";
+                                        $categorienaam = $record['rubrieknaam'];
+                                        echo "U zoekt binnen de categorie: ". $categorienaam . "  <a href='?resetcategorie=true' class='white smallbtn'>Reset</a>";
                                     }
                                 ?> 
                             </form>
@@ -100,7 +101,12 @@
                                 echo '</div>';
                             }
                             if($count==0){
-                                echo"Geen resultaten gevonden op de zoekterm: '" . $zoekterm . "'";
+                                if (isset($zoekterm)){
+                                    echo"Geen resultaten gevonden op de zoekterm: '" . $zoekterm . "'";
+                                }
+                                if (isset($categorienaam)){
+                                    echo"Geen resultatien binnen de categorie: '" . $categorienaam . "'";
+                                }
                             }
                             ?>
                         </div>
