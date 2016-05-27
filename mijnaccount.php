@@ -2,9 +2,8 @@
 <html class="no-js" lang="en" dir="ltr">
 
 <head>
-    <?php include('includes/header.php'); ?>
+    <?php include('includes/header.php');?>
 </head>
-
 <body>
     <div class="row">
         <img class="logo" src="Images/Logo_v1.1.png" alt="Logo">
@@ -16,7 +15,10 @@
                 <?php include 'includes/functions.php';?>
                     <div class="content">
                         <?php
-                            $id = "JanPiet";
+						if (!$_SESSION['username']) {
+							header('location:loginscreen.php');
+						}
+                            $id = $_SESSION['username'];
                             $sql = "SELECT * FROM Gebruiker WHERE gebruikersnaam ='$id'";
                             $result = sqlsrv_query($db, $sql);
 
