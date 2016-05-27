@@ -42,7 +42,7 @@
                                         $sql = "SELECT rubrieknaam FROM Rubriek WHERE rubrieknummer=".$_SESSION['categorie'];
                                         $result = sqlsrv_query($db, $sql);
                                         $record=sqlsrv_fetch_array($result);
-                                        echo "U zoekt binnen de categorie: ". $record['rubrieknaam'] . "  <a href='?resetcategorie=true'>Reset</a>";
+                                        echo "U zoekt binnen de categorie: ". $record['rubrieknaam'] . "  <a href='?resetcategorie=true' class='white smallbtn'>Reset</a>";
                                     }
                                 ?> 
                             </form>

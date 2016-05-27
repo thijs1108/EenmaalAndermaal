@@ -284,6 +284,13 @@ li .button {
     max-width: 210px;
 }
 
+.white{
+    color:#FFFFFF;
+}
+.white:hover{
+    color:#FFFFFF;
+}
+
 /*next block of css needed for footer.php
   inspiration: http://zurb.com/building-blocks/footer-social-contact
  */
