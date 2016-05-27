@@ -297,13 +297,12 @@ li .button {
 
  .row.wide {
    max-width: rem-calc(1200); }
-
  .contact-footer {
-   background-color: #372846;
-   padding: 3.5rem 0; }
+   background-color: #3F5FB5;
+   padding: 0 rem 0; }
    .contact-footer .round-inputs input {
      border-radius: 1000px;
-     background-color: #4B3D58;
+     background-color: #3F5FB5;
      height: 3.3125rem;
      text-align: center; }
    .contact-footer .round-inputs textarea {
@@ -316,7 +315,7 @@ li .button {
      font-weight: 100;
      margin-bottom: 0.25rem; }
    .contact-footer h4.phone {
-     margin-bottom: 3rem; }
+     margin-bottom: 0.25rem; }
      .contact-footer h4.phone:before {
        font-family: "foundation-icons";
        content: "\f1f8";
@@ -337,7 +336,7 @@ li .button {
      font-family: "foundation-icons";
      content: "\f16d";
      font-weight: 300;
-     padding-top: 0.5rem;
+     padding-top: 0.25rem;
      font-size: 2rem;
      color: #a9a9a9;
      padding-left: 0.5rem;
@@ -363,7 +362,7 @@ li .button {
      color: #a9a9a9;
      font-weight: 100;
      font-size: 0.875rem;
-     margin-bottom: 3rem;
+     margin-bottom: 0.2rem;
      margin-left: 3.5rem; }
    .contact-footer p.form-lead {
      font-weight: 200;
@@ -389,9 +388,9 @@ li .button {
        font-size: 2rem;
        margin-right: 0.5rem; } }
    .contact-footer .inline-list {
-     margin: 0 0 0.5rem -0.3rem; }
+     margin: 0 0 0.5rem 3.5rem; }
      .contact-footer .inline-list > li {
-       margin-left: 0.5rem; }
+       margin-left: 4rem; }
    @media only screen and (max-width: 40em) {
      .contact-footer .inline-list > li {
        margin-bottom: 0.875rem; } }

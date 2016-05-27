@@ -24,48 +24,38 @@
         <div class="medium-6 columns">
           <div class="row">
             <div class="small-6 medium-12 columns">
-              <h4 class="location">Bone &amp; Mortar</h4>
-              <p>2738 Drummond Street<br>
-                Parsippany, NJ 07054</p>
-
-              <h4 class="phone">+1 605 475 6972</h4>
+              <h4 class="location">EenmaalAndermaal veilingen</h4>
+              <p>Ruitenberglaan 26</p>
+              <p>6826 CC Arnhem</p>
+              <h4 class="phone">(026) 365 82 82</h4>
             </div>
             <div class="small-6 medium-12 columns">
               <h4 class="email">Email</h4>
               <p>Mark.Giesen@han.nl </p>
-
               <h4>Social</h4>
               <div class="social">
                 <ul class="inline-list">
-                  <li><a href="https://twitter.com/VeilingsiteEA"><i class="fi-social-twitter"></i></a></li>
-                  <li><a href="https://github.com/thijs1108/EenmaalAndermaal"><i class="fi-social-github"></i></a></li>
+                  <a href="https://twitter.com/VeilingsiteEA"><i class="fi-social-twitter"></i></a><br>
+                  <a href="https://github.com/thijs1108/EenmaalAndermaal"><i class="fi-social-github"></i></a>
                 </ul>
               </div>
             </div>
           </div>
         </div>
         <div class="medium-6 columns">
-          <p class="form-lead">Let's catch up with some wine and cheese</p>
-          <p class="form-lead-in">and I'll become the story teller for a day</p>
+          <p class="form-lead">Wees geen vreemde!</p>
           <form class="round-inputs">
             <div class="row">
               <div class="large-12 columns">
-                <input type="text" placeholder="Name" />
-              </div>
-              <div class="large-12 columns">
                 <input type="email" placeholder="Email" />
               </div>
-              <div class="large-12 columns">
-                <input type="text" placeholder="Telephone" />
-              </div>
-              <div class="large-12 columns">
-                <textarea placeholder="Say 'what' again. Say 'what' again, I dare you, I double dare you..."></textarea>
-                <a href="#" class="button round">Submit</a>
+            <div class="large-12 columns">
+                <textarea placeholder="Voer hier uw commentaar/vragen/suggesties."></textarea>
+                <a href="#" class="button round">Verzenden</a>
               </div>
             </div>
           </form>
         </div>
       </div>
     </section>
-
 </body>
