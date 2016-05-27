@@ -2,7 +2,11 @@
 <html class="no-js" lang="en" dir="ltr">
 
 <head>
+<<<<<<< HEAD
     <?php include('includes/header.php');?>
+=======
+    <?php include('includes/header.php'); ?>
+>>>>>>> origin/master
 </head>
 
 <body>

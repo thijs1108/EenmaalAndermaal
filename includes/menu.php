@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+
 <div class="off-canvas-wrapper">
     <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
         <!-- off-canvas title bar for 'small' screen -->
