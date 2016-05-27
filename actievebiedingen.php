@@ -29,7 +29,7 @@
                         <div class="large-9 columns">
                             <form method="get" action="<?php echo $_SERVER['REQUEST_URI'] ?>">
                                 <?php
-                                    if(isset($_GET['zoeken']) && !is_null($_GET['zoeken'])){
+                                    if(isset($_GET['zoeken']) && !is_null($_GET['zoeken']) && $_GET['zoeken']!=''){
                                         $zoekterm = $_GET['zoeken'];
                                     }
                                 ?>
