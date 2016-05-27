@@ -1,3 +1,7 @@
+body {
+  background-color: #3F5FB5;
+}
+
 table {
     border: none;
     border-collapse: collapse;
@@ -48,10 +52,6 @@ li .button {
 
 .sublevel-6 {
     text-indent: 6rem;
-}
-
-.background {
-    background-color: #3F5FB5;
 }
 
 .label {
@@ -302,16 +302,17 @@ li .button {
    padding: 0 rem 0; }
    .contact-footer .round-inputs input {
      border-radius: 1000px;
-     background-color: #3F5FB5;
+     background-color: #FFFFFF;
      height: 3.3125rem;
      text-align: center; }
    .contact-footer .round-inputs textarea {
      border-radius: 30px;
-     background-color: #4B3D58;
+     background-color: #FFFFFF;
      height: 8rem;
      text-align: center; }
    .contact-footer h4 {
      color: #e5e5e5;
+     background-color: #3F5FB5;
      font-weight: 100;
      margin-bottom: 0.25rem; }
    .contact-footer h4.phone {
@@ -360,6 +361,7 @@ li .button {
      -webkit-text-stroke-color: #a9a9a9; }
    .contact-footer p {
      color: #a9a9a9;
+     background-color: #3F5FB5;
      font-weight: 100;
      font-size: 0.875rem;
      margin-bottom: 0.2rem;
@@ -396,9 +398,11 @@ li .button {
        margin-bottom: 0.875rem; } }
    .contact-footer .button {
      background: transparent;
+     font-size: 25px;
      border: 2px solid #E87E04;
      color: #a9a9a9; }
      .contact-footer .button:hover {
        background: #E87E04;
+       font-size: 25px;
        border: 2px solid #a9a9a9;
        color: #fff; }

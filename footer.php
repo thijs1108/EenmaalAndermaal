@@ -17,25 +17,23 @@
     <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
     <!-- For Foundation Icons, put this in your head -->
 </head>
-<body>
-    <!-- Footer -->
+  <!-- Footer -->
     <section class="contact-footer">
       <div class="row wide">
         <div class="medium-6 columns">
           <div class="row">
             <div class="small-6 medium-12 columns">
-              <h4 class="location">EenmaalAndermaal veilingen</h4>
+              <h4 class="location"><b>EenmaalAndermaal veilingen</b></h4>
               <p>Ruitenberglaan 26</p>
               <p>6826 CC Arnhem</p>
-              <h4 class="phone">(026) 365 82 82</h4>
+              <h4 class="phone"><b>(026) 365 82 82</b></h4>
             </div>
             <div class="small-6 medium-12 columns">
-              <h4 class="email">Email</h4>
+              <h4 class="email"><b>Email</b></h4>
               <p>Mark.Giesen@han.nl </p>
-              <h4>Social</h4>
-              <div class="social">
+              <div class="social"><h4><b>Social</b></h4>
                 <ul class="inline-list">
-                  <a href="https://twitter.com/VeilingsiteEA"><i class="fi-social-twitter"></i></a><br>
+                  <a href="https://twitter.com/VeilingsiteEA"><i class="fi-social-twitter"></i></a>
                   <a href="https://github.com/thijs1108/EenmaalAndermaal"><i class="fi-social-github"></i></a>
                 </ul>
               </div>
@@ -43,19 +41,19 @@
           </div>
         </div>
         <div class="medium-6 columns">
-          <p class="form-lead">Wees geen vreemde!</p>
-          <form class="round-inputs">
+          <p class="form-lead"><b>Contacteer ons</b></p>
+          <form action="contact_send.php" method="post">
             <div class="row">
               <div class="large-12 columns">
-                <input type="email" placeholder="Email" />
+                <input type="text" name="email" placeholder="email">
               </div>
             <div class="large-12 columns">
-                <textarea placeholder="Voer hier uw commentaar/vragen/suggesties."></textarea>
-                <a href="#" class="button round">Verzenden</a>
-              </div>
+                <textarea class="FormElement" name="message" cols="40" rows="3" maxlength="500"
+                placeholder="Vraag/suggestie/opmerking"></textarea>
+                <input type="submit" value="Versturen" class="button round">
+                </div>
             </div>
           </form>
         </div>
       </div>
     </section>
-</body>
