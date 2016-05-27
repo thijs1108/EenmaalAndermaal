@@ -3,6 +3,7 @@
 
 <head>
     <?php 
+        include('includes/header.php');
         if(isset($_GET['categorie']) && !is_null($_GET['categorie'])){
             $_SESSION['categorie'] = $_GET['categorie'];
         }
@@ -10,14 +11,6 @@
             unset($_SESSION['categorie']);
         }
     ?>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eenmaal Andermaal</title>
-    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="css/foundation.css">
-    <link rel="stylesheet" href="css/app.css">
-    <link rel="stylesheet" type="text/css" href="awesomefont/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -59,6 +52,7 @@
                                 $sql = "SELECT titel,voorwerpnummer, max(Bodbedrag)as maxbedrag, COUNT(Bodbedrag)as geboden,looptijdeindeDag, looptijdeindeTijdstip FROM Voorwerp LEFT OUTER JOIN Bod ON Voorwerp.voorwerpnummer=bod.Voorwerp WHERE titel LIKE '%$zoekterm%' GROUP BY titel,voorwerpnummer, looptijdeindeDag, looptijdeindeTijdstip";
                                 $result = sqlsrv_query($db, $sql);
                             }
+                            
                             else{
                                 $sql = "SELECT titel,voorwerpnummer, max(Bodbedrag)as maxbedrag, COUNT(Bodbedrag)as geboden,looptijdeindeDag, looptijdeindeTijdstip FROM Voorwerp LEFT OUTER JOIN Bod ON Voorwerp.voorwerpnummer=bod.Voorwerp GROUP BY titel,voorwerpnummer, looptijdeindeDag, looptijdeindeTijdstip";
                                 $result = sqlsrv_query($db, $sql);
