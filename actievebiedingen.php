@@ -101,10 +101,13 @@
                                 echo '</div>';
                             }
                             if($count==0){
-                                if (isset($zoekterm)){
+                                if(isset($zoekterm) && isset($categorienaam)){
+                                    echo"Geen resultaten gevonden op de zoekterm: '" . $zoekterm . "' binnen de categorie: '" . $categorienaam . "'";
+                                }
+                                else if (isset($zoekterm)){
                                     echo"Geen resultaten gevonden op de zoekterm: '" . $zoekterm . "'";
                                 }
-                                if (isset($categorienaam)){
+                                else if (isset($categorienaam)){
                                     echo"Geen resultatien binnen de categorie: '" . $categorienaam . "'";
                                 }
                             }
