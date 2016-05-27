@@ -346,29 +346,30 @@
 
     </div>
 
-    <script src="js/vendor/jquery.js"></script>
-    <script src="js/vendor/what-input.js"></script>
-    <script src="js/vendor/foundation.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/jquery.countdown.js"></script>
-    <script>
-        window.jQuery(function($) {
-            "use strict";
+    <?php include 'includes/footer.php';?>
+        <script src="js/vendor/jquery.js"></script>
+        <script src="js/vendor/what-input.js"></script>
+        <script src="js/vendor/foundation.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery.countdown.js"></script>
+        <script>
+            window.jQuery(function($) {
+                "use strict";
 
-            $('time').countDown({
-                with_separators: false
-            });
-            $('.alt-1').countDown({
-                css_class: 'countdown-alt-1'
-            });
-            $('.alt-2').countDown({
-                css_class: 'countdown-alt-2'
+                $('time').countDown({
+                    with_separators: false
+                });
+                $('.alt-1').countDown({
+                    css_class: 'countdown-alt-1'
+                });
+                $('.alt-2').countDown({
+                    css_class: 'countdown-alt-2'
+                });
+
             });
 
-        });
-
-    </script>
+        </script>
 </body>
 
 </html>
