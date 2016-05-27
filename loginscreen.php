@@ -32,6 +32,14 @@
                                         </td>
                                         <td>
                                             <input type="password" name="password" placeholder="Wachtwoord">
+										<?php 
+											if (isset($_GET['fout'])){
+												echo 'Graag gebruikersnaam en wachtwoord invoeren.';
+											} else if (isset($_GET['fout2'])){
+												echo 'Gebruikersnaam en wachtwoord kloppen niet.';
+											}
+											
+										?>
                                         </td>
                                     </tr>
                                 </table>
