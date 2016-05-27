@@ -48,11 +48,30 @@
                             </form>
                             <br/>
                             <?php
-                            if (isset($zoekterm)){
+                            if (isset($zoekterm) && isset($_SESSION['categorie'])){
+                                $categorie = $_SESSION['categorie'];
+                                $sql = "SELECT titel, Voorwerp.voorwerpnummer, max(Bodbedrag)as maxbedrag, COUNT(Bodbedrag)as geboden,looptijdeindeDag, looptijdeindeTijdstip 
+                                        FROM Voorwerp 
+                                        LEFT OUTER JOIN Bod ON Voorwerp.voorwerpnummer=bod.Voorwerp 
+                                        INNER JOIN Voorwerp_in_rubriek ON Voorwerp_in_rubriek.voorwerpnummer = Voorwerp.voorwerpnummer
+                                        WHERE titel LIKE '%$zoekterm%' AND Voorwerp_in_rubriek.RubriekOpLaagsteNiveau = $categorie
+                                        GROUP BY titel, Voorwerp.voorwerpnummer, looptijdeindeDag, looptijdeindeTijdstip";
+                                $result = sqlsrv_query($db, $sql);
+                            }
+                            else if (isset($zoekterm)){
                                 $sql = "SELECT titel,voorwerpnummer, max(Bodbedrag)as maxbedrag, COUNT(Bodbedrag)as geboden,looptijdeindeDag, looptijdeindeTijdstip FROM Voorwerp LEFT OUTER JOIN Bod ON Voorwerp.voorwerpnummer=bod.Voorwerp WHERE titel LIKE '%$zoekterm%' GROUP BY titel,voorwerpnummer, looptijdeindeDag, looptijdeindeTijdstip";
                                 $result = sqlsrv_query($db, $sql);
                             }
-                            
+                            else if (isset($_SESSION['categorie'])){
+                                $categorie = $_SESSION['categorie'];
+                                $sql = "SELECT titel, Voorwerp.voorwerpnummer, max(Bodbedrag)as maxbedrag, COUNT(Bodbedrag)as geboden,looptijdeindeDag, looptijdeindeTijdstip 
+                                        FROM Voorwerp 
+                                        LEFT OUTER JOIN Bod ON Voorwerp.voorwerpnummer=bod.Voorwerp 
+                                        INNER JOIN Voorwerp_in_rubriek ON Voorwerp_in_rubriek.voorwerpnummer = Voorwerp.voorwerpnummer
+                                        WHERE Voorwerp_in_rubriek.RubriekOpLaagsteNiveau = $categorie 
+                                        GROUP BY titel, Voorwerp.voorwerpnummer, looptijdeindeDag, looptijdeindeTijdstip";
+                                $result = sqlsrv_query($db, $sql);
+                            }
                             else{
                                 $sql = "SELECT titel,voorwerpnummer, max(Bodbedrag)as maxbedrag, COUNT(Bodbedrag)as geboden,looptijdeindeDag, looptijdeindeTijdstip FROM Voorwerp LEFT OUTER JOIN Bod ON Voorwerp.voorwerpnummer=bod.Voorwerp GROUP BY titel,voorwerpnummer, looptijdeindeDag, looptijdeindeTijdstip";
                                 $result = sqlsrv_query($db, $sql);
