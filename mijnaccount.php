@@ -2,13 +2,8 @@
 <html class="no-js" lang="en" dir="ltr">
 
 <head>
-<<<<<<< HEAD
     <?php include('includes/header.php');?>
-=======
-    <?php include('includes/header.php'); ?>
->>>>>>> origin/master
 </head>
-
 <body>
     <div class="row">
         <img class="logo" src="Images/Logo_v1.1.png" alt="Logo">
