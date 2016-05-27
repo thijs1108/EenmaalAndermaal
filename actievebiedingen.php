@@ -3,7 +3,6 @@
 
 <head>
     <?php 
-        session_start();
         if(isset($_GET['categorie']) && !is_null($_GET['categorie'])){
             $_SESSION['categorie'] = $_GET['categorie'];
         }

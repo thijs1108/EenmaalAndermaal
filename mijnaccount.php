@@ -84,7 +84,9 @@
                                     ?>
                                 </div>
                                 <div class="large-4 columns">
-                                    <input type="submit" value="Uitloggen" class="uitlogknop">
+                                    <form action='uitloggen.php' method= 'POST'>
+										<input type="submit" value="Uitloggen" class="uitlogknop">
+									</form>
                                 </div>
                             </div>
                             <br/>

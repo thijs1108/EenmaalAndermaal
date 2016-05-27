@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <div class="off-canvas-wrapper">
     <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
         <!-- off-canvas title bar for 'small' screen -->
@@ -20,11 +21,26 @@
                         <div class="menu">Contact</div>
                     </a>
                 </li>
-                <li>
-                    <a href="loginscreen.php">
-                        <div class="menu">Inloggen</div>
-                    </a>
-                </li>
+				
+				<?php 
+				
+				if (isset($_SESSION['username'])) 
+				{
+                echo '<li>';
+                    echo '<a href="mijnaccount.php">';
+                        echo '<div class="menu">Mijn account</div>';
+                    echo '</a>';
+                echo '</li>';
+				
+				} 
+				else  {
+                echo '<li>';
+                    echo '<a href="loginscreen.php">';
+                        echo '<div class="menu">Inloggen</div>';
+                    echo '</a>';
+                echo '</li>';
+				} 
+				?>
             </ul>
         </div>
         
@@ -37,7 +53,15 @@
                     <li class="background">
                         <a href="contact.php" class="button"><div class="menu">Contact</div></a></li>
                     <li class="background">
-                        <a href="loginscreen.php" class="button"><div class="menu">Inloggen</div></a></li>
+					<?PHP if (isset($_SESSION['username'])) 
+						{
+                        echo '<a href="mijnaccount.php" class="button"><div class="menu">Mijn Account</div></a></li>';
+						
+						} 
+						else {
+							echo '<a href="loginscreen.php" class="button"><div class="menu">Inloggen</div></a></li>';
+						}
+				?>
                 </ul>
             </div>
         </div>
