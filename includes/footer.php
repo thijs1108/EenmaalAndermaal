@@ -25,11 +25,11 @@
         <div class="large-12 columns">
             <div class="large-6 columns">
                 <h4><i class="fi-map"></i> <b>EenmaalAndermaal veilingen</b></h4>
-                <p>Ruitenberglaan 26</p>
-                <p>6826 CC Arnhem</p>
+                <p class="white">Ruitenberglaan 26</p>
+                <p class="white">6826 CC Arnhem</p>
                 <h4><i class="fi-telephone"></i> <b>(026) 365 82 82</b></h4>
                 <h4><i class="fi-mail"></i> <b>Email</b></h4>
-                <p>Mark.Giesen@han.nl </p>
+                <p class="white">Mark.Giesen@han.nl </p>
                 <h4><i class="fi-comment-quotes"></i> <b>Social</b></h4>
                 <ul class="inline-list">
                     <div class="social">
@@ -40,7 +40,7 @@
 
             </div>
             <div class="large-6 columns">
-                <p class="form-lead"><b>Contacteer ons</b></p>
+                <p class="form-lead white"><b>Contacteer ons</b></p>
                 <form action="contact_send.php" method="post">
                     <div class="row">
                         <div class="large-12 columns">
