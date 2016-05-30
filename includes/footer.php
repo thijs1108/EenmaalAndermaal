@@ -29,7 +29,7 @@
                 <p>6826 CC Arnhem</p>
                 <h4><i class="fi-telephone"></i> <b>(026) 365 82 82</b></h4>
                 <h4><i class="fi-mail"></i> <b>Email</b></h4>
-                <p>Mark.Giesen@han.nl </p>
+                <p>contact@eenmaalandermaal.com</p>
                 <h4><i class="fi-comment-quotes"></i> <b>Social</b></h4>
                 <ul class="inline-list">
                     <div class="social">
