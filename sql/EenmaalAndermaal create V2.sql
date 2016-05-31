@@ -315,7 +315,7 @@ AS
 BEGIN
 	DECLARE @ID INT
 	SET @ID = (SELECT Voorwerp FROM inserted)
-	IF (SELECT COUNT(*) FROM Voorwerp WHERE Voorwerp.voorwerpnummer=@ID)>4
+	IF (SELECT COUNT(*) FROM Bestand WHERE Bestand.Voorwerp=@ID)>4
 	BEGIN
 		RAISERROR ('…Èn voorwerp mag maximaal vier bestanden hebben',16,1)
 		ROLLBACK
