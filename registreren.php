@@ -68,6 +68,8 @@
                     curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
 
                     $response = curl_exec( $ch );
+                    
+                    header("location: validate.php?username=$username");
                 }
                 else{
                     if( ($errors = sqlsrv_errors() ) != null) {
