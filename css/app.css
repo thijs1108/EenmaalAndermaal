@@ -290,7 +290,7 @@ li .button {
 }
 
 .white {
-    color: #FFFFFF;
+    color: #FFFFFF !important;
 }
 
 .white:hover {

@@ -10,8 +10,24 @@ SELECT ID AS rubrieknummer,
 	ID AS volgnummer
 FROM Categorieen
 
-use iproject21
---selecteer alle onderste rubrieken
-SELECT * FROM Rubriek WHERE rubrieknummer NOT IN (Select rubrieknummer FROM Rubriek where rubrieknummer IN (SELECT parent FROM Rubriek))
+/*
+USE iproject21
+INSERT INTO Voorwerp
+SELECT Titel AS titel,
+	Beschrijving as beschrijving,
+	Prijs AS startprijs,
+	'Bank/Giro' AS betalingswijzenaam,
+	'unset' AS plaatsnaam,
+	Locatie AS landnaam,
+	10 AS looptijd,
+	convert(date,getdate()) AS looptijdbeginDag,
+	convert(time,getdate()) AS looptijdbeginTijdstip,
+	Verkoper AS verkopernaam,
+	'12:00:00.000' AS looptijdeindeTijdstip,
+	0 AS veilingGesloten
+FROM Items
+*/
+
+
 go
 use master

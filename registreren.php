@@ -50,9 +50,28 @@
                 
             }
             else{*/
-                $sql="INSERT INTO Gebruiker VALUES ('$username','$voornaam','$achternaam','$adres', '$postcode', '$plaats','$land','$datumfix', '$email', '$wachtwoord',$vraag,'$antwoord',0)";
+                $sql="INSERT INTO Gebruiker VALUES ('$username','$voornaam','$achternaam','$adres', '$postcode', '$plaats','$land','$datumfix', '$email', '$wachtwoord',$vraag,'$antwoord',0,0)";
                 if(sqlsrv_query($db,$sql)){
+                    
+                    $code = rand(0, 9999999);
+                    $valid_on= date("Y-m-d");
+                    $sql= "INSERT INTO Email_validatie VALUES ('$email','$code','$valid_on')";
+                    sqlsrv_query($db,$sql);
+                    
+                    $url = 'http://iproject21.icasites.nl/includes/sendmail.php';
+                    $body= 'U heeft u geregistreerd op de website van EenmaalAndermaal, uw persoonlijke code is: '.$code.'     <br>U kunt ook klikken op: http://iproject21.icasites.nl/validate.php';
+                    $body.= '?username='.$username.'&code='.$code;
+                    $data = 'to=' . $email . '&subject=Uw%20Code&body='.$body;
+                    $ch = curl_init( $url );
+                    curl_setopt( $ch, CURLOPT_POST, 1);
+                    curl_setopt( $ch, CURLOPT_POSTFIELDS, $data);
+                    curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, 1);
+                    curl_setopt( $ch, CURLOPT_HEADER, 0);
+                    curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
 
+                    $response = curl_exec( $ch );
+                    
+                    header("location: validate.php?username=$username");
                 }
                 else{
                     if( ($errors = sqlsrv_errors() ) != null) {

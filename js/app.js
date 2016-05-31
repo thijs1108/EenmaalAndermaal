@@ -305,9 +305,9 @@ function check_total_valid(){
     }
     console.log(total);
     if(total>11){
-        $('input[type="submit"]').prop('disabled', false);
+        $('#submitregister').prop('disabled', false);
     }
     else{
-        $('input[type="submit"]').prop('disabled', true);
+        $('#submitregister').prop('disabled', true);
     }
 }

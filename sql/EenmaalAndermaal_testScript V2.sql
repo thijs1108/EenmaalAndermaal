@@ -7,8 +7,8 @@ INSERT INTO Vraag VALUES (3,'Wat is de meisjesnaam je moeder?')
 INSERT INTO Vraag VALUES (4,'Wat is je lievelingsgerecht?')
 INSERT INTO Vraag VALUES (5,'Waar bent u geboren?')
 
-INSERT INTO Gebruiker VALUES ('JanPiet','Jan','Piet','Test van de groot straat 12', '1478 DF', 'Steenderen','Nederland','1999-10-20', 'test@beuzelbeuzel.com', '12345989',5,'Ik ben geboren hier',1)
-INSERT INTO Gebruiker VALUES ('Henk','Henk','de tweede','De klein straat 12', '1478 DF', 'Steenderen','Nederland','1999-10-20', 'test@beuzelbeuzel.com', '12345989',1,'Bij de albert heijn',0)
+INSERT INTO Gebruiker VALUES ('JanPiet','Jan','Piet','Test van de groot straat 12', '1478 DF', 'Steenderen','Nederland','1999-10-20', 'test@beuzelbeuzel.com', '12345989',5,'Ik ben geboren hier',1,1)
+INSERT INTO Gebruiker VALUES ('Henk','Henk','de tweede','De klein straat 12', '1478 DF', 'Steenderen','Nederland','1999-10-20', 'test@beuzelbeuzel.com', '12345989',1,'Bij de albert heijn',0,1)
 
 
 
@@ -43,6 +43,7 @@ INSERT INTO Bestand VALUES ('hoi1.jpg',1);
 INSERT INTO Bestand VALUES ('hoi2.jpg',1);
 INSERT INTO Bestand VALUES ('hoi3.jpg',1);
 INSERT INTO Bestand VALUES ('hoi4.jpg',1);
+INSERT INTO Bestand VALUES ('hoi5.jpg',2);
 /*
 SELECT * FROM Gebruiker LEFT OUTER JOIN Vraag ON Vraag= vraagnummer
 SELECT * FROM Voorwerp LEFT OUTER JOIN Bod on Voorwerp.voorwerpnummer= Bod.Voorwerp WHERE voorwerpnummer =1
