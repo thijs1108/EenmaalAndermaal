@@ -19,6 +19,8 @@ GO
 /*=======================================*/
 
 
+IF EXISTS ( SELECT [name] FROM sys.tables WHERE [name] = 'Email_validatie' )
+	DROP TABLE Email_validatie
 IF EXISTS ( SELECT [name] FROM sys.tables WHERE [name] = 'Gebruikerstelefoon' )
 	DROP TABLE Gebruikerstelefoon
 IF EXISTS ( SELECT [name] FROM sys.tables WHERE [name] = 'Bod' )
@@ -85,6 +87,15 @@ tied to the primary key of a parent table. Logically, we should never have a for
 value that does not have a corresponding primary key value.*/
 
 Go
+CREATE TABLE Email_validatie (
+	email					VARCHAR(50)		NOT NULL,
+	code					VARCHAR(50)		NOT NULL,
+	valid_on				DATE			NOT NULL,
+	CONSTRAINT PK_Email_validatie
+	PRIMARY KEY (email,code,valid_on)
+)
+
+Go
 CREATE TABLE Gebruiker (
 	gebruikersnaam			VARCHAR(50)		NOT NULL,
 	voornaam				VARCHAR(50)		NOT NULL,
@@ -99,6 +110,7 @@ CREATE TABLE Gebruiker (
 	Vraag					TINYINT			NOT NULL,
 	antwoordtekst			VARCHAR(255)	NOT NULL,
 	Verkoper				BIT				NOT NULL,
+	Valid					BIT				NOT NULL,
 	CONSTRAINT PK_Gebruiker_gebruikersnaam 
 	PRIMARY KEY(gebruikersnaam)
 	
@@ -108,7 +120,7 @@ CREATE TABLE Gebruiker (
 CREATE TABLE Voorwerp (
 	voorwerpnummer			NUMERIC(10) IDENTITY(1,1)	NOT NULL,
 	titel					VARCHAR(50)					NOT NULL,
-	beschrijving			VARCHAR(500)				NOT NULL,
+	beschrijving			VARCHAR(5000)				NOT NULL,
 	startprijs				NUMERIC(8,2)				NOT NULL,
 	betalingswijzenaam		VARCHAR(10)					NOT NULL,
 	betalingsinstructie		VARCHAR(30)					NULL,
@@ -239,7 +251,7 @@ ALTER TABLE Gebruikerstelefoon ADD
 	ON DELETE CASCADE
 
 ALTER TABLE Rubriek ADD
-	CONSTRAINT FK_Rubriek_rubriek_rubrieknummer FOREIGN KEY (Rubriek)
+	CONSTRAINT FK_Rubriek_rubriek_rubrieknummer FOREIGN KEY (parent)
 	REFERENCES Rubriek(rubrieknummer)
 	ON UPDATE NO ACTION
 	ON DELETE NO ACTION

@@ -7,8 +7,8 @@ INSERT INTO Vraag VALUES (3,'Wat is de meisjesnaam je moeder?')
 INSERT INTO Vraag VALUES (4,'Wat is je lievelingsgerecht?')
 INSERT INTO Vraag VALUES (5,'Waar bent u geboren?')
 
-INSERT INTO Gebruiker VALUES ('JanPiet','Jan','Piet','Test van de groot straat 12', '1478 DF', 'Steenderen','Nederland','1999-10-20', 'test@beuzelbeuzel.com', '12345989',5,'Ik ben geboren hier',1)
-INSERT INTO Gebruiker VALUES ('Henk','Henk','de tweede','De klein straat 12', '1478 DF', 'Steenderen','Nederland','1999-10-20', 'test@beuzelbeuzel.com', '12345989',1,'Bij de albert heijn',0)
+INSERT INTO Gebruiker VALUES ('JanPiet','Jan','Piet','Test van de groot straat 12', '1478 DF', 'Steenderen','Nederland','1999-10-20', 'test@beuzelbeuzel.com', '12345989',5,'Ik ben geboren hier',1,1)
+INSERT INTO Gebruiker VALUES ('Henk','Henk','de tweede','De klein straat 12', '1478 DF', 'Steenderen','Nederland','1999-10-20', 'test@beuzelbeuzel.com', '12345989',1,'Bij de albert heijn',0,1)
 
 
 

@@ -50,9 +50,24 @@
                 
             }
             else{*/
-                $sql="INSERT INTO Gebruiker VALUES ('$username','$voornaam','$achternaam','$adres', '$postcode', '$plaats','$land','$datumfix', '$email', '$wachtwoord',$vraag,'$antwoord',0)";
+                $sql="INSERT INTO Gebruiker VALUES ('$username','$voornaam','$achternaam','$adres', '$postcode', '$plaats','$land','$datumfix', '$email', '$wachtwoord',$vraag,'$antwoord',0,0)";
                 if(sqlsrv_query($db,$sql)){
+                    
+                    $code = rand(0, 9999999);
+                    $valid_on= date("Y-m-d");
+                    $sql= "INSERT INTO Email_validatie VALUES ('$email','$code','$valid_on')";
+                    sqlsrv_query($db,$sql);
+                    
+                    $url = 'http://iproject21.icasites.nl/includes/sendmail.php';
+                    $data = 'to=' . $email . '&subject=Uw%20Code&body='.$code;
+                    $ch = curl_init( $url );
+                    curl_setopt( $ch, CURLOPT_POST, 1);
+                    curl_setopt( $ch, CURLOPT_POSTFIELDS, $data);
+                    curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, 1);
+                    curl_setopt( $ch, CURLOPT_HEADER, 0);
+                    curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
 
+                    $response = curl_exec( $ch );
                 }
                 else{
                     if( ($errors = sqlsrv_errors() ) != null) {
