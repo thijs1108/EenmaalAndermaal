@@ -43,6 +43,7 @@ INSERT INTO Bestand VALUES ('hoi1.jpg',1);
 INSERT INTO Bestand VALUES ('hoi2.jpg',1);
 INSERT INTO Bestand VALUES ('hoi3.jpg',1);
 INSERT INTO Bestand VALUES ('hoi4.jpg',1);
+INSERT INTO Bestand VALUES ('hoi5.jpg',2);
 /*
 SELECT * FROM Gebruiker LEFT OUTER JOIN Vraag ON Vraag= vraagnummer
 SELECT * FROM Voorwerp LEFT OUTER JOIN Bod on Voorwerp.voorwerpnummer= Bod.Voorwerp WHERE voorwerpnummer =1

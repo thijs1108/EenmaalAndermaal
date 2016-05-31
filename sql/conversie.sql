@@ -10,6 +10,7 @@ SELECT ID AS rubrieknummer,
 	ID AS volgnummer
 FROM Categorieen
 
+/*
 USE iproject21
 INSERT INTO Voorwerp
 SELECT Titel AS titel,
@@ -25,7 +26,7 @@ SELECT Titel AS titel,
 	'12:00:00.000' AS looptijdeindeTijdstip,
 	0 AS veilingGesloten
 FROM Items
-
+*/
 
 
 go
