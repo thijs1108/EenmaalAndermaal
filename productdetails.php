@@ -170,30 +170,19 @@
                                             <div style="position:absolute;display:block;background:url('Images/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
                                         </div>
                                         <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 500px; height: 300px; overflow: hidden;">
-                                            <div data-p="112.50" style="display: none;">
-                                                <?php echo'<a href="productpictures.php?id='.$record['voorwerpnummer'].'" >';
-                                                 echo '<img src="voorwerpen/bieding_'.$record['voorwerpnummer'].'_01.png" alt="'.$record['titel'].'" class="prdimg">'."<br>";
-                                                echo '</a>';
-                                                ?>
-                                            </div>
-                                            <div data-p="112.50" style="display: none;">
-                                                <?php echo'<a href="productpictures.php?id='.$record['voorwerpnummer'].'" >';
-                                                echo '<img src="Images/02.jpg">';
-                                                echo '</a>';
-                                                ?>
-                                            </div>
-                                            <div data-p="112.50" style="display: none;">
-                                                <?php echo'<a href="productpictures.php?id='.$record['voorwerpnummer'].'" >';
-                                                echo '<img src="Images/05.jpg">';
-                                                echo '</a>';
-                                                ?>
-                                            </div>
-                                            <div data-p="112.50" style="display: none;">
-                                                <?php echo'<a href="productpictures.php?id='.$record['voorwerpnummer'].'" >';
-                                                echo '<img src="Images/09.jpg">';
-                                                echo '</a>';
-                                                ?>
-                                            </div>
+                                            <?php
+                                            $img = "SELECT * FROM Bestand WHERE Voorwerp =".$record['voorwerpnummer'];
+                                            $plaatje = sqlsrv_query($db, $img);
+                                            while($afbeelding=sqlsrv_fetch_array($plaatje))
+                                            {
+                                            echo '<div data-p="112.50" style="display: none;">';
+                                                //echo'<a href="productpictures.php?id='.$record['voorwerpnummer'].'" >';
+                                                 echo '<img src="'.$afbeelding['filenaam'].'" alt="'.$record['titel'].'" class="prdimg">'."<br>";
+                                                //echo '</a>';
+                                            echo '</div>';
+                                            }
+                                            
+                                            ?>
                                             <a data-u="ad" href="http://www.jssor.com" style="display:none">jQuery Slider</a>
 
                                         </div>

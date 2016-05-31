@@ -12,7 +12,15 @@ echo "<h3>Hot items!</h3>";
         echo '<a href="productdetails.php?id='.$record['voorwerpnummer'].'" >';
         echo '<div class="product">';
         $_POST['id'] = $record['voorwerpnummer'];
-        echo '<img src="voorwerpen/bieding_'.$record['voorwerpnummer'].'_01.png" alt="'.$record['titel'].'" class="prdimg">'."<br>";
+        $img = "SELECT TOP 1 * FROM Bestand WHERE Voorwerp =".$record['voorwerpnummer'];
+        $plaatje = sqlsrv_query($db, $img);
+        $afbeelding=sqlsrv_fetch_array($plaatje);
+        if($afbeelding==true){
+            echo '<img src="'.$afbeelding['filenaam'].'" alt="'.$record['titel'].'" class="prdimg">'."<br>";
+        }
+        else {
+            echo '<img src="Images/placeholder_product.png" alt="'.$record['titel'].'" class="prdimg">'."<br>";   
+        }
         echo '<b>'.$record['titel'].'</b>';
         echo '<br/>';
         echo 'Hoogste bod: € '.number_format($record['maxbedrag'],2);
