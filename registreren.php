@@ -59,7 +59,9 @@
                     sqlsrv_query($db,$sql);
                     
                     $url = 'http://iproject21.icasites.nl/includes/sendmail.php';
-                    $data = 'to=' . $email . '&subject=Uw%20Code&body='.$code;
+                    $body= 'U heeft u geregistreerd op de website van EenmaalAndermaal, uw persoonlijke code is: '.$code.'     <br>U kunt ook klikken op: http://iproject21.icasites.nl/validate.php';
+                    $body.= '?username='.$username.'&code='.$code;
+                    $data = 'to=' . $email . '&subject=Uw%20Code&body='.$body;
                     $ch = curl_init( $url );
                     curl_setopt( $ch, CURLOPT_POST, 1);
                     curl_setopt( $ch, CURLOPT_POSTFIELDS, $data);
