@@ -24,13 +24,13 @@
     <section class="contact-footer">
         <div class="large-12 columns">
             <div class="large-6 columns">
-                <h4><i class="fi-map"></i> <b>EenmaalAndermaal veilingen</b></h4>
+                <h4 class="white"><i class="fi-map"></i> <b>EenmaalAndermaal veilingen</b></h4>
                 <p class="white">Ruitenberglaan 26</p>
                 <p class="white">6826 CC Arnhem</p>
-                <h4><i class="fi-telephone"></i> <b>(026) 365 82 82</b></h4>
-                <h4><i class="fi-mail"></i> <b>Email</b></h4>
-                <p class="white">Mark.Giesen@han.nl </p>
-                <h4><i class="fi-comment-quotes"></i> <b>Social</b></h4>
+                <h4 class="white"><i class="fi-telephone"></i> <b>(026) 365 82 82</b></h4>
+                <h4 class="white"><i class="fi-mail"></i> <b>Email</b></h4>
+                <p class="white">contact@eenmaalandermaal.com </p>
+                <h4 class="white"><i class="fi-comment-quotes"></i> <b>Social</b></h4>
                 <ul class="inline-list">
                     <div class="social">
                         <a href="https://twitter.com/VeilingsiteEA"><i class="fi-social-twitter"></i></a>
