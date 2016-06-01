@@ -310,11 +310,9 @@
                                                         echo '<td>';
                                                         echo '€ '.number_format($record['Bodbedrag'],2);
                                                         echo '</td>';
-                                                        echo '<td>';
-                                                        echo date_format($record['BodDag'], 'd-m-Y');
-                                                        echo '</td>';
-                                                        echo '<td>';
-                                                        echo date_format($record['BodTijdstip'], 'H:i:s');
+                                                        $date = date_format($record['looptijdeindeDag'], 'Y-m-d');
+                                                        $time = date_format($record['looptijdeindeTijdstip'], 'H:i:s');
+                                                        echo '<div class="alt-2 right">'.$date.' '.$time.'</div>';
                                                         echo '</td>';
                                                         echo '</tr>';
                                                         echo '</div>';
@@ -343,22 +341,17 @@
         <script src="js/jquery.min.js"></script>
         <script src="js/jquery.countdown.js"></script>
         <script>
-            window.jQuery(function($) {
-                "use strict";
+        window.jQuery(function ($) {
+            "use strict";
 
-                $('time').countDown({
-                    with_separators: false
-                });
-                $('.alt-1').countDown({
-                    css_class: 'countdown-alt-1'
-                });
-                $('.alt-2').countDown({
-                    css_class: 'countdown-alt-2'
-                });
-
+            $('.alt-2').countDown({
+                css_class: 'countdown-alt-2'
+            }).on('time.elapsed',function(event) {
+                $(this).parent().parent().remove();
             });
 
-        </script>
+        });
+    </script>
 </body>
 
 </html>

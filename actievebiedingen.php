@@ -150,14 +150,10 @@
         window.jQuery(function ($) {
             "use strict";
 
-            $('time').countDown({
-                with_separators: false
-            });
-            $('.alt-1').countDown({
-                css_class: 'countdown-alt-1'
-            });
             $('.alt-2').countDown({
                 css_class: 'countdown-alt-2'
+            }).on('time.elapsed',function(event) {
+                $(this).parent().parent().remove();
             });
 
         });
