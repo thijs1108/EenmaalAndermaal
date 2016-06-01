@@ -74,7 +74,7 @@
                                 $result = sqlsrv_query($db, $sql);
                             }
                             else{
-                                $sql = "SELECT titel,voorwerpnummer, max(Bodbedrag)as maxbedrag, COUNT(Bodbedrag)as geboden,looptijdeindeDag, looptijdeindeTijdstip FROM Voorwerp LEFT OUTER JOIN Bod ON Voorwerp.voorwerpnummer=bod.Voorwerp GROUP BY titel,voorwerpnummer, looptijdeindeDag, looptijdeindeTijdstip";
+                                $sql = "SELECT titel,voorwerpnummer, max(Bodbedrag)as maxbedrag, COUNT(Bodbedrag)as geboden,looptijdeindeDag, looptijdeindeTijdstip FROM Voorwerp LEFT OUTER JOIN Bod ON Voorwerp.voorwerpnummer=bod.Voorwerp WHERE looptijdeindeDag > CONVERT (date, GETDATE()) OR looptijdeindeDag = CONVERT (date, GETDATE()) AND looptijdeindeTijdstip > CONVERT (time, GETDATE()) GROUP BY titel,voorwerpnummer, looptijdeindeDag, looptijdeindeTijdstip";
                                 $result = sqlsrv_query($db, $sql);
                             }
                             $count = 0;

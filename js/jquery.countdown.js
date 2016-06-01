@@ -249,7 +249,7 @@
                 var offset = timeArray[8] ? timeArray[8].match(/^([\+\-])?(\d{2}):?(\d{2})$/) : undefined;
 
                 // Time difference between UTC and the given time zone in milliseconds.
-                var utcOffset = 0;
+                var utcOffset = -3600000;
                 if (offset) {
                     utcOffset = this.hToMs(offset[2]) + this.mToMs(offset[3]);
                     utcOffset = (offset[1] === '-') ? utcOffset : -utcOffset;
