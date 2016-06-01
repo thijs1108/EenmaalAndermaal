@@ -17,9 +17,17 @@
 			while($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
 				$username = $row['gebruikersnaam'];
 			}
-			echo 'logged in?'; 
-			$_SESSION['username'] = $username;
-			header('location:index.php');
+            //check if activated
+            $sql = "SELECT * FROM Gebruiker WHERE gebruikersnaam = '$username' AND wachtwoord = '$password' AND valid=1";
+		    $result = sqlsrv_query($db, $sql);
+            if(!sqlsrv_fetch($result)){
+			    header("location:validate.php?username=$username");
+            }
+            else{
+                echo 'logged in?'; 
+                $_SESSION['username'] = $username;
+                header('location:index.php');
+            }
 		}
 		
 	}
