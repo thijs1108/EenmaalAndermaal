@@ -212,7 +212,7 @@
                                 echo 'Tijd tot sluiting:';
                                 $date = date_format($record['looptijdeindeDag'], 'Y-m-d');
                                 $time = date_format($record['looptijdeindeTijdstip'], 'H:i:s');
-                                echo '<div class="alt-2 right">'.$date.' '.$time.'</div>';
+                                echo '<div class="alt-3 right">'.$date.' '.$time.'</div>';
                         
                                 echo '<br/>';
                                 echo 'Aanbieder:<a href="aanbiederdetails.php?id='.$record['verkopernaam'].'" class="clicklink" >'.$record['verkopernaam'].'</a>';
@@ -310,9 +310,11 @@
                                                         echo '<td>';
                                                         echo '€ '.number_format($record['Bodbedrag'],2);
                                                         echo '</td>';
-                                                        $date = date_format($record['looptijdeindeDag'], 'Y-m-d');
-                                                        $time = date_format($record['looptijdeindeTijdstip'], 'H:i:s');
-                                                        echo '<div class="alt-2 right">'.$date.' '.$time.'</div>';
+                                                        echo '<td>';
+                                                        echo date_format($record['BodDag'], 'd-m-Y');
+                                                        echo '</td>';
+                                                        echo '<td>';
+                                                        echo date_format($record['BodTijdstip'], 'H:i:s');
                                                         echo '</td>';
                                                         echo '</tr>';
                                                         echo '</div>';
@@ -344,10 +346,11 @@
         window.jQuery(function ($) {
             "use strict";
 
-            $('.alt-2').countDown({
+            $('.alt-3').countDown({
                 css_class: 'countdown-alt-2'
             }).on('time.elapsed',function(event) {
-                $(this).parent().parent().remove();
+                $(this).html('GESLOTEN!');
+                $('.biedenknop').disabled=true;
             });
 
         });

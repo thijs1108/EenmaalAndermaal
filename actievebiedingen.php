@@ -150,11 +150,11 @@
         window.jQuery(function ($) {
             "use strict";
 
-            $('.alt-2').countDown({
+            /*$('.alt-2').countDown({
                 css_class: 'countdown-alt-2'
             }).on('time.elapsed',function(event) {
                 $(this).parent().parent().remove();
-            });
+            });*/
 
         });
     </script>
