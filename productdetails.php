@@ -255,9 +255,9 @@
                                         <br/>
                                 </div>
                                 <div class="large-2 columns">
-                                    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                                    <form method="post" action="<?php echo 'plaatsbod.php?id='.$record['voorwerpnummer']; ?>">
                                         <div class="bieden">
-                                            <input type="text" name="bod" value="" placeholder="€<?php echo number_format($record['maxbedrag'],2);?>">
+                                            <input type="text" name="bieding" value="" placeholder="€<?php echo number_format($record['maxbedrag'],2);?>">
                                             <input type="submit" value="Plaats bod" class="biedenknop">
                                         </div>
                                     </form>

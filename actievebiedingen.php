@@ -104,7 +104,7 @@
                                 echo 'Tijd tot sluiting:';
                                 $date = date_format($record['looptijdeindeDag'], 'Y-m-d');
                                 $time = date_format($record['looptijdeindeTijdstip'], 'H:i:s');
-                                echo '<div class="alt-2 right">'.$date.' '.$time.'</div>';
+                                echo '<div class="alt-3 right">'.$date.' '.$time.'</div>';
                                 echo '</div>';
                                 echo '</a>';
                                 echo '</div>';
@@ -150,11 +150,12 @@
         window.jQuery(function ($) {
             "use strict";
 
-            /*$('.alt-2').countDown({
+            $('.alt-3').countDown({
                 css_class: 'countdown-alt-2'
             }).on('time.elapsed',function(event) {
-                $(this).parent().parent().remove();
-            });*/
+                $(this).html('GESLOTEN!');
+                $('.biedenknop').disabled=true;
+            });
 
         });
     </script>
