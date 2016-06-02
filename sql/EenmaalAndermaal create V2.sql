@@ -329,49 +329,53 @@ CREATE TRIGGER Minimaal_verhoging_bod ON Bod
 FOR INSERT, UPDATE
 AS 
 BEGIN
-	DECLARE @nieuw_bod NUMERIC(8,2);
+	DECLARE @ID INT
+	SET @ID = (SELECT Voorwerp FROM inserted)
+	DECLARE @BodBedrag NUMERIC(8,2)
+	SET @BodBedrag = (SELECT BodBedrag FROM inserted)
+	PRINT @BodBedrag
 	DECLARE @vorig_bod NUMERIC(8,2);
-	SET @nieuw_bod = (SELECT MAX(BodBedrag) FROM Bod WHERE Bod.Voorwerp = Voorwerp)
-	SET @vorig_bod = (SELECT TOP 1 Bodbedrag FROM Bod WHERE Bodbedrag NOT IN (SELECT TOP 1 Bodbedrag FROM Bod ORDER BY Bodbedrag DESC) ORDER BY Bodbedrag DESC);
+	SET @vorig_bod = (SELECT TOP 1 Bodbedrag FROM Bod WHERE Bodbedrag NOT IN (SELECT TOP 1 Bodbedrag FROM Bod WHERE Bod.Voorwerp = @ID ORDER BY Bodbedrag DESC) AND Bod.Voorwerp = @ID ORDER BY Bodbedrag DESC);
+	PRINT @vorig_bod
 	IF @vorig_bod>0.0
 	BEGIN
-		IF @nieuw_bod>0.99 AND @nieuw_bod > @vorig_bod --bigger than one and not first bid
+		IF @BodBedrag>0.99 AND @BodBedrag > @vorig_bod --bigger than one and not first bid
 		BEGIN
-			IF (SELECT MAX(Bodbedrag) FROM Bod)>0.99 AND (SELECT MAX(Bodbedrag) FROM bod)<50
+			IF @BodBedrag >0.99 AND @BodBedrag <50
 			BEGIN
-				IF @nieuw_bod-@vorig_bod<0.50
+				IF @BodBedrag-@vorig_bod<0.50
 				BEGIN
 					RAISERROR ('Een bod tussen 1 en 50 Euro moet met minimaal 50 eurocent worden verhoogd',16,1);
 					ROLLBACK
 				END		
 			END
-			IF (SELECT MAX(Bodbedrag) FROM Bod)>49.99 AND (SELECT MAX(Bodbedrag) FROM bod)<500
+			IF @BodBedrag>49.99 AND @BodBedrag<500
 			BEGIN
-				IF @nieuw_bod-@vorig_bod<1.00
+				IF @BodBedrag-@vorig_bod<1.00
 				BEGIN
 					RAISERROR ('Een bod tussen 50 en 500 Euro moet met minimaal 1 euro worden verhoogd',16,1);
 					ROLLBACK
 				END		
 			END
-			IF (SELECT MAX(Bodbedrag) FROM Bod)>499.99 AND (SELECT MAX(Bodbedrag) FROM bod)<1000
+			IF @BodBedrag>499.99 AND @BodBedrag<1000
 			BEGIN
-				IF @nieuw_bod-@vorig_bod<5.00
+				IF @BodBedrag-@vorig_bod<5.00
 				BEGIN
 					RAISERROR ('Een bod tussen 500 en 1000 Euro moet met minimaal 5 euro worden verhoogd',16,1);
 					ROLLBACK
 				END		
 			END
-			IF (SELECT MAX(Bodbedrag) FROM Bod)>999.99 AND (SELECT MAX(Bodbedrag) FROM bod)<5000
+			IF @BodBedrag>999.99 AND @BodBedrag<5000
 			BEGIN
-				IF @nieuw_bod-@vorig_bod<10.00
+				IF @BodBedrag-@vorig_bod<10.00
 				BEGIN
 					RAISERROR ('Een bod tussen 1000 en 5000 Euro moet met minimaal 10 euro worden verhoogd',16,1);
 					ROLLBACK
 				END		
 			END
-			IF (SELECT MAX(Bodbedrag) FROM Bod)>5000
+			IF @BodBedrag>5000
 			BEGIN
-				IF @nieuw_bod-@vorig_bod<50.00
+				IF @BodBedrag-@vorig_bod<50.00
 				BEGIN
 					RAISERROR ('Een bod vanaf 5000 Euro moet met minimaal 50 euro worden verhoogd',16,1);
 					ROLLBACK
