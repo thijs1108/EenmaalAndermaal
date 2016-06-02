@@ -5,10 +5,9 @@
     $bedrag = $_POST['bieding'];
     if(!isset($_SESSION['username']))
     {
-        echo 'session is not set';
-        $_SESSION['username']='';
+        
     }
-    else
+    else if (isset($_SESSION['username']))
     {
         echo 'session is set';
         $username = $_SESSION['username'];
@@ -21,12 +20,11 @@
     
     //er moet ingelogd zijn om te kunnen bestellen
     if($username == false)
-    {        
-        header('Location:productdetails.php?id='.$id);
+    {   
+        header('Location:loginscreen.php?fout3');
     }
     else if($username == true)
     {
-        
         $sql = "INSERT bod values ('$id','$bedrag','$username','$date','$time')";   
         sqlsrv_query($db, $sql);
         header('Location:productdetails.php?id='.$id);

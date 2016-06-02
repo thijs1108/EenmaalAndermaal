@@ -38,6 +38,9 @@
 											} else if (isset($_GET['fout2'])){
 												echo 'Gebruikersnaam en wachtwoord kloppen niet.';
 											}
+                                            else if (isset($_GET['fout3'])){
+                                                echo 'U moet inloggen om een bieding te plaatsen.';
+                                            }
 											
 										?>
                                         </td>
