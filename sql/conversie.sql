@@ -14,9 +14,10 @@ FROM Categorieen
 
 USE iproject21
 SELECT * FROM Voorwerp
-INSERT INTO Voorwerp
-SELECT Titel AS titel,
-	Beschrijving as beschrijving,
+SELECT * FROM  Items
+INSERT INTO Voorwerp (titel,beschrijving,startprijs,betalingswijzenaam,plaatsnaam,landnaam,looptijd,looptijdbeginDag,looptijdbeginTijdstip,verkopernaam,looptijdeindeTijdstip,veilingGesloten)
+SELECT SUBSTRING(Titel,0,199) AS titel,
+	SUBSTRING(Beschrijving,0,4999) as beschrijving,
 	Prijs AS startprijs,
 	'Bank/Giro' AS betalingswijzenaam,
 	'unset' AS plaatsnaam,
