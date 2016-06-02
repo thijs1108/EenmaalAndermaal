@@ -10,8 +10,10 @@ SELECT ID AS rubrieknummer,
 	ID AS volgnummer
 FROM Categorieen
 
-/*
+
+
 USE iproject21
+SELECT * FROM Voorwerp
 INSERT INTO Voorwerp
 SELECT Titel AS titel,
 	Beschrijving as beschrijving,
@@ -22,11 +24,12 @@ SELECT Titel AS titel,
 	10 AS looptijd,
 	convert(date,getdate()) AS looptijdbeginDag,
 	convert(time,getdate()) AS looptijdbeginTijdstip,
-	Verkoper AS verkopernaam,
+	'Anton Mijnders' AS verkopernaam,
 	'12:00:00.000' AS looptijdeindeTijdstip,
 	0 AS veilingGesloten
 FROM Items
-*/
+use master
+
 
 
 go

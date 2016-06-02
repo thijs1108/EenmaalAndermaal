@@ -9,9 +9,10 @@ INSERT INTO Vraag VALUES (5,'Waar bent u geboren?')
 
 INSERT INTO Gebruiker VALUES ('JanPiet','Jan','Piet','Test van de groot straat 12', '1478 DF', 'Steenderen','Nederland','1999-10-20', 'test@beuzelbeuzel.com', '12345989',5,'Ik ben geboren hier',1,1)
 INSERT INTO Gebruiker VALUES ('Henk','Henk','de tweede','De klein straat 12', '1478 DF', 'Steenderen','Nederland','1999-10-20', 'test@beuzelbeuzel.com', '12345989',1,'Bij de albert heijn',0,1)
+INSERT INTO Gebruiker VALUES ('Anton Mijnders','Anton','Mijnders','De klein straat 12', '1478 DF', 'Steenderen','Nederland','1999-10-20', 'test@beuzelbeuzel.com', '12345989',1,'Bij de albert heijn',0,1)
 
 
-
+INSERT INTO Verkoper VALUES ('Anton Mijnders','ING','NLINGB00012345678','Post',NULL)
 INSERT INTO Verkoper VALUES ('JanPiet','ING','NLINGB00012345678','Post',NULL)
 
 
@@ -37,7 +38,10 @@ INSERT INTO Bod VALUES (1,1.99,'Henk','2016-05-13','09:05:16.123')
 INSERT INTO Bod VALUES (1,2.99,'Henk','2016-05-13','09:19:45.452')
 INSERT INTO Bod VALUES (1,5.99,'Henk','2016-05-13','09:31:22.332')
 INSERT INTO Bod VALUES (1,7.99,'Henk','2016-05-13','09:40:54.775')
-INSERT INTO Bod VALUES (1,9.99,'Henk','2016-05-13','09:54:12.788')
+INSERT INTO Bod VALUES (2,8.99,'Henk','2016-05-13','09:40:54.775')
+INSERT INTO Bod VALUES (2,11.99,'Henk','2016-05-13','09:40:54.775')
+INSERT INTO Bod VALUES (1,13.99,'Henk','2016-05-13','09:40:54.775')
+INSERT INTO Bod VALUES (2,15.99,'Henk','2016-05-13','09:54:12.788')
 
 INSERT INTO Bestand VALUES ('hoi1.jpg',1);
 INSERT INTO Bestand VALUES ('hoi2.jpg',1);

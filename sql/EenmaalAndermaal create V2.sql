@@ -119,8 +119,8 @@ CREATE TABLE Gebruiker (
 
 CREATE TABLE Voorwerp (
 	voorwerpnummer			NUMERIC(10) IDENTITY(1,1)	NOT NULL,
-	titel					VARCHAR(50)					NOT NULL,
-	beschrijving			VARCHAR(5000)				NOT NULL,
+	titel					TEXT						NOT NULL,
+	beschrijving			TEXT						NOT NULL,
 	startprijs				NUMERIC(8,2)				NOT NULL,
 	betalingswijzenaam		VARCHAR(10)					NOT NULL,
 	betalingsinstructie		VARCHAR(30)					NULL,
@@ -187,7 +187,6 @@ CREATE TABLE Bod (
 	BodTijdstip				TIME		 NOT NULL,
 	CONSTRAINT PK_Bod_Voorwerp_Bodbedrag 
 	PRIMARY KEY (Voorwerp,Bodbedrag),
-	CONSTRAINT CHK_Bod_hoger CHECK (dbo.GroterDanBod(Bodbedrag)=1)
 );
 
 CREATE TABLE Gebruikerstelefoon (
@@ -333,10 +332,8 @@ BEGIN
 	SET @ID = (SELECT Voorwerp FROM inserted)
 	DECLARE @BodBedrag NUMERIC(8,2)
 	SET @BodBedrag = (SELECT BodBedrag FROM inserted)
-	PRINT @BodBedrag
 	DECLARE @vorig_bod NUMERIC(8,2);
 	SET @vorig_bod = (SELECT TOP 1 Bodbedrag FROM Bod WHERE Bodbedrag NOT IN (SELECT TOP 1 Bodbedrag FROM Bod WHERE Bod.Voorwerp = @ID ORDER BY Bodbedrag DESC) AND Bod.Voorwerp = @ID ORDER BY Bodbedrag DESC);
-	PRINT @vorig_bod
 	IF @vorig_bod>0.0
 	BEGIN
 		IF @BodBedrag>0.99 AND @BodBedrag > @vorig_bod --bigger than one and not first bid
