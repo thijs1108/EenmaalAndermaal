@@ -1,21 +1,11 @@
 USE Iproject21
 go
 
-INSERT INTO Vraag VALUES (1,'Wat was u eerste baan?')
-INSERT INTO Vraag VALUES (2,'Hoe heette u eerste huisdier?')
-INSERT INTO Vraag VALUES (3,'Wat is de meisjesnaam je moeder?')
-INSERT INTO Vraag VALUES (4,'Wat is je lievelingsgerecht?')
-INSERT INTO Vraag VALUES (5,'Waar bent u geboren?')
+
 
 INSERT INTO Gebruiker VALUES ('JanPiet','Jan','Piet','Test van de groot straat 12', '1478 DF', 'Steenderen','Nederland','1999-10-20', 'test@beuzelbeuzel.com', '12345989',5,'Ik ben geboren hier',1,1)
 INSERT INTO Gebruiker VALUES ('Henk','Henk','de tweede','De klein straat 12', '1478 DF', 'Steenderen','Nederland','1999-10-20', 'test@beuzelbeuzel.com', '12345989',1,'Bij de albert heijn',0,1)
-INSERT INTO Gebruiker VALUES ('Anton Mijnders','Anton','Mijnders','De klein straat 12', '1478 DF', 'Steenderen','Nederland','1999-10-20', 'test@beuzelbeuzel.com', '12345989',1,'Bij de albert heijn',0,1)
-
-
-INSERT INTO Verkoper VALUES ('Anton Mijnders','ING','NLINGB00012345678','Post',NULL)
 INSERT INTO Verkoper VALUES ('JanPiet','ING','NLINGB00012345678','Post',NULL)
-
-
 
 
 INSERT INTO Voorwerp (titel,beschrijving,startprijs,betalingswijzenaam,plaatsnaam,landnaam,looptijd,looptijdbeginDag,looptijdbeginTijdstip,verkopernaam,looptijdeindeTijdstip,veilingGesloten) VALUES ('Laptop Asus','Deze laptop voldoet niet meer aan mijn eisen daarom bied ik het bij deze aan.',1.99,'Bank/Giro','Arnhem','Nederland',DEFAULT,convert(date,getdate()),convert(time,getdate()),'JanPiet','12:00:00.000',0)
