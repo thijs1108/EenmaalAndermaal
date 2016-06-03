@@ -9,6 +9,7 @@
         }
         if(isset($_GET['resetcategorie']) && !is_null($_GET['resetcategorie'])){
             unset($_SESSION['categorie']);
+            unset($_SESSION['zoekterm']);
         }
     ?>
 </head>
@@ -29,8 +30,16 @@
                         <div class="large-9 columns">
                             <form method="get" action="<?php echo $_SERVER['REQUEST_URI'] ?>">
                                 <?php
+                                    if(isset($_GET['page']))
+                                    {
+                                        $page = $_GET['page']*10;
+                                    }
+                                    else{
+                                        $page =10;
+                                    }
                                     if(isset($_GET['zoeken']) && !is_null($_GET['zoeken']) && $_GET['zoeken']!=''){
                                         $zoekterm = $_GET['zoeken'];
+                                        $_SESSION['zoekterm'] = $zoekterm;
                                     }
                                 ?>
                                 <input type="submit" value="Zoeken" class="zoekenknop">
@@ -45,28 +54,38 @@
                                         $categorienaam = $record['rubrieknaam'];
                                         echo "U zoekt binnen de categorie: ". $categorienaam . "  <a href='?resetcategorie=true' class='white smallbtn'>Reset</a>";
                                     }
+                                    if(isset($_SESSION['zoekterm'])){
+                                        $zoekterm = $_SESSION['zoekterm'];
+                                        echo "U zoekt op: ". $zoekterm . "  <a href='?resetcategorie=true' class='white smallbtn'>Reset</a>";
+                                    }
                                 ?> 
                             </form>
                             <br/>
                             <?php
-                            if (isset($zoekterm) && isset($_SESSION['categorie'])){
+                            if (isset($_SESSION['zoekterm']) && isset($_SESSION['categorie'])){
                                 $categorie = $_SESSION['categorie'];
+                                $zoekterm = $_SESSION['zoekterm'];
                                 $sql = "SELECT TOP 10 titel, Voorwerp.voorwerpnummer, max(Bodbedrag)as maxbedrag, COUNT(Bodbedrag)as geboden,looptijdeindeDag, looptijdeindeTijdstip 
-                                        FROM Voorwerp 
+                                        FROM (SELECT TOP $page * FROM Voorwerp WHERE titel LIKE '%$zoekterm%' AND Voorwerp_in_rubriek.RubriekOpLaagsteNiveau = $categorie ORDER BY voorwerpnummer ASC) Voorwerp 
                                         LEFT OUTER JOIN Bod ON Voorwerp.voorwerpnummer=bod.Voorwerp 
                                         INNER JOIN Voorwerp_in_rubriek ON Voorwerp_in_rubriek.voorwerpnummer = Voorwerp.voorwerpnummer
                                         WHERE titel LIKE '%$zoekterm%' AND Voorwerp_in_rubriek.RubriekOpLaagsteNiveau = $categorie
                                         GROUP BY titel, Voorwerp.voorwerpnummer, looptijdeindeDag, looptijdeindeTijdstip";
                                 $result = sqlsrv_query($db, $sql);
                             }
-                            else if (isset($zoekterm)){
-                                $sql = "SELECT TOP 10 titel,voorwerpnummer, max(Bodbedrag)as maxbedrag, COUNT(Bodbedrag)as geboden,looptijdeindeDag, looptijdeindeTijdstip FROM Voorwerp LEFT OUTER JOIN Bod ON Voorwerp.voorwerpnummer=bod.Voorwerp WHERE titel LIKE '%$zoekterm%' GROUP BY titel,voorwerpnummer, looptijdeindeDag, looptijdeindeTijdstip";
+                            else if (isset($_SESSION['zoekterm'])){
+                                $zoekterm = $_SESSION['zoekterm'];
+                                $sql = "SELECT TOP 10 titel,voorwerpnummer, max(Bodbedrag)as maxbedrag, COUNT(Bodbedrag)as geboden,looptijdeindeDag, looptijdeindeTijdstip 
+                                        FROM (SELECT TOP $page * FROM Voorwerp WHERE titel LIKE '%$zoekterm%' ORDER BY voorwerpnummer ASC) Voorwerp 
+                                        LEFT OUTER JOIN Bod ON Voorwerp.voorwerpnummer=bod.Voorwerp 
+                                        WHERE titel LIKE '%$zoekterm%' 
+                                        GROUP BY titel,voorwerpnummer, looptijdeindeDag, looptijdeindeTijdstip";
                                 $result = sqlsrv_query($db, $sql);
                             }
                             else if (isset($_SESSION['categorie'])){
                                 $categorie = $_SESSION['categorie'];
                                 $sql = "SELECT TOP 10 titel, Voorwerp.voorwerpnummer, max(Bodbedrag)as maxbedrag, COUNT(Bodbedrag)as geboden,looptijdeindeDag, looptijdeindeTijdstip 
-                                        FROM Voorwerp 
+                                        FROM (SELECT TOP $page * FROM Voorwerp WHERE Voorwerp_in_rubriek.RubriekOpLaagsteNiveau = $categorie ORDER BY voorwerpnummer ASC) Voorwerp 
                                         LEFT OUTER JOIN Bod ON Voorwerp.voorwerpnummer=bod.Voorwerp 
                                         INNER JOIN Voorwerp_in_rubriek ON Voorwerp_in_rubriek.voorwerpnummer = Voorwerp.voorwerpnummer
                                         WHERE Voorwerp_in_rubriek.RubriekOpLaagsteNiveau = $categorie 
@@ -74,7 +93,12 @@
                                 $result = sqlsrv_query($db, $sql);
                             }
                             else{
-                                $sql = "SELECT TOP 10 titel,voorwerpnummer, max(Bodbedrag)as maxbedrag, COUNT(Bodbedrag)as geboden,looptijdeindeDag, looptijdeindeTijdstip FROM Voorwerp LEFT OUTER JOIN Bod ON Voorwerp.voorwerpnummer=bod.Voorwerp WHERE looptijdeindeDag > CONVERT (date, GETDATE()) OR looptijdeindeDag = CONVERT (date, GETDATE()) AND looptijdeindeTijdstip > CONVERT (time, GETDATE()) GROUP BY titel,voorwerpnummer, looptijdeindeDag, looptijdeindeTijdstip";
+                                $sql = "SELECT TOP 10 titel,voorwerpnummer, max(Bodbedrag)as maxbedrag, COUNT(Bodbedrag)as geboden,looptijdeindeDag, looptijdeindeTijdstip 
+                                        FROM (SELECT TOP $page * FROM Voorwerp ORDER BY voorwerpnummer ASC) Voorwerp 
+                                        LEFT OUTER JOIN Bod ON Voorwerp.voorwerpnummer=bod.Voorwerp
+                                        WHERE looptijdeindeDag > CONVERT (date, GETDATE()) OR looptijdeindeDag = CONVERT (date, GETDATE()) AND looptijdeindeTijdstip > CONVERT (time, GETDATE()) 
+                                        GROUP BY titel,voorwerpnummer, looptijdeindeDag, looptijdeindeTijdstip
+                                        ORDER BY voorwerpnummer DESC";
                                 $result = sqlsrv_query($db, $sql);
                             }
                             $count = 0;
@@ -102,9 +126,11 @@
                                 echo 'Totaal aantal biedingen:'.$record['geboden'];
                                 echo '<br/>';
                                 echo 'Tijd tot sluiting:';
+                                
                                 $date = date_format($record['looptijdeindeDag'], 'Y-m-d');
                                 $time = date_format($record['looptijdeindeTijdstip'], 'H:i:s');
                                 echo '<div class="alt-3 right">'.$date.' '.$time.'</div>';
+                                
                                 echo '</div>';
                                 echo '</a>';
                                 echo '</div>';
@@ -121,21 +147,12 @@
                                 }
                             }
                             ?>
+                            <div class="large-12 columns">
+                            <?php include 'includes/navigation.php';?>
+                        </div>
                         </div>
 
-                        <div class="row">
-                            <div class="navigation">
-                                <ul class="pagination" role="navigation" aria-label="Pagination">
-                                    <li class="disabled">« <span class="show-for-sr">Previous page</span></li>
-                                    <li class="current"><span class="show-for-sr">You're on page</span> 1</li>
-                                    <li><a href="#" aria-label="Page 2">2</a></li>
-                                    <li><a href="#" aria-label="Page 3">3</a></li>
-                                    <li><a href="#" aria-label="Page 4">4</a></li>
-                                    <li><a href="#" aria-label="Page 5">5</a></li>
-                                    <li><a href="#" aria-label="Next page">» <span class="show-for-sr">Next page</span></a></li>
-                                </ul>
-                            </div>
-                        </div>
+                        
                     </div>
 
     </div>
