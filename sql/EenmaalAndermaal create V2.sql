@@ -330,8 +330,8 @@ CREATE TRIGGER Minimaal_verhoging_bod ON Bod
 FOR INSERT, UPDATE
 AS 
 BEGIN
-	DECLARE @ID INT
-	SET @ID = (SELECT Voorwerp FROM inserted)
+	DECLARE @ID NUMERIC(12)
+	SET @ID = (SELECT TOP 1 Voorwerp FROM inserted)
 	DECLARE @BodBedrag NUMERIC(8,2)
 	SET @BodBedrag = (SELECT BodBedrag FROM inserted)
 	DECLARE @vorig_bod NUMERIC(8,2);
