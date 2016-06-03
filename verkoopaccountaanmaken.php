@@ -17,7 +17,7 @@
                     <div class="content">
                         <div class="large-6 columns">
                             <?php
-                            $id = "JanPiet";
+							$id = $_SESSION['username'];
                             $sql = "SELECT * FROM Gebruiker WHERE gebruikersnaam ='$id'";
                             $result = sqlsrv_query($db, $sql);
 
