@@ -46,9 +46,11 @@ INSERT INTO Bestand VALUES ('hoi3.jpg',1);
 INSERT INTO Bestand VALUES ('hoi4.jpg',1);
 INSERT INTO Bestand VALUES ('hoi5.jpg',2);
 
+SET IDENTITY_INSERT Voorwerp ON,
 USE iproject21
-INSERT INTO Voorwerp (titel,beschrijving,startprijs,betalingswijzenaam,plaatsnaam,landnaam,looptijd,looptijdbeginDag,looptijdbeginTijdstip,verkopernaam,looptijdeindeTijdstip,veilingGesloten)
-SELECT SUBSTRING(Titel,0,199) AS titel,
+INSERT INTO Voorwerp (voorwerpnummer,titel,beschrijving,startprijs,betalingswijzenaam,plaatsnaam,landnaam,looptijd,looptijdbeginDag,looptijdbeginTijdstip,verkopernaam,looptijdeindeTijdstip,veilingGesloten)
+SELECT ID as voorwerpnummer,
+	SUBSTRING(Titel,0,199) AS titel,
 	SUBSTRING(Beschrijving,0,4999) as beschrijving,
 	Prijs AS startprijs,
 	'Bank/Giro' AS betalingswijzenaam,
@@ -63,6 +65,14 @@ SELECT SUBSTRING(Titel,0,199) AS titel,
 FROM Items
 use master
 
+USE iproject21
+INSERT INTO Bestand
+SELECT IllustratieFile AS filenaam,
+	ItemID as Voorwerp
+FROM Illustraties
+INNER JOIN Voorwerp 
+ON Voorwerp.voorwerpnummer = ItemID
+use master
 
 
 go

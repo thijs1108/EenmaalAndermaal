@@ -118,7 +118,7 @@ CREATE TABLE Gebruiker (
 
 
 CREATE TABLE Voorwerp (
-	voorwerpnummer			NUMERIC(10) IDENTITY(1,1)	NOT NULL,
+	voorwerpnummer			NUMERIC(12) IDENTITY(1,1)	NOT NULL,
 	titel					VARCHAR(200)				NOT NULL,
 	beschrijving			VARCHAR(5000)				NOT NULL,
 	startprijs				NUMERIC(8,2)				NOT NULL,
@@ -146,7 +146,7 @@ CREATE TABLE Voorwerp (
 );
 
 CREATE TABLE Feedback (
-	Voorwerp 				NUMERIC(10) NOT NULL,
+	Voorwerp 				NUMERIC(12) NOT NULL,
 	Soort_Gebruiker			BIT			NOT NULL,
 	Feedbacksoort 			VARCHAR(10) NOT NULL,
 	Dag						DATE	    NOT NULL,
@@ -158,7 +158,7 @@ CREATE TABLE Feedback (
 
 CREATE TABLE Bestand (
 	filenaam 				VARCHAR(50) NOT NULL,
-	Voorwerp 				NUMERIC(10) NOT NULL,
+	Voorwerp 				NUMERIC(12) NOT NULL,
 	CONSTRAINT PK_Bestand_filenaam 
 	PRIMARY KEY (filenaam)
 );
@@ -173,14 +173,14 @@ CREATE TABLE Rubriek (
 );
 
 CREATE TABLE Voorwerp_in_rubriek (
-	voorwerpnummer			NUMERIC(10) NOT NULL,
+	voorwerpnummer			NUMERIC(12) NOT NULL,
 	RubriekOpLaagsteNiveau	INT			NOT NULL,
 	CONSTRAINT PK_VoorwerpInRubriek_Voorwerp_Rubriek 
 	PRIMARY KEY (voorwerpnummer,RubriekOpLaagsteNiveau)
 );
 
 CREATE TABLE Bod (
-	Voorwerp 				NUMERIC(10)	 NOT NULL,
+	Voorwerp 				NUMERIC(12)	 NOT NULL,
 	Bodbedrag 				NUMERIC(8,2) NOT NULL,
 	Gebruiker 				VARCHAR(50)  NOT NULL,
 	BodDag 					DATE		 NOT NULL,
@@ -307,19 +307,21 @@ END
 
 
 --B4
+/*
 Go
 CREATE TRIGGER Max_vier_bestanden_per_voorwerp ON Bestand
 FOR INSERT
 AS
 BEGIN
-	DECLARE @ID INT
-	SET @ID = (SELECT Voorwerp FROM inserted)
+	DECLARE @ID NUMERIC(12)
+	SET @ID = (SELECT TOP 1 Voorwerp FROM inserted)
 	IF (SELECT COUNT(*) FROM Bestand WHERE Bestand.Voorwerp=@ID)>4
 	BEGIN
 		RAISERROR ('…Èn voorwerp mag maximaal vier bestanden hebben',16,1)
 		ROLLBACK
 	END
 END
+*/
 
 --B5
 
