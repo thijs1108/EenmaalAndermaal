@@ -46,12 +46,12 @@ INSERT INTO Bestand VALUES ('hoi3.jpg',1);
 INSERT INTO Bestand VALUES ('hoi4.jpg',1);
 INSERT INTO Bestand VALUES ('hoi5.jpg',2);
 
-SET IDENTITY_INSERT Voorwerp ON,
+SET IDENTITY_INSERT Voorwerp ON
 USE iproject21
 INSERT INTO Voorwerp (voorwerpnummer,titel,beschrijving,startprijs,betalingswijzenaam,plaatsnaam,landnaam,looptijd,looptijdbeginDag,looptijdbeginTijdstip,verkopernaam,looptijdeindeTijdstip,veilingGesloten)
 SELECT ID as voorwerpnummer,
 	SUBSTRING(Titel,0,199) AS titel,
-	SUBSTRING(Beschrijving,0,4999) as beschrijving,
+	SUBSTRING(Beschrijving,0,7999) as beschrijving,
 	Prijs AS startprijs,
 	'Bank/Giro' AS betalingswijzenaam,
 	'unset' AS plaatsnaam,

@@ -90,7 +90,7 @@
                                 $plaatje = sqlsrv_query($db, $img);
                                 $afbeelding=sqlsrv_fetch_array($plaatje);
                                 if($afbeelding==true){
-                                    echo '<img src="pics/'.$afbeelding['filenaam'].'" alt="'.$record['titel'].'" class="prdimg">'."<br>";
+                                    echo '<img src="http://iproject21.icasites.nl/pics/'.$afbeelding['filenaam'].'" alt="'.$record['titel'].'" class="prdimg">'."<br>";
                                 }
                                 else {
                                     echo '<img src="Images/placeholder_product.png" alt="'.$record['titel'].'" class="prdimg">'."<br>";   
