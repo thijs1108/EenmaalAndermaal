@@ -25,7 +25,7 @@
     }
     else if($username == true)
     {
-        $sql = "INSERT bod values ('$id','$bedrag','$username','$date','$time')";   
+        echo $sql = "INSERT bod values ($id,'$bedrag','$username','$date','$time')";   
         sqlsrv_query($db, $sql);
         header('Location:productdetails.php?id='.$id);
     }

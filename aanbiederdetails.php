@@ -80,11 +80,9 @@
                                         $result = sqlsrv_query($db, $sql);
 
                                         $i=0;
-                                        echo '<table>';
                                         while($record=sqlsrv_fetch_array($result))
                                         {
-                                            echo '<tr>';
-                                            echo '<td>';
+                                            echo '<div class="large-4 columns">';
                                             echo '<a href="productdetails.php?id='.$record['voorwerpnummer'].'" >';
                                             echo '<div class="product">';
                                             $_POST['id'] = $record['voorwerpnummer'];
@@ -106,10 +104,10 @@
                                             echo 'Tijd tot sluiting:'.date("h:i:s");
                                             echo '</div>';
                                             echo '</a>';
-                                            echo '</td>';
-                                            echo '</tr>';
+                                            echo '</div>';
+                                            
                                         }
-                                    echo '</table>';
+                                  
                                     ?>
                                 </div>
                             </div>
