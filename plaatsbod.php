@@ -1,5 +1,5 @@
 <?php
- session_start();
+    session_start();
     include 'includes/database.php';
     $id = $_GET['id'];
     $bedrag = $_POST['bieding'];
@@ -25,7 +25,7 @@
     }
     else if($username == true)
     {
-        echo $sql = "INSERT bod values ($id,'$bedrag','$username','$date','$time')";   
+        $sql = "INSERT bod values ($id,'$bedrag','$username','$date','$time')";   
         sqlsrv_query($db, $sql);
         header('Location:productdetails.php?id='.$id);
     }

@@ -63,7 +63,7 @@
                     </select>
                     </td>
                       </tr>
-                    </br>
+                    <br/>
                     <tr>
                       <td>
                         Status: <span class="star">*</span>
@@ -78,7 +78,7 @@
                           </select>
                         </td>
                       </tr>
-                    </br>
+                    <br/>
                       <tr>
                         <td>
                           Beschrijving:<span class="star">*</span>
@@ -103,7 +103,7 @@
                         </td>
                         <td>
                           <select name="numberdays" default>
-                          <option value="" selected>Dagen...</option>
+                          <option value="" selected hidden>Dagen...</option>
                           <option value="1">1 dag</option>
                           <option value="3">3 dagen</option>
                           <option value="5">5 dagen</option>
@@ -139,7 +139,7 @@
                                   </td>
                                   <td>
                                     <select name="country">
-                                    <option value="" selected>Land...</option>
+                                    <option value="" selected hidden>Land...</option>
                                     <option value="Afganistan">Afghanistan</option>
                                     <option value="Albania">Albania</option>
                                     <option value="Algeria">Algeria</option>
@@ -396,10 +396,10 @@
                                       </td>
                                       <td>
                                         <select name="paymethod" default>
-                                        <option value="" selected>Betaalmethode...</option>
-                                        <option value="1">iDeal</option>
-                                        <option value="2">Acceptgiro</option>
-                                        <option value="3">Paypal</option>
+                                        <option value="" selected hidden>Betaalmethode...</option>
+                                        <option value="Contant">Contant</option>
+                                        <option value="Bank/Giro">Bank/Giro</option>
+                                        <option value="Anders">Anders</option>
                                           </select>
                                         </td>
                                     </tr>

@@ -66,7 +66,7 @@
                                 $categorie = $_SESSION['categorie'];
                                 $zoekterm = $_SESSION['zoekterm'];
                                 $sql = "SELECT TOP 10 titel, Voorwerp.voorwerpnummer, max(Bodbedrag)as maxbedrag, COUNT(Bodbedrag)as geboden,looptijdeindeDag, looptijdeindeTijdstip 
-                                        FROM (SELECT TOP $page * FROM Voorwerp WHERE titel LIKE '%$zoekterm%' AND Voorwerp_in_rubriek.RubriekOpLaagsteNiveau = $categorie ORDER BY voorwerpnummer ASC) Voorwerp 
+                                        FROM (SELECT TOP $page titel, Voorwerp.voorwerpnummer, looptijdeindeDag, looptijdeindeTijdstip FROM Voorwerp INNER JOIN Voorwerp_in_rubriek ON Voorwerp.voorwerpnummer=Voorwerp_in_rubriek.voorwerpnummer WHERE titel LIKE '%$zoekterm%' AND Voorwerp_in_rubriek.RubriekOpLaagsteNiveau = $categorie ORDER BY voorwerpnummer ASC) Voorwerp 
                                         LEFT OUTER JOIN Bod ON Voorwerp.voorwerpnummer=bod.Voorwerp 
                                         INNER JOIN Voorwerp_in_rubriek ON Voorwerp_in_rubriek.voorwerpnummer = Voorwerp.voorwerpnummer
                                         WHERE titel LIKE '%$zoekterm%' AND Voorwerp_in_rubriek.RubriekOpLaagsteNiveau = $categorie
@@ -87,7 +87,7 @@
                             else if (isset($_SESSION['categorie'])){
                                 $categorie = $_SESSION['categorie'];
                                 $sql = "SELECT TOP 10 titel, Voorwerp.voorwerpnummer, max(Bodbedrag)as maxbedrag, COUNT(Bodbedrag)as geboden,looptijdeindeDag, looptijdeindeTijdstip 
-                                        FROM (SELECT TOP $page * FROM Voorwerp WHERE Voorwerp_in_rubriek.RubriekOpLaagsteNiveau = $categorie ORDER BY voorwerpnummer ASC) Voorwerp 
+                                        FROM (SELECT TOP $page titel, Voorwerp.voorwerpnummer, looptijdeindeDag, looptijdeindeTijdstip FROM Voorwerp INNER JOIN Voorwerp_in_rubriek ON Voorwerp.voorwerpnummer=Voorwerp_in_rubriek.voorwerpnummer WHERE Voorwerp_in_rubriek.RubriekOpLaagsteNiveau = $categorie ORDER BY voorwerpnummer ASC) Voorwerp 
                                         LEFT OUTER JOIN Bod ON Voorwerp.voorwerpnummer=bod.Voorwerp 
                                         INNER JOIN Voorwerp_in_rubriek ON Voorwerp_in_rubriek.voorwerpnummer = Voorwerp.voorwerpnummer
                                         WHERE Voorwerp_in_rubriek.RubriekOpLaagsteNiveau = $categorie 
