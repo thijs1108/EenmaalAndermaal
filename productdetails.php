@@ -271,7 +271,7 @@
                                     <div class="tabs-content" data-tabs-content="example-tabs">
                                         <div class="tabs-panel is-active" id="panel1">
                                             <div class="media-object stack-for-small">
-                                                <?php echo $record['beschrijving']; ?>
+                                                <?php echo htmlspecialchars($record['beschrijving']); ?>
                                             </div>
                                         </div>
                                         <?php
