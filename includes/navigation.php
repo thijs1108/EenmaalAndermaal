@@ -69,8 +69,15 @@
                 }
                 else if($page >=$pages-5)
                 {
-                    $number = $pages-10;
-                    $pagesmax = $pages;
+                    if($pages<10)
+                    {
+                        $number= 1;
+                        $pagesmax = $pages;
+                    }
+                    else{
+                        $number = $pages-10;
+                        $pagesmax = $pages;
+                    }
                 }
                 else{
                     $number = $page-5;

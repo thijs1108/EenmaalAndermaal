@@ -70,7 +70,8 @@
                                         LEFT OUTER JOIN Bod ON Voorwerp.voorwerpnummer=bod.Voorwerp 
                                         INNER JOIN Voorwerp_in_rubriek ON Voorwerp_in_rubriek.voorwerpnummer = Voorwerp.voorwerpnummer
                                         WHERE titel LIKE '%$zoekterm%' AND Voorwerp_in_rubriek.RubriekOpLaagsteNiveau = $categorie
-                                        GROUP BY titel, Voorwerp.voorwerpnummer, looptijdeindeDag, looptijdeindeTijdstip";
+                                        GROUP BY titel, Voorwerp.voorwerpnummer, looptijdeindeDag, looptijdeindeTijdstip
+                                        ORDER BY voorwerpnummer DESC";
                                 $result = sqlsrv_query($db, $sql);
                             }
                             else if (isset($_SESSION['zoekterm'])){
@@ -79,7 +80,8 @@
                                         FROM (SELECT TOP $page * FROM Voorwerp WHERE titel LIKE '%$zoekterm%' ORDER BY voorwerpnummer ASC) Voorwerp 
                                         LEFT OUTER JOIN Bod ON Voorwerp.voorwerpnummer=bod.Voorwerp 
                                         WHERE titel LIKE '%$zoekterm%' 
-                                        GROUP BY titel,voorwerpnummer, looptijdeindeDag, looptijdeindeTijdstip";
+                                        GROUP BY titel,voorwerpnummer, looptijdeindeDag, looptijdeindeTijdstip
+                                        ORDER BY voorwerpnummer DESC";
                                 $result = sqlsrv_query($db, $sql);
                             }
                             else if (isset($_SESSION['categorie'])){
@@ -89,7 +91,8 @@
                                         LEFT OUTER JOIN Bod ON Voorwerp.voorwerpnummer=bod.Voorwerp 
                                         INNER JOIN Voorwerp_in_rubriek ON Voorwerp_in_rubriek.voorwerpnummer = Voorwerp.voorwerpnummer
                                         WHERE Voorwerp_in_rubriek.RubriekOpLaagsteNiveau = $categorie 
-                                        GROUP BY titel, Voorwerp.voorwerpnummer, looptijdeindeDag, looptijdeindeTijdstip";
+                                        GROUP BY titel, Voorwerp.voorwerpnummer, looptijdeindeDag, looptijdeindeTijdstip
+                                        ORDER BY voorwerpnummer DESC";
                                 $result = sqlsrv_query($db, $sql);
                             }
                             else{
