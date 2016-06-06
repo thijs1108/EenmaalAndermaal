@@ -266,8 +266,21 @@
                                     echo number_format($record['maxbedrag'],2);
                                 }
                                 ?>">
+								
                                             <input type="submit" value="Plaats bod" class="biedenknop">
                                         </div>
+										<?php if(isset($_GET['fout1'])){
+											echo "Het geplaatste bod moet minimaal 0.50 euro hoger zijn dan het huidige bod!";
+										} else if(isset($_GET['fout2'])){
+											echo "Het geplaatste bod moet minimaal 1.00 euro hoger zijn dan het huidige bod!";
+										} else if(isset($_GET['fout3'])){
+											echo "Het geplaatste bod moet minimaal 5.00 euro hoger zijn dan het huidige bod!";
+										} else if(isset($_GET['fout4'])){
+											echo "Het geplaatste bod moet minimaal 10.00 euro hoger zijn dan het huidige bod!";
+										} else if(isset($_GET['fout5'])){
+											echo "Het geplaatste bod moet minimaal 50.00 euro hoger zijn dan het huidige bod!";
+										} 
+										?>
                                     </form>
                                 </div>
                                 <div class="column row">
