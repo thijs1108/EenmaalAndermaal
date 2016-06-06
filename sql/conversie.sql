@@ -14,13 +14,13 @@ INSERT INTO Vraag VALUES (4,'Wat is je lievelingsgerecht?')
 INSERT INTO Vraag VALUES (5,'Waar bent u geboren?')
 
 INSERT INTO Gebruiker VALUES ('JanPiet','Jan','Piet','Test van de groot straat 12', '1478 DF', 'Steenderen','Nederland','1999-10-20', 'test@beuzelbeuzel.com', '12345989',5,'Ik ben geboren hier',1,1)
-INSERT INTO Gebruiker VALUES ('Henk','Henk','de tweede','De klein straat 12', '1478 DF', 'Steenderen','Nederland','1999-10-20', 'test@beuzelbeuzel.com', '12345989',1,'Bij de albert heijn',0,1)
+INSERT INTO Gebruiker VALUES ('Henk','Henk','de tweede','De klein straat 12', '1478 DF', 'Steenderen','Nederland','1999-10-20', 'thijs.beltman@gmail.com', '12345989',1,'Bij de albert heijn',0,1)
 INSERT INTO Verkoper VALUES ('JanPiet','ING','NLINGB00012345678','Post',NULL)
 INSERT INTO Gebruiker VALUES ('Anton Mijnders','Anton','Mijnders','De klein straat 12', '1478 DF', 'Steenderen','Nederland','1999-10-20', 'test@beuzelbeuzel.com', '12345989',1,'Bij de albert heijn',1,1)
 INSERT INTO Verkoper VALUES ('Anton Mijnders','ING','NLINGB00012345678','Post',NULL)
 
 INSERT INTO Voorwerp (titel,beschrijving,startprijs,betalingswijzenaam,plaatsnaam,landnaam,looptijd,looptijdbeginDag,looptijdbeginTijdstip,verkopernaam,looptijdeindeTijdstip,veilingGesloten) VALUES ('Laptop Asus','Deze laptop voldoet niet meer aan mijn eisen daarom bied ik het bij deze aan.',1.99,'Bank/Giro','Arnhem','Nederland',DEFAULT,convert(date,getdate()),convert(time,getdate()),'JanPiet','12:00:00.000',0)
-UPDATE Voorwerp SET looptijdbeginDag = '2016-05-30', looptijdeindeTijdstip='11:06' WHERE voorwerpnummer =1
+UPDATE Voorwerp SET looptijdbeginDag = '2016-05-30', looptijdeindeTijdstip='13:00' WHERE voorwerpnummer =1
 INSERT INTO Voorwerp (titel,beschrijving,startprijs,betalingswijzenaam,plaatsnaam,landnaam,looptijd,looptijdbeginDag,looptijdbeginTijdstip,verkopernaam,looptijdeindeTijdstip,veilingGesloten) VALUES ('Laptop Lenovo','Deze laptop voldoet niet meer aan mijn eisen daarom bied ik het bij deze aan.',2.99,'Bank/Giro','Arnhem','Nederland',5,convert(date,getdate()),convert(time,getdate()),'JanPiet','12:00:00.000',0)
 INSERT INTO Voorwerp (titel,beschrijving,startprijs,betalingswijzenaam,plaatsnaam,landnaam,looptijd,looptijdbeginDag,looptijdbeginTijdstip,verkopernaam,looptijdeindeTijdstip,veilingGesloten) VALUES ('Laptop Apple','Deze laptop voldoet niet meer aan mijn eisen daarom bied ik het bij deze aan.',6.99,'Bank/Giro','Arnhem','Nederland',7,convert(date,getdate()),convert(time,getdate()),'JanPiet','12:00:00.000',0)
 INSERT INTO Voorwerp (titel,beschrijving,startprijs,betalingswijzenaam,plaatsnaam,landnaam,looptijd,looptijdbeginDag,looptijdbeginTijdstip,verkopernaam,looptijdeindeTijdstip,veilingGesloten) VALUES ('Bank zwart','Deze bank past niet meer bij mijn huis.',9.99,'Bank/Giro','Arnhem','Nederland',10,convert(date,getdate()),convert(time,getdate()),'JanPiet','12:00:00.000',0)
