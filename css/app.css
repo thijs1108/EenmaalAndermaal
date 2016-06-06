@@ -123,6 +123,7 @@ li .button {
     border-radius: 25px;
     padding: 20px;
     max-width: 350px;
+    height : 235px;
 }
 
 .product:hover {

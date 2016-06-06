@@ -32,10 +32,15 @@
                                 <?php
                                     if(isset($_GET['page']))
                                     {
-                                        $page = $_GET['page']*10;
+                                        if($_GET['page']==1){
+                                            $page = 11;
+                                        }
+                                        else{
+                                            $page = $_GET['page']*10;
+                                        }
                                     }
                                     else{
-                                        $page =10;
+                                        $page =11;
                                     }
                                     if(isset($_GET['zoeken']) && !is_null($_GET['zoeken']) && $_GET['zoeken']!=''){
                                         $zoekterm = $_GET['zoeken'];
