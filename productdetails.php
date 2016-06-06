@@ -17,7 +17,7 @@
                     <div class="content">
                         <?php
                             $id = $_GET['id'];
-                            $sql = "SELECT titel,voorwerpnummer,verkopernaam,beschrijving, max(Bodbedrag)as maxbedrag, COUNT(Bodbedrag)as geboden,looptijdeindeDag, looptijdeindeTijdstip FROM Voorwerp LEFT OUTER JOIN Bod ON Voorwerp.voorwerpnummer=bod.Voorwerp WHERE voorwerpnummer='$id' GROUP BY titel,voorwerpnummer,verkopernaam, beschrijving, looptijdeindeDag, looptijdeindeTijdstip";
+                            $sql = "SELECT titel,voorwerpnummer,verkopernaam,beschrijving,startprijs, max(Bodbedrag)as maxbedrag, COUNT(Bodbedrag)as geboden,looptijdeindeDag, looptijdeindeTijdstip FROM Voorwerp LEFT OUTER JOIN Bod ON Voorwerp.voorwerpnummer=bod.Voorwerp WHERE voorwerpnummer='$id' GROUP BY titel,voorwerpnummer,verkopernaam, beschrijving,startprijs, looptijdeindeDag, looptijdeindeTijdstip";
                             $result = sqlsrv_query($db, $sql);
 
                             while($record=sqlsrv_fetch_array($result))
@@ -257,7 +257,15 @@
                                 <div class="large-2 columns">
                                     <form method="post" action="<?php echo 'plaatsbod.php?id='.$record['voorwerpnummer']; ?>">
                                         <div class="bieden">
-                                            <input type="text" name="bieding" value="" placeholder="€<?php echo number_format($record['maxbedrag'],2);?>">
+                                            <input type="text" name="bieding" value="" placeholder="€<?php
+                                if($record['maxbedrag']<$record['startprijs'])
+                                {
+                                    echo number_format($record['startprijs'],2);
+                                }
+                                else{
+                                    echo number_format($record['maxbedrag'],2);
+                                }
+                                ?>">
                                             <input type="submit" value="Plaats bod" class="biedenknop">
                                         </div>
                                     </form>
