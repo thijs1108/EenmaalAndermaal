@@ -47,7 +47,7 @@
                                                 Rekeningnummer:
                                             </td>
                                             <td>
-                                                <input type="password" name="number" placeholder="Rekeningnummer">
+                                                <input type="text" name="number" placeholder="Rekeningnummer">
                                             </td>
                                         </tr>
                                         <tr>

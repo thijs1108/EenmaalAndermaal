@@ -37,16 +37,19 @@
                                     <br/>
                                 </div>
                                 <div class="large-5 columns">
-                                    <?php 
+                                    <?php 										
                                         echo '<h3>Aanbieder:<br/>'.$record['gebruikersnaam'].'</h3>'; 
                                         echo 'Actief sinds:'.date("d-m-Y");
                                         echo '<br/>';
                                         echo 'Actieve beidingen:'.$record['Actieve_Biedingen'];
                                         echo '<br/>';
-                                        echo '<a href="artikelaanbieden.php" class="clicklink">Artikel aanbieden</a>';
-                                        echo '<br/>';
-                                        echo '<a href="verkoopaccountaanmaken.php" class="clicklink">Verkoop account aanmaken</a>';
-                                        echo '<br/>';
+										if($record['Verkoper'] == 1){
+											echo '<a href="artikelaanbieden.php" class="clicklink">Artikel aanbieden</a>';
+											echo '<br/>';
+										} else {			
+											echo '<a href="verkoopaccountaanmaken.php" class="clicklink">Verkoop account aanmaken</a>';
+											echo '<br/>';
+										}
                                         echo 'Beoordeling van de aanbieder:';
                                         echo '<div class="stars">';
                                         if ($record['Vraag']==0)
