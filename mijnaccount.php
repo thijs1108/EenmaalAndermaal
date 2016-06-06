@@ -19,7 +19,11 @@
 							header('location:loginscreen.php');
 						}
                             $id = $_SESSION['username'];
-                            $sql = "SELECT * FROM Gebruiker WHERE gebruikersnaam ='$id'";
+                            $sql = "SELECT gebruikersnaam, voornaam, achternaam,adresregel,postcode,Gebruiker.plaatsnaam,Land,GeboorteDag,Mailbox,wachtwoord,Vraag,antwoordtekst,Verkoper,Valid ,COUNT(titel) AS Actieve_Biedingen
+                            FROM Gebruiker LEFT OUTER JOIN Voorwerp 
+                            ON Gebruiker.gebruikersnaam=Voorwerp.verkopernaam
+                            GROUP BY gebruikersnaam, voornaam, achternaam,adresregel,postcode,Gebruiker.plaatsnaam,Land,GeboorteDag,Mailbox,wachtwoord,Vraag,antwoordtekst,Verkoper,Valid
+                            HAVING gebruikersnaam ='$id'";
                             $result = sqlsrv_query($db, $sql);
 
                             while($record=sqlsrv_fetch_array($result))
@@ -37,7 +41,7 @@
                                         echo '<h3>Aanbieder:<br/>'.$record['gebruikersnaam'].'</h3>'; 
                                         echo 'Actief sinds:'.date("d-m-Y");
                                         echo '<br/>';
-                                        echo 'Actieve beidingen:'.$record['Vraag'];
+                                        echo 'Actieve beidingen:'.$record['Actieve_Biedingen'];
                                         echo '<br/>';
                                         echo '<a href="artikelaanbieden.php" class="clicklink">Artikel aanbieden</a>';
                                         echo '<br/>';
@@ -90,7 +94,10 @@
                                 <div class="large-6 columns">
                                     <?php
                                     echo "<h3>Mijn biedingen</h3>";
-                                        $sql = "SELECT titel,voorwerpnummer, max(Bodbedrag)as maxbedrag, COUNT(Bodbedrag)as geboden,looptijd FROM Voorwerp LEFT OUTER JOIN Bod ON Voorwerp.voorwerpnummer=bod.Voorwerp WHERE kopernaam ='$id' GROUP BY titel,voorwerpnummer, looptijd";
+                                        $sql = "SELECT titel,voorwerpnummer, max(Bodbedrag)as maxbedrag, COUNT(Bodbedrag)as geboden,looptijd 
+                                        FROM Voorwerp LEFT OUTER JOIN Bod 
+                                        ON Voorwerp.voorwerpnummer=bod.Voorwerp 
+                                        WHERE Gebruiker ='$id' GROUP BY titel,voorwerpnummer, looptijd";
                                         $result = sqlsrv_query($db, $sql);
 
                                         $i=0;

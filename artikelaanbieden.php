@@ -37,46 +37,8 @@
                   </td>
                   <br/>
                   <td>
-                    <select>
-                      <optgroup label="Auto's, boten en motoren">
-                        <option value="Auto">Auto's</option>
-                        <option value="Boten">Boten</option>
-                        <option value="Motoren">Motoren</option>
-                      </optgroup>
-                      <optgroup label="Baby">
-                        <option value="Speelgoed">Speelgoed</option>
-                        <option value="Meubels">Meubels</option>
-                      </optgroup>
-                      <optgroup label="Muziek en instrumenten">
-                        <option value="Muziekblad">Muziekblad</option>
-                        <option value="Instrumenten">Instrumenten</option>
-                      </optgroup>
-                      <optgroup label="Meubels">
-                        <option value="Banken">Banken</option>
-                        <option value="Stoelen">Stoelen</option>
-                      </optgroup>
-                      <optgroup label="Elektronica">
-                        <option value="Computers">Computers</option>
-                        <option value="Telefoon">Telefoon</option>
-                        <option value="Beamers">Beamers</option>
-                      </optgroup>
-                    </select>
+                    <span id="categorieen"><?php include 'includes/categorie-rendered_AA.php'?></span>
                     </td>
-                      </tr>
-                    <br/>
-                    <tr>
-                      <td>
-                        Status: <span class="star">*</span>
-                      </td>
-                      <td>
-                        <select>
-                            <option value="Nieuw">Nieuw</option>
-                            <option value="Producent refurbished">Producent refurbished</option>
-                            <option value="Verkoper refurbished">Verkoper refurbished</option>
-                            <option value="Tweedehands">Tweedehands</option>
-                            <option value="Onderdelen niet werkend/kapot">Onderdelen niet werkend/kapot</option>
-                          </select>
-                        </td>
                       </tr>
                     <br/>
                       <tr>
