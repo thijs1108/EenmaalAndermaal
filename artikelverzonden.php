@@ -57,7 +57,7 @@ error_reporting(E_ALL);
         $newdir = (string) $uploaddir;
         mkdir($newdir, 0777);
         
-        $uploadfile = $uploaddir . basename($_FILES['filesToUpload']['name']);
+        $uploadfile = $uploaddir . basename($filenaam);
         echo $uploadfile;
         move_uploaded_file($_FILES['filesToUpload']['tmp_name'], $uploadfile);
         
