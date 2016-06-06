@@ -177,7 +177,7 @@
                                             {
                                             echo '<div data-p="112.50" style="display: none;">';
                                                 //echo'<a href="productpictures.php?id='.$record['voorwerpnummer'].'" >';
-                                                 echo '<img src="http://iproject21.icasites.nl/pics/'.$afbeelding['filenaam'].'" alt="'.$record['titel'].'" class="prdimg">'."<br>";
+                                                 echo '<img src="http://iproject21.icasites.nl/'.$afbeelding['filenaam'].'" alt="'.$record['titel'].'" class="prdimg">'."<br>";
                                                 //echo '</a>';
                                             echo '</div>';
                                             }

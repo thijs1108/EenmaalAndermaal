@@ -48,7 +48,7 @@
         $result=sqlsrv_query($db, $sql);
         $record=sqlsrv_fetch_array($result);
 
-        $uploaddir = "voorwerpen/".$record['voorwerpnummer']."/";
+        $uploaddir = "upload/voorwerpen/".$record['voorwerpnummer']."/";
         print_r($_FILES);
         $filename = 'filesToUpload';
         $newdir = (string) $uploaddir;
@@ -65,7 +65,7 @@
         for($i=0;$i<$length;$i++)
         {
             echo $img = $filenaam[$i];
-            echo $path = "voorwerpen/".$record['voorwerpnummer']."/".$img;
+            echo $path = "upload/voorwerpen/".$record['voorwerpnummer']."/".$img;
             echo $sqlBestand = "INSERT Bestand (filenaam,Voorwerp) VALUES ('$path',".$record['voorwerpnummer'].")";
             sqlsrv_query($db, $sqlBestand);
             
