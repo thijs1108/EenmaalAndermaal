@@ -14,7 +14,7 @@
         <?php include 'includes/database.php';?>
           <?php include 'includes/functions.php';?>
     <div class="content">
-      <form action="artikelverzonden.php" method="post">
+      <form action="artikelverzonden.php" method="post" enctype="multipart/form-data">
     <div class="large-12 columns">
         <h2>Product aanbieden</h2>
           <i class="subtitle">Velden met een <span class="star">*</span> zijn verplicht</i></div>
@@ -79,7 +79,7 @@
                               Afbeeldingen: <span class="star">*</span>
                             </td>
                             <td>
-                              <input name="filesToUpload[]" id="filesToUpload" type="file" multiple="" accept="image/jpg, image/jpeg, image/png" />
+                                <input type="file" name="filesToUpload[]" id="filesToUpload" multiple="multiple" accept="image/jpg, image/jpeg, image/png" />
                             </td>
                             </tr>
                     </table>
