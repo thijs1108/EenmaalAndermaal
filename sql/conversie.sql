@@ -68,7 +68,7 @@ use master
 
 USE iproject21
 INSERT INTO Bestand
-SELECT IllustratieFile AS filenaam,
+SELECT 'pics/' + IllustratieFile AS filenaam,
 	ItemID as Voorwerp
 FROM Illustraties
 INNER JOIN Voorwerp 
