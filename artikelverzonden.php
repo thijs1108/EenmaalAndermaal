@@ -5,7 +5,6 @@
     ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-
     session_start();
     include 'includes/database.php';
 
@@ -55,11 +54,15 @@ error_reporting(E_ALL);
         print_r($_FILES);
         $filename = 'filesToUpload';
         $newdir = (string) $uploaddir;
-        mkdir($newdir, 0777);
+        if (!file_exists($newdir)) {
+            mkdir($newdir, 0777);
+        }
+
+        //mkdir($newdir, 0777);
         
-        $uploadfile = $uploaddir . basename($filenaam);
+        $uploadfile = $uploaddir . basename($filenaam[0]);
         echo $uploadfile;
-        move_uploaded_file($_FILES['filesToUpload']['tmp_name'], $uploadfile);
+        move_uploaded_file($filenaam[0], $uploadfile);
         
         
         
