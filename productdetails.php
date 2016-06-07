@@ -254,6 +254,13 @@
                                         <br/>
                                         <br/>
                                 </div>
+                                <?php
+                                    if(strcasecmp($_SESSION['username'],$record['verkopernaam'])==0)
+                                    {
+                                        echo 'U kunt niet op u eigen artikelen bieden!';
+                                    }
+                                    else{
+                                ?>
                                 <div class="large-2 columns">
                                     <form method="post" action="<?php echo 'plaatsbod.php?id='.$record['voorwerpnummer']; ?>">
                                         <div class="bieden">
@@ -283,6 +290,9 @@
 										?>
                                     </form>
                                 </div>
+                                <?php
+                                    }
+                                ?>
                                 <div class="column row">
                                     <hr>
                                     <ul class="tabs" data-tabs id="example-tabs">

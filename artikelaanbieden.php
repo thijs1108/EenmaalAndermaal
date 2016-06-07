@@ -79,7 +79,7 @@
                               Afbeeldingen: <span class="star">*</span>
                             </td>
                             <td>
-                                <input type="file" name="filesToUpload[]" id="filesToUpload" multiple="multiple" accept="image/jpg, image/jpeg, image/png" />
+                                <input type="file" id="file" name="files[]" multiple="multiple" accept="image/*" />
                             </td>
                             </tr>
                     </table>

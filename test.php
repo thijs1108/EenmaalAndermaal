@@ -18,12 +18,19 @@
                 <?php include 'includes/functions.php';?>
 
                     <div class="large-8 columns">
+                        
+                        <form action="testupload.php" method="post" enctype="multipart/form-data">
+                            <input type="file" id="file" name="files[]" multiple="multiple" accept="image/*" />
+                          <input type="submit" value="Upload!" />
+                        </form>
 
-
-                        <h2><b>Tijd tot pauze:</b><br/></h2>
-
-                        <h2><div class="alt-2">05/18/2016 12:00 PM</div></h2>
-                        <div class="alt-2">06/09/2016 4:00 PM</div>
+                        
+                        
+                        <h2><b>Tijd om alles af te maken:</b></h2>
+                        <h2><div class="alt-2">06/09/2016 4:00 PM</div></h2>
+                        
+                        <h3><b>Tijd tot pauze:</b><br/></h3>
+                        <h3><div class="alt-2">06/07/2016 12:00 PM</div></h3>
                         
                         <script src="js/jquery.min.js"></script>
                         <script src="js/jquery.countdown.js"></script>

@@ -19,7 +19,7 @@ error_reporting(E_ALL);
     $verzendkosten = $_POST['transportcost'];
     $verzendins = $_POST['sendinginstructions'];
     $rubriek = $_POST['rubriek'];
-    $filenaam = $_FILES['filesToUpload']['name'];
+    $filenaam = $_FILES['files']['name'];
 
     if(!isset($_SESSION['username']))
     {
@@ -41,33 +41,15 @@ error_reporting(E_ALL);
     }
     else if($username == true)
     {
-        $sql = "INSERT Voorwerp (titel,beschrijving,startprijs,betalingswijzenaam,plaatsnaam,landnaam,looptijd,looptijdbeginDag,looptijdbeginTijdstip,verkopernaam,looptijdeindeTijdstip,veilingGesloten) VALUES ('$naam','$beschrijving','$startbedrag','$betalingswijze','$plaats','$land','$looptijd','$date','$time','$username','$time',0)";   
+        echo $sql = "INSERT Voorwerp (titel,beschrijving,startprijs,betalingswijzenaam,plaatsnaam,landnaam,looptijd,looptijdbeginDag,looptijdbeginTijdstip,verkopernaam,looptijdeindeTijdstip,veilingGesloten) VALUES ('$naam','$beschrijving','$startbedrag','$betalingswijze','$plaats','$land','$looptijd','$date','$time','$username','$time',0)";   
         sqlsrv_query($db, $sql);
         
         $length = count($filenaam);
         
-        $sql = "SELECT * FROM Voorwerp WHERE looptijdbeginDag ='$date' AND looptijdbeginTijdstip = '$time'";
+        echo $sql = "SELECT * FROM Voorwerp WHERE looptijdbeginDag ='$date' AND looptijdbeginTijdstip = '$time'";
         $result=sqlsrv_query($db, $sql);
         $record=sqlsrv_fetch_array($result);
 
-        $uploaddir = "upload/";
-        print_r($_FILES);
-        $filename = 'filesToUpload';
-        $newdir = (string) $uploaddir;
-        if (!file_exists($newdir)) {
-            mkdir($newdir, 0777);
-        }
-
-        //mkdir($newdir, 0777);
-        
-        $uploadfile = $uploaddir . basename($filenaam[0]);
-        echo $uploadfile;
-        move_uploaded_file($filenaam[0], $uploadfile);
-        
-        
-        
-        
-        
         for($i=0;$i<$length;$i++)
         {
             echo $img = $filenaam[$i];
@@ -85,6 +67,34 @@ error_reporting(E_ALL);
             sqlsrv_query($db, $sqlBestand);
         }
         
-        //header('Location:productdetails.php?id='.$record['voorwerpnummer']);
+        $valid_formats = array("jpg", "png", "gif", "bmp", "JPG", "PNG", "GIF", "BMP");
+        $max_file_size = 2400*2400; //100 kb
+        $path = "upload/"; // Upload directory
+        $count = 0;
+
+        if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST"){
+            // Loop $_FILES to exeicute all files
+            foreach ($_FILES['files']['name'] as $f => $name) {     
+                if ($_FILES['files']['error'][$f] == 4) {
+                    continue; // Skip file if any error found
+                }	       
+                if ($_FILES['files']['error'][$f] == 0) {	           
+                    if ($_FILES['files']['size'][$f] > $max_file_size) {
+                        echo $message[] = "$name is too large!.";
+                        continue; // Skip large files
+                    }
+                    elseif( ! in_array(pathinfo($name, PATHINFO_EXTENSION), $valid_formats) ){
+                        echo $message[] = "$name is not a valid format";
+                        continue; // Skip invalid file formats
+                    }
+                    else{ // No error found! Move uploaded files 
+                        if(move_uploaded_file($_FILES["files"]["tmp_name"][$f], $path.$name))
+                        echo $count++; // Number of successfully uploaded file
+                    }
+                }
+            }
+        }
+        
+        header('Location:productdetails.php?id='.$record['voorwerpnummer']);
     }
 ?>

@@ -51,15 +51,25 @@
                                 <div class="zoeken">
                                     <input type="text" name="zoeken" value="<?php if(isset($zoekterm)){echo $zoekterm; } ?>" placeholder="&#xf002; Zoekterm toevoegen" class="fontawesome zoeken"><br>
                                 </div>
-                                <?php       
-                                    if(isset($_SESSION['categorie'])){
+                                <?php   
+                                    if(isset($_SESSION['categorie'])&&isset($_SESSION['zoekterm']))
+                                    {
                                         $sql = "SELECT rubrieknaam FROM Rubriek WHERE rubrieknummer=".$_SESSION['categorie'];
                                         $result = sqlsrv_query($db, $sql);
                                         $record=sqlsrv_fetch_array($result);
                                         $categorienaam = $record['rubrieknaam'];
-                                        echo "U zoekt binnen de categorie: ". $categorienaam . "  <a href='?resetcategorie=true' class='white smallbtn'>Reset</a>";
+                                        $zoekterm = $_SESSION['zoekterm'];
+                                        echo "U zoekt binnen de categorie: ". utf8_encode($categorienaam ). ", op de zoekterm: ". $zoekterm ."  <a href='?resetcategorie=true' class='white smallbtn'>Reset</a>";
+                                    
                                     }
-                                    if(isset($_SESSION['zoekterm'])){
+                                    else if(isset($_SESSION['categorie'])){
+                                        $sql = "SELECT rubrieknaam FROM Rubriek WHERE rubrieknummer=".$_SESSION['categorie'];
+                                        $result = sqlsrv_query($db, $sql);
+                                        $record=sqlsrv_fetch_array($result);
+                                        $categorienaam = $record['rubrieknaam'];
+                                        echo "U zoekt binnen de categorie: ". utf8_encode($categorienaam ). "  <a href='?resetcategorie=true' class='white smallbtn'>Reset</a>";
+                                    }
+                                    else if(isset($_SESSION['zoekterm'])){
                                         $zoekterm = $_SESSION['zoekterm'];
                                         echo "U zoekt op: ". $zoekterm . "  <a href='?resetcategorie=true' class='white smallbtn'>Reset</a>";
                                     }
@@ -145,13 +155,13 @@
                             }
                             if($count==0){
                                 if(isset($zoekterm) && isset($categorienaam)){
-                                    echo"Geen resultaten gevonden op de zoekterm: '" . $zoekterm . "' binnen de categorie: '" . $categorienaam . "'";
+                                    echo"Geen resultaten gevonden op de zoekterm: '" . $zoekterm . "' binnen de categorie: '" . utf8_encode($categorienaam) . "'";
                                 }
                                 else if (isset($zoekterm)){
                                     echo"Geen resultaten gevonden op de zoekterm: '" . $zoekterm . "'";
                                 }
                                 else if (isset($categorienaam)){
-                                    echo"Geen resultatien binnen de categorie: '" . $categorienaam . "'";
+                                    echo"Geen resultatien binnen de categorie: '" . utf8_encode($categorienaam) . "'";
                                 }
                             }
                             ?>

@@ -1,4 +1,5 @@
 <ul class="vertical accordion-menu menu" data-accordion-menu>
+    
     <?php
     include('database.php');
     
@@ -8,7 +9,7 @@
     while($record=sqlsrv_fetch_array($result))
     {
         echo '<li>';
-        echo '<a href="?categorie='.$record['rubrieknummer'].'" class="subitem">'.$record['rubrieknaam'].'</a>';
+        echo '<a href="?categorie='.$record['rubrieknummer'].'" class="subitem">'.utf8_encode($record['rubrieknaam']).'</a>';
             //level 2
             $first2=true;
             $sql2 = "SELECT * FROM Rubriek WHERE parent=" . $record['rubrieknummer'];
@@ -20,7 +21,7 @@
                     echo '<ul class="menu vertical sublevel-1">';
                 } 
                 echo '<li>';
-                echo '<a href="?categorie='.$record2['rubrieknummer'].'" class="subitem">'.$record2['rubrieknaam'].'</a>';
+                echo '<a href="?categorie='.$record2['rubrieknummer'].'" class="subitem">'.utf8_encode($record2['rubrieknaam']).'</a>';
                     //level 3
                     $first3=true;
                     $sql3 = "SELECT * FROM Rubriek WHERE parent=" . $record2['rubrieknummer'];
@@ -32,7 +33,7 @@
                             echo '<ul class="menu vertical sublevel-2">';
                         } 
                         echo '<li>';
-                        echo '<a href="?categorie='.$record3['rubrieknummer'].'" class="subitem">'.$record3['rubrieknaam'].'</a>';
+                        echo '<a href="?categorie='.$record3['rubrieknummer'].'" class="subitem">'.utf8_encode($record3['rubrieknaam']).'</a>';
                             //level 4
                             $first4=true;
                             $sql4 = "SELECT * FROM Rubriek WHERE parent=" . $record3['rubrieknummer'];
@@ -44,7 +45,7 @@
                                     echo '<ul class="menu vertical sublevel-3">';
                                 } 
                                 echo '<li>';
-                                echo '<a href="?categorie='.$record4['rubrieknummer'].'" class="subitem">'.$record4['rubrieknaam'].'</a>';
+                                echo '<a href="?categorie='.$record4['rubrieknummer'].'" class="subitem">'.utf8_encode($record4['rubrieknaam']).'</a>';
                                     //level 5
                                     $first5=true;
                                     $sql5 = "SELECT * FROM Rubriek WHERE parent=" . $record4['rubrieknummer'];
@@ -56,7 +57,7 @@
                                             echo '<ul class="menu vertical sublevel-4">';
                                         } 
                                         echo '<li>';
-                                        echo '<a href="?categorie='.$record5['rubrieknummer'].'" class="subitem">'.$record5['rubrieknaam'].'</a>';
+                                        echo '<a href="?categorie='.$record5['rubrieknummer'].'" class="subitem">'.utf8_encode($record5['rubrieknaam']).'</a>';
                                         //maybe up to level 6??
                                         echo '</li>';
 

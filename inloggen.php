@@ -6,7 +6,7 @@
 	if(empty($_POST['username']) || empty($_POST['password'])) {
 		header('location:loginscreen.php?fout');
 	} else {
-		$sql = "SELECT * FROM Gebruiker WHERE gebruikersnaam = '$username' AND wachtwoord = '$password'";
+		echo $sql = "SELECT * FROM Gebruiker WHERE gebruikersnaam = '$username' COLLATE Latin1_General_CS_AS AND wachtwoord = '$password' COLLATE Latin1_General_CS_AS ";
 		$result = sqlsrv_query($db, $sql);
 		if($result === false){
 			die( print_r( sqlsrv_errors(), true));

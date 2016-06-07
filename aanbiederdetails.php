@@ -34,39 +34,39 @@
                                         echo '<br/>';
                                         echo 'Actieve beidingen:'.$record['Vraag'];
                                         echo '<br/>';
-                                        echo 'Beoordeling van de aanbieder:';
-                                        echo '<div class="stars">';
-                                        if ($record['Vraag']==0)
-                                        {
-                                            for ($i=0; $i<3; $i++)
-                                            {
-                                                echo '<img src="Images\star_empty.png" alt="Star Empty">';
-                                            }
-                                        }
-                                        else if ($record['Vraag']==1)
-                                        {
-                                            echo '<img src="Images\star.png" alt="Star">';
-                                            for ($i=0; $i<2; $i++)
-                                            {
-                                                echo '<img src="Images\star_empty.png" alt="Star Empty">';
-                                            }
-                                        }
-                                        else if ($record['Vraag']==2)
-                                        {
-                                            for ($i=0; $i<2; $i++)
-                                            {
-                                                echo '<img src="Images\star.png" alt="Star">';
-                                            }
-                                            echo '<img src="Images\star_empty.png" alt="Star Empty">';
-                                        }
-                                        else if ($record['Vraag']>=3)
-                                        {
-                                            for ($i=0; $i<3; $i++)
-                                            {
-                                                echo '<img src="Images\star.png" alt="Star">';
-                                            }
-                                        }
-                                        echo '</div>';
+//                                        echo 'Beoordeling van de aanbieder:';
+//                                        echo '<div class="stars">';
+//                                        if ($record['Vraag']==0)
+//                                        {
+//                                            for ($i=0; $i<3; $i++)
+//                                            {
+//                                                echo '<img src="Images\star_empty.png" alt="Star Empty">';
+//                                            }
+//                                        }
+//                                        else if ($record['Vraag']==1)
+//                                        {
+//                                            echo '<img src="Images\star.png" alt="Star">';
+//                                            for ($i=0; $i<2; $i++)
+//                                            {
+//                                                echo '<img src="Images\star_empty.png" alt="Star Empty">';
+//                                            }
+//                                        }
+//                                        else if ($record['Vraag']==2)
+//                                        {
+//                                            for ($i=0; $i<2; $i++)
+//                                            {
+//                                                echo '<img src="Images\star.png" alt="Star">';
+//                                            }
+//                                            echo '<img src="Images\star_empty.png" alt="Star Empty">';
+//                                        }
+//                                        else if ($record['Vraag']>=3)
+//                                        {
+//                                            for ($i=0; $i<3; $i++)
+//                                            {
+//                                                echo '<img src="Images\star.png" alt="Star">';
+//                                            }
+//                                        }
+//                                        echo '</div>';
                                         }
                                     ?>
                                 </div>

@@ -46,7 +46,7 @@
                                         </td>
                                     </tr>
                                 </table>
-                                <a href="wachtwoordvergeten.php" class="clicklink">Wachtwoord vergeten?</a>
+<!--                                <a href="wachtwoordvergeten.php" class="clicklink">Wachtwoord vergeten?</a>-->
                                 <input type="submit" value="Inloggen" class="rechts smallbtn">
                                 <br/>
                                 <br/>
