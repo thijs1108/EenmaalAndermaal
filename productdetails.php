@@ -257,6 +257,8 @@
                                         <br/>
                                 </div>
                                 <?php
+                                if(isset($_SESSION['username']))
+                                {
                                     if(strcasecmp($_SESSION['username'],$record['verkopernaam'])==0)
                                     {
                                         echo 'U kunt niet op u eigen artikelen bieden!';
@@ -297,6 +299,41 @@
                                 </div>
                                 <?php
                                     }
+                                }
+                                else{
+                                ?>
+                                <div class="large-2 columns">
+                                    <form method="post" action="<?php echo 'plaatsbod.php?id='.$record['voorwerpnummer']; ?>">
+                                        <div class="bieden">
+                                            <input type="text" name="bieding" value="" placeholder="€<?php
+                                if($record['maxbedrag']<$record['startprijs'])
+                                {
+                                    echo number_format($record['startprijs'],2);
+                                }
+                                else{
+                                    echo number_format($record['maxbedrag'],2);
+                                }
+                                ?>">
+								
+                                            <input type="submit" value="Plaats bod" class="biedenknop">
+                                        </div>
+										<?php if(isset($_GET['fout1'])){
+											echo "Het geplaatste bod moet minimaal 0.50 euro hoger zijn dan het huidige bod!";
+										} else if(isset($_GET['fout2'])){
+											echo "Het geplaatste bod moet minimaal 1.00 euro hoger zijn dan het huidige bod!";
+										} else if(isset($_GET['fout3'])){
+											echo "Het geplaatste bod moet minimaal 5.00 euro hoger zijn dan het huidige bod!";
+										} else if(isset($_GET['fout4'])){
+											echo "Het geplaatste bod moet minimaal 10.00 euro hoger zijn dan het huidige bod!";
+										} else if(isset($_GET['fout5'])){
+											echo "Het geplaatste bod moet minimaal 50.00 euro hoger zijn dan het huidige bod!";
+										} 
+										?>
+                                    </form>
+                                </div>
+                                <?php
+                                    }
+                                
                                 ?>
                                 <div class="column row">
                                     <hr>

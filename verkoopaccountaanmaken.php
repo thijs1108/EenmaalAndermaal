@@ -55,8 +55,8 @@
                                                 Controle via:
                                             </td>
                                             <td>
-                                                <input type="radio" name="check" value="creditcard" checked>Creditcard
-                                                <input type="radio" name="check" value="post">Post
+                                                <input type="radio" name="check" value="Creditcard" checked>Creditcard
+                                                <input type="radio" name="check" value="Post">Post
                                             </td>
                                         </tr>
                                         <tr>

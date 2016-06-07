@@ -8,6 +8,7 @@
 		$controle = $_POST['check'];
 		$creditcardnummer = $_POST['creditcard'];
 		$ok = true;
+        
 		if (!isset($_POST['bank']) || $_POST['bank'] === ''){
 			$ok = false;
 		} else {
@@ -21,7 +22,14 @@
 		if($ok === true){
 			$sql1= "UPDATE Gebruiker SET Verkoper = 1 WHERE gebruikersnaam = '$username'";
 			sqlsrv_query($db,$sql1);
-			$sql2= " INSERT INTO Verkoper VALUES ('$username','$bank','$rekeningnummer','$controle', '$creditcardnummer')";
+            if($controle=='Post')
+            {
+                $sql2= " INSERT INTO Verkoper (Gebruiker,Bank,Bankrekening,ControleOptie)VALUES ('$username','$bank','$rekeningnummer','$controle')";
+            }
+            else if($controle=='Creditcard')
+            {
+                $sql2= " INSERT INTO Verkoper VALUES ('$username','$bank','$rekeningnummer','$controle', '$creditcardnummer')";    
+            }
 			sqlsrv_query($db,$sql2);
 			header('location:mijnaccount.php');
 		} else {

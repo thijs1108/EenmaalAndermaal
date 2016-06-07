@@ -43,18 +43,19 @@
             $pages = ceil($aantalItem/$aantal);
             
             if($pages>0){
-                echo '<li><a href="?page=1" aria-label="First page">«««</a></li>';
             
                 if($page==1)
                 {
-                    echo '<li class="disabled">«</li>';
+                    echo '<p class="disabled">«««</p>';
+                    echo '<p class="disabled">«</li>';
                 }
                 else{
+                    echo '<p><a href="?page=1" aria-label="First page">«««</a></p>';
                     ?>
-                    <li><a href="?page=<?php echo $page-1 ?>" aria-label="Previous page">«</a></li>
+                    <p><a href="?page=<?php echo $page-1 ?>" aria-label="Previous page">«</a></p>
                     <?php
+                    echo '<p class="show-for-sr">Previous page</p>';
                 }
-                echo '<span class="show-for-sr">Previous page</span>';
 
                 if($page<=5)
                 {
@@ -88,25 +89,25 @@
                 for($number; $number<=$pagesmax;$number++)
                 {
                     if($page == $number){
-                    echo '<li class="current"><span class="show-for-sr">You re on page</span>'.$number.'</a></li>';
+                    echo '<p class="current"><span class="show-for-sr">You re on page</span>'.$number.'</p>';
                 }
                 else{
-                    echo '<li><a href="?page='.$number.'" aria-label="Page'.$number.' ">'.$number.'</a></li>';
+                    echo '<p><a href="?page='.$number.'" aria-label="Page'.$number.' ">'.$number.'</a></p>';
                     }
                 }
 
                 if($page==$pages)
                 {
-                    echo '<li class="disabled">»</li>';
+                    echo '<p class="disabled">»</p>';
+                    echo '<p class="disabled">»»»</p>';
                 }
                 else{
                     ?>
-                    <li><a href="?page=<?php echo $page+1 ?>" aria-label="Next page">»</a></li>
+                    <p><a href="?page=<?php echo $page+1 ?>" aria-label="Next page">»</a></p>
                     <?php
-                }
-                echo '<span class="show-for-sr">Next page</span>';
-
-                echo '<li><a href="?page='.$pages.'" aria-label="Last page">»»»</a></li>';
+                    echo '<span class="show-for-sr">Next page</span>';
+                    echo '<p><a href="?page='.$pages.'" aria-label="Last page">»»»</a></p>';
+                }  
             }
             ?>
     </ul>
