@@ -2,7 +2,9 @@
 <html class="no-js" lang="en" dir="ltr">
 
 <head>
-    <?php include('includes/header.php'); ?>
+    <?php 
+    $checkvalid = file_get_contents("http://iproject21.icasites.nl/checks/check_voorwerpen_verstreken.php");
+    include('includes/header.php'); ?>
 </head>
 
 <body>
@@ -17,7 +19,7 @@
                     <div class="content">
                         <?php
                             $id = $_GET['id'];
-                            $sql = "SELECT titel,voorwerpnummer,verkopernaam,beschrijving,startprijs, max(Bodbedrag)as maxbedrag, COUNT(Bodbedrag)as geboden,looptijdeindeDag, looptijdeindeTijdstip FROM Voorwerp LEFT OUTER JOIN Bod ON Voorwerp.voorwerpnummer=bod.Voorwerp WHERE voorwerpnummer='$id' GROUP BY titel,voorwerpnummer,verkopernaam, beschrijving,startprijs, looptijdeindeDag, looptijdeindeTijdstip";
+                            $sql = "SELECT titel,voorwerpnummer,verkopernaam,beschrijving,startprijs, veilingGesloten, max(Bodbedrag)as maxbedrag, COUNT(Bodbedrag)as geboden,looptijdeindeDag, looptijdeindeTijdstip FROM Voorwerp LEFT OUTER JOIN Bod ON Voorwerp.voorwerpnummer=bod.Voorwerp WHERE voorwerpnummer='$id' GROUP BY titel,voorwerpnummer,verkopernaam, veilingGesloten, beschrijving,startprijs, looptijdeindeDag, looptijdeindeTijdstip";
                             $result = sqlsrv_query($db, $sql);
 
                             while($record=sqlsrv_fetch_array($result))
@@ -258,6 +260,9 @@
                                     if(strcasecmp($_SESSION['username'],$record['verkopernaam'])==0)
                                     {
                                         echo 'U kunt niet op u eigen artikelen bieden!';
+                                    }
+                                    else if($record['veilingGesloten']==1){
+                                        echo 'Veiling is gesloten';
                                     }
                                     else{
                                 ?>
