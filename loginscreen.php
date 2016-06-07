@@ -41,12 +41,16 @@
                                             else if (isset($_GET['fout3'])){
                                                 echo 'U moet inloggen om een bieding te plaatsen.';
                                             }
+                                            else if (isset($_GET['reset']))
+                                            {
+                                                echo 'U ontvangt spoedig een mail om u wachtwoord te veranderen.';
+                                            }
 											
 										?>
                                         </td>
                                     </tr>
                                 </table>
-<!--                                <a href="wachtwoordvergeten.php" class="clicklink">Wachtwoord vergeten?</a>-->
+                                <a href="wachtwoordvergeten.php" class="clicklink">Wachtwoord vergeten?</a>
                                 <input type="submit" value="Inloggen" class="rechts smallbtn">
                                 <br/>
                                 <br/>

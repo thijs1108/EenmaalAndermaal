@@ -311,4 +311,3 @@ function check_total_valid(){
         $('#submitregister').prop('disabled', true);
     }
 }
-
