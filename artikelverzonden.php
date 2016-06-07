@@ -31,7 +31,7 @@
     }
 
     $today = getdate();
-    $date = $today['mday'].'-'.$today['mon'].'-'.$today['year'] ;
+    $date = $today['mon'].'-'.$today['mday'].'-'.$today['year'] ;
     $time = $today['hours'].':'.$today['minutes'].':'.$today['seconds'];    
     
     //er moet ingelogd zijn om te kunnen bestellen
