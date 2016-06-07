@@ -46,7 +46,7 @@ error_reporting(E_ALL);
         
         $length = count($filenaam);
         
-        echo $sql = "SELECT * FROM Voorwerp WHERE looptijdbeginDag ='$date' AND looptijdbeginTijdstip = '$time'";
+        echo $sql = "SELECT * FROM Voorwerp WHERE looptijdbeginDag ='$date' AND looptijdbeginTijdstip = '$time' AND verkopernaam = '$username'";
         $result=sqlsrv_query($db, $sql);
         $record=sqlsrv_fetch_array($result);
 
