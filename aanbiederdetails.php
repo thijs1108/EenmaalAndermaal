@@ -24,9 +24,11 @@
                             {
                             ?>
                             <div class="row margin">
+<!--
                                 <div class="large-3 columns">
                                     <?php echo '<img src="gebruikers/'.$record['gebruikersnaam'].'.jpg" alt="'.$record['gebruikersnaam'].'" class="aanbiedersfoto">'?>
                                 </div>
+-->
                                 <div class="large-9 columns">
                                     <?php 
                                         echo '<h3>Aanbieder:<br/>'.$record['gebruikersnaam'].'</h3>'; 
