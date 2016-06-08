@@ -76,9 +76,7 @@
                                         SET wachtwoord = '$password'
                                         WHERE gebruikersnaam = '$user'";
                                 sqlsrv_query($db,$sql);
-                                echo 'U wachtwoord is gewijzigd!';
-                                echo '<br/>';
-                                echo '<a href="loginscreen.php">Klik hier om in te loggen!</a>';
+                                header('location:loginscreen.php?resetgelukt');
                             }
                             else{
                                 echo 'Bent u uw wachtwoord vergeten? <a href"wachtwoordvergeten.php">Klik hier!</a>';

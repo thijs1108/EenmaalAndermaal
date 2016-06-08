@@ -45,6 +45,10 @@
                                             {
                                                 echo 'U ontvangt spoedig een mail om u wachtwoord te veranderen.';
                                             }
+                                            else if (isset($_GET['resetgelukt']))
+                                            {
+                                                echo 'U wachtwoord is gewijzigd!';
+                                            }
 											
 										?>
                                         </td>
