@@ -39,15 +39,12 @@ session_start();
 
                 .button {
                     background-color: #3F5FB5;
-                    border: none;
                     color: #FFFFFF;
                     padding: 15px 32px;
-                    text-align: center;
                     text-decoration: none;
                     display: inline-block;
                     font-size: 16px;
                     margin: 4px 2px;
-                    cursor: pointer;
                 }
 
                 .button:hover{
