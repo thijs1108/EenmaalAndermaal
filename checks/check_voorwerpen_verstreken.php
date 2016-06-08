@@ -35,7 +35,7 @@ while($record=sqlsrv_fetch_array($result)){
             $row= sqlsrv_fetch_array($result);
             $mailboxverkoper = $row["mailbox"];
             $url = 'http://iproject21.icasites.nl/includes/sendmail.php';
-            $body= "Gefeliciteerd, u bent de winnaar van de veiling: '$titel', u kunt contact opnemen met: $mailboxverkoper";
+            $body= "Gefeliciteerd, u bent de winnaar van de veiling: '$titel', u kunt contact opnemen met: $mailboxverkoper . <br/>Via Mijn account kunt u een review achter laten.";
             $data = 'to=' . $mailboxwinnaar . '&subject=Gewonnen&body='.$body;
             echo "er is een mail gestuurd naar: $mailboxwinnaar \n";
             $ch = curl_init( $url );
