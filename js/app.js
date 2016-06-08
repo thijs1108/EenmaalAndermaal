@@ -1,6 +1,7 @@
 $(document).foundation();
 
 $('#submitregister').prop('disabled', true);
+$('#submitreset').prop('disabled', true);
 var valid = [];
 
 
@@ -309,5 +310,12 @@ function check_total_valid(){
     }
     else{
         $('#submitregister').prop('disabled', true);
+    }
+    
+    if(total>1){
+        $('#submitreset').prop('disabled', false);
+    }
+    else{
+        $('#submitreset').prop('disabled', true);
     }
 }

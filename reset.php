@@ -17,17 +17,20 @@
                     <div class="content">
                         <div class="large-8 columns">
                             <?php 
-                            if(isset($_GET['code'])&&isset($_GET['username']))
+                            if(isset($_GET['code']))
                             {
-                                $code=$_GET['code'];
-                                $username=$_GET['username'];
+                                $all = explode("-",$_GET['code']);
+                                
+                                $code=$all[0];
+                                $username=$all[1];
                                 $sql = "SELECT * FROM Email_validatie LEFT OUTER JOIN Gebruiker ON Mailbox=email WHERE code = '$code' AND gebruikersnaam = '$username'";
                                 $result = sqlsrv_query($db, $sql);
-                                if($result == false)
+                                $record=sqlsrv_fetch_array($result);
+                                if($record['code'] != $all[0])
                                 {
                                     echo 'Deze code klopt niet';
                                 }
-                                else if($result == true){
+                                else if($record['code'] == $all[0]){
                                     ?>
                                 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                                     <table>
@@ -36,7 +39,8 @@
                                                 Gebruikersnaam:
                                             </td>
                                             <td>
-                                                <input type="text" name="username" placeholder="Gebruikersnaam" onkeyup="showVraag(this.value)">
+                                                <span id="GeheimeVraag"><?php echo $record['gebruikersnaam'];?></span>
+                                                <input type="hidden" name="username" value="<?php echo $record['gebruikersnaam'];?>">
                                             </td>
                                         </tr>
                                         <tr>
@@ -59,10 +63,22 @@
                                         </td>
                                     </tr>
                                     </table>
-                                    <input type="submit" value="Reseten" class="rechts smallbtn">
+                                    <input id="submitreset" type="submit" value="Reseten" class="rechts smallbtn" disabled>
                                 </form>
                                 <?php
                                 }
+                            }
+                            else if(isset($_POST['username']))
+                            {
+                                $password = $_POST['password'];
+                                $user = $_POST['username'];
+                                $sql= "UPDATE Gebruiker
+                                        SET wachtwoord = '$password'
+                                        WHERE gebruikersnaam = '$user'";
+                                sqlsrv_query($db,$sql);
+                                echo 'U wachtwoord is gewijzigd!';
+                                echo '<br/>';
+                                echo '<a href="loginscreen.php">Klik hier om in te loggen!</a>';
                             }
                             else{
                                 echo 'Bent u uw wachtwoord vergeten? <a href"wachtwoordvergeten.php">Klik hier!</a>';

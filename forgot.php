@@ -19,8 +19,8 @@ session_start();
         sqlsrv_query($db,$sql);
         
         $url = 'http://iproject21.icasites.nl/includes/sendmail.php';
-        $body= 'U heeft u wachtwoord gereset op de website van EenmaalAndermaal. <br/>Klik hier om u wachtwoord te resetten: http://iproject21.icasites.nl/validate.php';
-        $body.= '?username='.$username.'&code='.$code;
+        echo $link = 'http://iproject21.icasites.nl/reset.php?code='.$code.'-'.$username;
+        $body= 'Klik hier om u wachtwoord te resetten: '.$link;
         $data = 'to=' . $email . '&subject=Wachtoord%20Vergeten&body='.$body;
         $ch = curl_init( $url );
         curl_setopt( $ch, CURLOPT_POST, 1);
@@ -32,7 +32,7 @@ session_start();
         
         echo $body;
         
-        //header('location:loginscreen.php?reset');
+        header('location:loginscreen.php?reset');
     }
     else
     {
