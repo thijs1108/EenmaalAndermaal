@@ -29,6 +29,8 @@
                                 if($record['code'] != $all[0])
                                 {
                                     echo 'Deze code klopt niet';
+                                    echo '<br/>';
+                                    echo 'Bent u uw wachtwoord vergeten? <a href"wachtwoordvergeten.php">Klik hier!</a>';
                                 }
                                 else if($record['code'] == $all[0]){
                                     ?>

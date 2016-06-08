@@ -141,7 +141,7 @@
                                 </div>
                                 <div class="large-6 columns">
                                     <?php
-                                    echo "<h3>Mijn aangeboden biedingen</h3>";
+                                    echo "<h3>Mijn aangeboden artikelen</h3>";
                                         $sql = "SELECT titel,voorwerpnummer, max(Bodbedrag)as maxbedrag, COUNT(Bodbedrag)as geboden,looptijd FROM Voorwerp LEFT OUTER JOIN Bod ON Voorwerp.voorwerpnummer=bod.Voorwerp WHERE verkopernaam ='$id' GROUP BY titel,voorwerpnummer, looptijd";
                                         $result = sqlsrv_query($db, $sql);
 
