@@ -46,7 +46,7 @@
         
         $length = count($filenaam);
         
-        echo $sql = "SELECT * FROM Voorwerp WHERE looptijdbeginDag ='$date' AND looptijdbeginTijdstip = '$time' AND verkopernaam = '$username'";
+        echo $sql = "SELECT TOP 1 * FROM Voorwerp WHERE verkopernaam = '$username' ORDER BY voorwerpnummer DESC ";
         $result=sqlsrv_query($db, $sql);
         $record=sqlsrv_fetch_array($result);
 

@@ -90,7 +90,7 @@
                                             </td>
                                             <td>
                                                 <input type="text" name="username" placeholder="Gebruikersnaam" onkeyup="showVraag(this.value)">
-                         l                   </td>
+                                            </td>
                                         </tr>
                                     </table>
                                     <input type="submit" value="Reseten" class="rechts smallbtn">
