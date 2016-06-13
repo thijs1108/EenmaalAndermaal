@@ -14,9 +14,16 @@
     }
 
     $today = getdate();
-    $date = $today['mday'].'-'.$today['mon'].'-'.$today['year'] ;
+    $date = $today['year'].'-'.$today['mon'].'-'.$today['mday'];
+    //$date = $today['mday'].'-'.$today['mon'].'-'.$today['year'] ;
+    if($today['minutes']<10){
+        $minutes= "0".$today['minutes'];
+    }
+    else{
+        $minutes = $today['minutes'];
+    }
 
-    $time = $today['hours'].':'.$today['minutes'].':'.$today['seconds'];    
+    $time = $today['hours'].':'.$minutes.':'.$today['seconds'];    
     
     //er moet ingelogd zijn om te kunnen bestellen
     if($username == false)
@@ -56,6 +63,7 @@
 		}
 		if ($ok){
 			$sql = "INSERT bod values ('$id','$bedrag','$username','$date','$time')";
+            echo $sql;
 			sqlsrv_query($db, $sql);
 			header('Location:productdetails.php?id='.$id);
 		}		

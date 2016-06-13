@@ -20,7 +20,7 @@ INSERT INTO Gebruiker VALUES ('Anton Mijnders','Anton','Mijnders','De klein stra
 INSERT INTO Verkoper VALUES ('Anton Mijnders','ING','NLINGB00012345678','Post',NULL)
 
 INSERT INTO Voorwerp (titel,beschrijving,startprijs,betalingswijzenaam,plaatsnaam,landnaam,looptijd,looptijdbeginDag,looptijdbeginTijdstip,verkopernaam,looptijdeindeTijdstip,veilingGesloten) VALUES ('Laptop Asus','Deze laptop voldoet niet meer aan mijn eisen daarom bied ik het bij deze aan.',1.99,'Bank/Giro','Arnhem','Nederland',DEFAULT,convert(date,getdate()),convert(time,getdate()),'JanPiet','12:00:00.000',0)
-UPDATE Voorwerp SET looptijdbeginDag = '2016-05-30', looptijdeindeTijdstip='13:00' WHERE voorwerpnummer =1
+UPDATE Voorwerp SET looptijdbeginDag = '2016-06-8', looptijdeindeTijdstip='18:00' WHERE voorwerpnummer =1
 INSERT INTO Voorwerp (titel,beschrijving,startprijs,betalingswijzenaam,plaatsnaam,landnaam,looptijd,looptijdbeginDag,looptijdbeginTijdstip,verkopernaam,looptijdeindeTijdstip,veilingGesloten) VALUES ('Laptop Lenovo','Deze laptop voldoet niet meer aan mijn eisen daarom bied ik het bij deze aan.',2.99,'Bank/Giro','Arnhem','Nederland',5,convert(date,getdate()),convert(time,getdate()),'JanPiet','12:00:00.000',0)
 INSERT INTO Voorwerp (titel,beschrijving,startprijs,betalingswijzenaam,plaatsnaam,landnaam,looptijd,looptijdbeginDag,looptijdbeginTijdstip,verkopernaam,looptijdeindeTijdstip,veilingGesloten) VALUES ('Laptop Apple','Deze laptop voldoet niet meer aan mijn eisen daarom bied ik het bij deze aan.',6.99,'Bank/Giro','Arnhem','Nederland',7,convert(date,getdate()),convert(time,getdate()),'JanPiet','12:00:00.000',0)
 INSERT INTO Voorwerp (titel,beschrijving,startprijs,betalingswijzenaam,plaatsnaam,landnaam,looptijd,looptijdbeginDag,looptijdbeginTijdstip,verkopernaam,looptijdeindeTijdstip,veilingGesloten) VALUES ('Bank zwart','Deze bank past niet meer bij mijn huis.',9.99,'Bank/Giro','Arnhem','Nederland',10,convert(date,getdate()),convert(time,getdate()),'JanPiet','12:00:00.000',0)
@@ -30,6 +30,8 @@ INSERT INTO Voorwerp (titel,beschrijving,startprijs,betalingswijzenaam,plaatsnaa
 
 go
 INSERT INTO Voorwerp_in_rubriek VALUES (1,28837)
+INSERT INTO Voorwerp_in_rubriek VALUES (2,28837)
+INSERT INTO Voorwerp_in_rubriek VALUES (3,28837)
 
 INSERT INTO Bod VALUES (1,1.99,'JanPiet','2016-05-13','09:05:16.123')
 INSERT INTO Bod VALUES (1,2.99,'Henk','2016-05-13','09:19:45.452')
@@ -41,11 +43,13 @@ INSERT INTO Bod VALUES (1,13.99,'Henk','2016-05-13','09:40:54.775')
 INSERT INTO Bod VALUES (2,15.99,'Henk','2016-05-13','09:54:12.788')
 
 
-INSERT INTO Bestand VALUES ('hoi1.jpg',1);
-INSERT INTO Bestand VALUES ('hoi2.jpg',1);
-INSERT INTO Bestand VALUES ('hoi3.jpg',1);
-INSERT INTO Bestand VALUES ('hoi4.jpg',1);
-INSERT INTO Bestand VALUES ('hoi5.jpg',2);
+INSERT INTO Bestand VALUES ('voorwerpen/1/foto_01.png',1);
+INSERT INTO Bestand VALUES ('voorwerpen/2/foto_01.png',2);
+INSERT INTO Bestand VALUES ('voorwerpen/3/foto_01.png',3);
+INSERT INTO Bestand VALUES ('voorwerpen/4/foto_01.png',4);
+INSERT INTO Bestand VALUES ('voorwerpen/5/foto_01.jpg',5);
+INSERT INTO Bestand VALUES ('voorwerpen/6/foto_01.jpg',6);
+INSERT INTO Bestand VALUES ('voorwerpen/7/foto_01.jpg',7);
 
 SET IDENTITY_INSERT Voorwerp ON
 USE iproject21

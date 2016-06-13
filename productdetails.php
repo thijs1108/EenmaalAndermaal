@@ -386,7 +386,7 @@
                 css_class: 'countdown-alt-2'
             }).on('time.elapsed',function(event) {
                 $(this).html('GESLOTEN!');
-                $('.biedenknop').disabled=true;
+                $('.bieden').html('');
             });
 
         });
