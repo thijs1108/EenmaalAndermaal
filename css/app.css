@@ -243,9 +243,10 @@ li .button {
     background-color: #FFFFFF;
 }
 
-.pagination li {
+.pagination p {
     border: 1px solid #9E9E9E;
     border-radius: 50%;
+    float: left;
 }
 
 .pagination a {

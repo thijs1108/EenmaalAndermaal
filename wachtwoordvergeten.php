@@ -39,46 +39,68 @@
                 <?php include 'includes/functions.php';?>
                     <div class="content">
                         <div class="large-8 columns">
-                            <form action="forgot.php" method="post">
                                 <?php 
-                                $id = "JanPiet";
-                                $sql = "SELECT * FROM Gebruiker LEFT OUTER JOIN Vraag ON Vraag= vraagnummer WHERE gebruikersnaam ='$id'";
-                                $result = sqlsrv_query($db, $sql);
-
-                                while($record=sqlsrv_fetch_array($result))
+                                if(isset($_POST['username']))
+                                {
+                                    $id = $_POST['username'];
+                                    $sql = "SELECT * FROM Gebruiker LEFT OUTER JOIN Vraag ON Vraag= vraagnummer WHERE gebruikersnaam ='$id'";
+                                    $result = sqlsrv_query($db, $sql);
+                                    $record=sqlsrv_fetch_array($result);
+                                    if(!$_POST['username']==$record['gebruikersnaam']){
+                                        echo 'U bent niet geresitreed bij ons!';
+                                        echo '<br/>';
+                                        echo '<a href="registreren.php" class="clicklink">Klik hier om te registreren!</a>';
+                                    }
+                                    else{
+                                    ?>
+                                    
+                                    <form action="forgot.php" method="post">
+                                        <input type="hidden" name="username" value="<?php echo $id;?>">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    Uw geheime vraag:
+                                                </td>
+                                                <td>
+                                                    <span id="GeheimeVraag"><?php echo $record['tekstvraag'];?></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Antwoord:
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="anwser" placeholder="Antwoord">
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <input type="submit" value="Verstuur Mail" class="rechts smallbtn">
+                                    </form>
+                                <?php 
+                                    }
+                                }
+                                else if(!isset($_POST['username']))
                                 {
                                 ?>
-                                <table>
-                                    <tr>
-                                        <td>
-                                            Gebruikersnaam:
-                                        </td>
-                                        <td>
-                                            <input type="text" name="username" placeholder="Gebruikersnaam" onkeyup="showVraag(this.value)">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            Uw geheime vraag:
-                                        </td>
-                                        <td>
-											<span id="GeheimeVraag"></span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            Antwoord:
-                                        </td>
-                                        <td>
-                                            <input type="text" name="answer" placeholder="Antwoord">
-                                        </td>
-                                    </tr>
-                                    
-                                    
-                                </table>
-                                <?php } ?>
-                                <input type="submit" value="Reseten" class="rechts smallbtn">
-                            </form>
+                                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                Gebruikersnaam:
+                                            </td>
+                                            <td>
+                                                <input type="text" name="username" placeholder="Gebruikersnaam" onkeyup="showVraag(this.value)">
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <input type="submit" value="Reseten" class="rechts smallbtn">
+                                </form>
+                            <?php 
+                            }
+                            if (isset($_GET['fout'])){
+				                    echo 'Uw antwoord klopt niet.';
+				                }
+                            ?>
                             <br/>
                             <br/>
                         </div>
@@ -88,7 +110,7 @@
                     </div>
     </div>
     <?php include 'includes/footer.php';?>
-    <?php include 'includes/footer.php';?>     <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
     <script src="js/vendor/foundation.js"></script>
     <script src="js/app.js"></script>

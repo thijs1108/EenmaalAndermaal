@@ -35,7 +35,53 @@ while($record=sqlsrv_fetch_array($result)){
             $row= sqlsrv_fetch_array($result);
             $mailboxverkoper = $row["mailbox"];
             $url = 'http://iproject21.icasites.nl/includes/sendmail.php';
-            $body= "Gefeliciteerd, u bent de winnaar van de veiling: '$titel', u kunt contact opnemen met: $mailboxverkoper";
+            $body= '
+            <head>
+                <meta charset="utf-8">
+                <meta http-equiv="x-ua-compatible" content="ie=edge">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Eenmaal Andermaal</title>
+                <style>
+                a {
+                    float: left;
+                    margin-left:20px;
+                    inline: block;
+                    color:#3F5FB5;
+                }
+
+                .button {
+                    background-color: #3F5FB5;
+                    color: #FFFFFF;
+                    padding: 15px 32px;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 16px;
+                    margin: 4px 2px;
+                }
+
+                .button:hover{
+                    background-color:#FFB600;
+                }
+                </style>
+            </head>
+            <body>
+                <div class="row">
+                    <img src="http://iproject21.icasites.nl/Images/Logo_v1.1.png" alt="Logo" width="250px">
+                        <div class="content">
+                            <a href="http://iproject21.icasites.nl/index.php"class="button">Home</a></li>
+                            <a href="http://iproject21.icasites.nl/mijnaccount.php"class="button">Mijn Account</a>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            Gefeliciteerd, u bent de winnaar van de veiling: '.$titel.', u kunt contact opnemen met: <br/>'.$mailboxverkoper.' 
+                            <br/>
+                            Via Mijn account kunt u een review achter laten.
+            
+                    </div>
+                </div>
+            </body>
+            ';
             $data = 'to=' . $mailboxwinnaar . '&subject=Gewonnen&body='.$body;
             echo "er is een mail gestuurd naar: $mailboxwinnaar \n";
             $ch = curl_init( $url );
@@ -44,7 +90,7 @@ while($record=sqlsrv_fetch_array($result)){
             curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, 1);
             curl_setopt( $ch, CURLOPT_HEADER, 0);
             curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
-
+            
             $response = curl_exec( $ch );
 
     }
